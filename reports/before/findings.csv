@@ -1,0 +1,96 @@
+﻿severity,language,key,checker,message,source,current,suggestion,context
+critical,kk,chat.message,tag_mismatch,Теги сломаны: не закрыт тег <b>.,<b>{name}</b>: {text},<b>{name}</b: {text},<b>{name}</b>: {text},"Строка чата, rich text"
+critical,kk,house.buy,placeholder_mismatch,Плейсхолдеры не совпали с источником: нет %s.,Buy this house for %s?,Купить этот дом за,Осы үйді %s-ға сатып аласыз ба?,Подтверждение покупки дома
+critical,kk,inv.title,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Inventory,Inventory,Заттар,Заголовок инвентаря
+critical,kk,job.got,placeholder_mismatch,Плейсхолдеры не совпали с источником: нет {job}.,You got the job: {job},Сіз жұмысқа орнадыңыз:,Сіз жұмысқа орнадыңыз: {job},Тост устройства на работу
+critical,kk,net.lost,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Connection lost,Connection lost,Байланыс үзілді,Обрыв соединения
+critical,kk,news.empty,missing_translation,"Перевод пустой, а в источнике текст есть.",No messages,,Хабарлама жоқ,Пустое состояние почты
+critical,kk,profile.welcome,placeholder_mismatch,Плейсхолдеры не совпали с источником: нет {name}; лишние {player}.,"Welcome, {name}!","Қош келдіңіз, {player}!","Қош келдіңіз, {name}!",Приветствие после входа
+critical,kk,reward.coins,tag_mismatch,Теги сломаны: не закрыт тег <color>.,You received <color=#FFD700>{amount}</color> coins,Сіз <color=#FFD700>{amount} тиын алдыңыз,Сіз <color=#FFD700>{amount}</color> тиын алдыңыз,"Тост награды, цвет суммы"
+critical,kk,shop.buy,placeholder_mismatch,Плейсхолдеры не совпали с источником: нет %s.,Buy for %s,Сатып алу,Сатып алу: %s,Цена на кнопке покупки
+critical,kk,shop.mojibake,mojibake,Похоже на битую кодировку: UTF-8 прочитан не той кодовой страницей.,Purchase,Ð¡Ð°ÑÑÐ¿ Ð°Ð»Ñ,Сатып алу,"Кнопка покупки, битая кодировка"
+critical,kk,ui.start,placeholder_mismatch,Плейсхолдеры не совпали с источником: нет {button}.,Press {button} to start,Бастау үшін басыңыз,Бастау үшін {button} басыңыз,Подсказка на экране старта
+critical,uz,inv.title,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Inventory,Inventory,Buyumlar,Заголовок инвентаря
+critical,uz,menu.continue,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Continue,Continue,Davom etish,"Главное меню, кнопка"
+critical,uz,net.lost,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Connection lost,Connection lost,Aloqa uzildi,Обрыв соединения
+critical,uz,news.empty,missing_translation,"Перевод пустой, а в источнике текст есть.",No messages,,Xabar yoʻq,Пустое состояние почты
+critical,uz,season.pass,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Battle Pass,Battle Pass,Mavsum yoʻli,Заголовок боевого пропуска
+critical,uz,shop.buy,placeholder_mismatch,Плейсхолдеры не совпали с источником: нет %s; лишние %d.,Buy for %s,Sotib olish: %d,Sotib olish: %s,Цена на кнопке покупки
+critical,uz,shop.mojibake,mojibake,Похоже на битую кодировку: UTF-8 прочитан не той кодовой страницей.,Purchase,Ð¡Ð°ÑÐ¸Ð± Ð¾Ð»Ð¸Ñ,Sotib olish,"Кнопка покупки, битая кодировка"
+critical,uz,ui.loading,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Loading...,Loading...,Yuklanmoqda...,Полноэкранный лоадер
+high,kk,admin.kick,ru_calque,"В казахской строке русские слова: кикнул, админ.",You were kicked by an admin. Reason: {reason},Вас кикнул админ. Причина: {reason},Сізді әкімші шығарды. Себебі: {reason},Сообщение о кике
+high,kk,auth.login,script_mix,В одной строке смешаны казахская кириллица и латиница: login.,Log in,Аккаунтты login қылыңыз,Кіру,Кнопка входа
+high,kk,auth.password,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Wrong password,Неверный пароль,Құпиясөз қате,Ошибка пароля
+high,kk,biz.income,glossary,Термин «business» дан запрещённой формой «бизнес». В глоссарии: кәсіп.,Your business income: {amount},Бизнестің доход: {amount},Кәсібіңіздің табысы: {amount},Доход бизнеса
+high,kk,biz.income,ru_calque,В казахской строке русские слова: доход.,Your business income: {amount},Бизнестің доход: {amount},Кәсібіңіздің табысы: {amount},Доход бизнеса
+high,kk,char.nick,glossary,Термин «nickname» дан запрещённой формой «ник». В глоссарии: лақап.,Enter your nickname,Введите ник,Лақап атыңызды енгізіңіз,Поле никнейма
+high,kk,char.nick,ru_calque,В казахской строке русские слова: введите.,Enter your nickname,Введите ник,Лақап атыңызды енгізіңіз,Поле никнейма
+high,kk,char.skin,glossary,Термин «skin» дан запрещённой формой «скин». В глоссарии: бейне.,Skin applied,Скин применён,Бейне қолданылды,Тост применения скина
+high,kk,char.skin,kk_foreign_letter,В казахской кириллице не нужны буквы: ё.,Skin applied,Скин применён,Бейне қолданылды,Тост применения скина
+high,kk,char.skin,ru_calque,В казахской строке русские слова: применён.,Skin applied,Скин применён,Бейне қолданылды,Тост применения скина
+high,kk,daily.reward,glossary,Термин «reward» дан запрещённой формой «бонус». В глоссарии: марапат.,Daily reward,Ежедневный бонус,Күнделікті марапат,Заголовок ежедневной награды
+high,kk,daily.reward,ru_calque,"В казахской строке русские слова: ежедневный, бонус.",Daily reward,Ежедневный бонус,Күнделікті марапат,Заголовок ежедневной награды
+high,kk,dialog.cancel,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Cancel,Отмена,Бас тарту,Кнопка отмены
+high,kk,dialog.save,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Save changes?,Сохранить изменения?,Өзгерістерді сақтайсыз ба?,Диалог сохранения
+high,kk,dialog.yes,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Yes,Да,Иә,Кнопка да
+high,kk,donate.buy,glossary,Термин «donate» дан запрещённой формой «донат». В глоссарии: алтын.,Buy donate currency,Донат валютасын купить,Алтын сатып алу,Магазин премиум-валюты
+high,kk,donate.buy,ru_calque,В казахской строке русские слова: купить.,Buy donate currency,Донат валютасын купить,Алтын сатып алу,Магазин премиум-валюты
+high,kk,economy.case,glossary,Термин «case» дан запрещённой формой «кейс». В глоссарии: сандық.,Open the case,Кейсті ашу,Сандықты ашу,Кнопка открытия кейса
+high,kk,help.lines,newline_mismatch,Число переводов строки не совпадает с источником.,"Line one
+Line two",Бірінші жол Екінші жол,"Бірінші жол
+Екінші жол",Двухстрочная подсказка
+high,kk,house.buy,ru_calque,В казахской строке русские слова: купить.,Buy this house for %s?,Купить этот дом за,Осы үйді %s-ға сатып аласыз ба?,Подтверждение покупки дома
+high,kk,inv.full,glossary,Термин «inventory» дан запрещённой формой «инвентар». В глоссарии: заттар.,Inventory is full,Инвентарь толық,Заттар сыймайды,Ошибка инвентаря
+high,kk,inv.full,ru_calque,В казахской строке русские слова: инвентарь.,Inventory is full,Инвентарь толық,Заттар сыймайды,Ошибка инвентаря
+high,kk,law.police,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Call the police,Вызвать полицию,Полицияны шақыру,Действие телефона
+high,kk,luck.wish,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Good luck!,Удачи!,Сәттілік!,Короткое пожелание
+high,kk,med.hospital,glossary,Термин «hospital» дан запрещённой формой «больниц». В глоссарии: аурухана.,You are in the hospital,Сіз больницадасыз,Сіз ауруханадасыз,Статус после смерти персонажа
+high,kk,med.hospital,ru_calque,В казахской строке русские слова: больница.,You are in the hospital,Сіз больницадасыз,Сіз ауруханадасыз,Статус после смерти персонажа
+high,kk,menu.continue,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Continue,Продолжить,Жалғастыру,"Главное меню, кнопка"
+high,kk,menu.play,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Play,Играть,Ойнау,"Главное меню, кнопка"
+high,kk,menu.settings,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Settings,Настройки,Баптаулар,Главное меню
+high,kk,nav.home,kk_vowel_harmony,"«Үйға»: после гласных основы окончание должно быть -ге, а не противоположного ряда. Это нарушение сингармонизма.",Return home,Үйға оралу,Үйге оралу,Кнопка возврата домой
+high,kk,phone.msg,kk_foreign_letter,В казахской кириллице не нужны буквы: щ.,New message from {name},Новый сообщение от {name},{name} сізге хабарлама жіберді,Пуш нового сообщения
+high,kk,phone.msg,ru_calque,"В казахской строке русские слова: сообщение, новый.",New message from {name},Новый сообщение от {name},{name} сізге хабарлама жіберді,Пуш нового сообщения
+high,kk,profile.ban,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",You are banned until {date},Вы забанены до {date},Сіз {date} дейін бұғатталдыңыз,Экран блокировки
+high,kk,quest.new,glossary,Термин «quest» дан запрещённой формой «квест». В глоссарии: тапсырма.,New quest available,Жаңа квест қолжетімді,Жаңа тапсырма қолжетімді,Тост нового задания
+high,kk,race.top,ru_calque,В казахской строке русские слова: финишируйте.,Finish in the top {place},Финишируйте в топ {place},Үздік {place} орынға кіріңіз,Цель гонки
+high,kk,season.pass,glossary,Термин «battle_pass» дан запрещённой формой «батл пасс». В глоссарии: маусымдық жол.,Battle Pass,Батл пасс,Маусымдық жол,Заголовок боевого пропуска
+high,kk,server.pick,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Select a server,Выберите сервер,Серверді таңдаңыз,Выбор сервера
+high,kk,shop.discount,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Discount {percent}%,Скидка {percent}%,{percent}% жеңілдік,Бейдж скидки
+high,kk,social.friends,kk_suffix_consonant,"«Дослар»: после «с» множественное число пишется с «-тар», не с «-лар».",Friends,Дослар,Достар,Список друзей
+high,kk,tutor.skip,glossary,Термин «tutorial» дан запрещённой формой «туториал». В глоссарии: оқыту.,Skip tutorial,Туториалды скипнуть,Оқытуды өткізіп жіберу,Кнопка пропуска обучения
+high,kk,tutor.skip,ru_calque,"В казахской строке русские слова: скипнуть, туториал.",Skip tutorial,Туториалды скипнуть,Оқытуды өткізіп жіберу,Кнопка пропуска обучения
+high,kk,ui.error,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Something went wrong. Try again.,Что-то пошло не так. Попробуйте ещё раз.,Бірдеңе дұрыс болмады. Қайта көріңіз.,Общая ошибка клиента
+high,kk,ui.houses,kk_vowel_harmony,"«Үйлар»: после гласных основы окончание должно быть -лер, а не противоположного ряда. Это нарушение сингармонизма.",Houses,Үйлар,Үйлер,"Раздел недвижимости, заголовок"
+high,kk,ui.loading,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Loading...,Загрузка...,Жүктелуде...,Полноэкранный лоадер
+high,kk,vehicle.fuel,glossary,Термин «fuel» дан запрещённой формой «бензин». В глоссарии: жанармай.,Not enough fuel,Бензин жеткіліксіз,Жанармай жеткіліксіз,Предупреждение о топливе
+high,kk,vehicle.ready,glossary,Термин «vehicle» дан запрещённой формой «машина». В глоссарии: көлік.,Your vehicle is ready,Машинаңыз дайын,Көлігіңіз дайын,Тост готовности транспорта
+high,kk,world.garage,glossary,Термин «garage» дан запрещённой формой «гаражъ». В глоссарии: гараж.,Garage,Гаражъ,Гараж,Подпись здания
+high,kk,world.garage,kk_foreign_letter,В казахской кириллице не нужны буквы: ъ.,Garage,Гаражъ,Гараж,Подпись здания
+high,kk,xp.gain,ru_calque,В казахской строке русские слова: опыт.,+{amount} XP,+{amount} опыт,+{amount} тәжірибе,Всплывающий опыт
+high,kk,xp.level,copy_from_ru,"Строка совпадает с русской. Для игрока это калька, а не перевод.",Level {level},Уровень {level},{level}-деңгей,Плашка уровня
+high,uz,auth.login,uz_english,Английские UI-слова внутри узбекской строки: Login.,Log in,Login qiling,Kirish,Кнопка входа
+high,uz,char.nick,glossary,Термин «nickname» дан запрещённой формой «nik». В глоссарии: laqab.,Enter your nickname,Nikni kiriting,Laqabingizni kiriting,Поле никнейма
+high,uz,char.skin,glossary,Термин «skin» дан запрещённой формой «skin». В глоссарии: qiyofa.,Skin applied,Skin qo'llandi,Qiyofa qoʻllandi,Тост применения скина
+high,uz,char.skin,uz_english,Английские UI-слова внутри узбекской строки: Skin.,Skin applied,Skin qo'llandi,Qiyofa qoʻllandi,Тост применения скина
+high,uz,donate.buy,glossary,Термин «donate» дан запрещённой формой «donat». В глоссарии: oltin.,Buy donate currency,Donat sotib olish,Oltin sotib olish,Магазин премиум-валюты
+high,uz,economy.case,glossary,Термин «case» дан запрещённой формой «keys». В глоссарии: quti.,Open the case,Keysni ochish,Qutini ochish,Кнопка открытия кейса
+high,uz,inv.full,glossary,Термин «inventory» дан запрещённой формой «inventar». В глоссарии: buyum.,Inventory is full,Inventar to'la,Buyumlar sigʻmaydi,Ошибка инвентаря
+high,uz,med.hospital,glossary,Термин «hospital» дан запрещённой формой «больниц». В глоссарии: shifoxona.,You are in the hospital,Siz больницадасыз,Siz shifoxonadasiz,Статус после смерти персонажа
+high,uz,med.hospital,uz_cyrillic,Для узбекского в игре принята латиница. В строке осталась кириллица.,You are in the hospital,Siz больницадасыз,Siz shifoxonadasiz,Статус после смерти персонажа
+high,uz,menu.play,uz_cyrillic,Для узбекского в игре принята латиница. В строке осталась кириллица.,Play,Играть,Oʻynash,"Главное меню, кнопка"
+high,uz,quest.new,glossary,Термин «quest» дан запрещённой формой «квест». В глоссарии: topshiriq.,New quest available,Yangi квест mavjud,Yangi topshiriq mavjud,Тост нового задания
+high,uz,quest.new,uz_cyrillic,Для узбекского в игре принята латиница. В строке осталась кириллица.,New quest available,Yangi квест mavjud,Yangi topshiriq mavjud,Тост нового задания
+high,uz,race.top,uz_english,Английские UI-слова внутри узбекской строки: Top.,Finish in the top {place},Top {place} o'rin,Eng yaxshi {place} oʻringa kiring,Цель гонки
+high,uz,vehicle.fuel,glossary,"Термин «fuel» дан запрещённой формой «benzin». В глоссарии: yoqilgʻi, yoqilg'i.",Not enough fuel,Benzin yetarli emas,Yoqilgʻi yetarli emas,Предупреждение о топливе
+medium,kk,dialog.confirm,punctuation,Пробел стоит перед ? или !.,Are you sure?,Сіз сенімдісіз бе ?,Сіз сенімдісіз бе?,Диалог подтверждения
+medium,kk,dialog.ok,length_overflow,Строка слишком длинная для UI: 48 против 2 в источнике.,OK,"Жарайды, бәрі сәтті өтті, енді жалғастыра аласыз",Жарайды,"Короткая кнопка подтверждения, лимит 12 символов"
+medium,kk,menu.exit,whitespace,Лишние пробелы по краям или двойной пробел внутри строки.,Exit,Шығу ,Шығу,"Главное меню, кнопка"
+medium,kk,shop.gap,whitespace,Лишние пробелы по краям или двойной пробел внутри строки.,Purchase,Сатып  алу,Сатып алу,Кнопка покупки
+medium,uz,auth.password,uz_apostrophe,Апостроф в oʻ/gʻ набран как ASCII '. Нужен ў-апостроф (U+02BB): Parol notoʻgʻri,Wrong password,Parol noto'g'ri,Parol notoʻgʻri,Ошибка пароля
+medium,uz,char.skin,uz_apostrophe,Апостроф в oʻ/gʻ набран как ASCII '. Нужен ў-апостроф (U+02BB): Skin qoʻllandi,Skin applied,Skin qo'llandi,Qiyofa qoʻllandi,Тост применения скина
+medium,uz,dialog.no,uz_apostrophe,Апостроф в oʻ/gʻ набран как ASCII '. Нужен ў-апостроф (U+02BB): Yoʻq,No,Yo'q,Yoʻq,Кнопка нет
+medium,uz,inv.full,uz_apostrophe,Апостроф в oʻ/gʻ набран как ASCII '. Нужен ў-апостроф (U+02BB): Inventar toʻla,Inventory is full,Inventar to'la,Buyumlar sigʻmaydi,Ошибка инвентаря
+medium,uz,race.top,uz_apostrophe,Апостроф в oʻ/gʻ набран как ASCII '. Нужен ў-апостроф (U+02BB): Top {place} oʻrin,Finish in the top {place},Top {place} o'rin,Eng yaxshi {place} oʻringa kiring,Цель гонки
+medium,uz,social.friends,uz_apostrophe,Апостроф в oʻ/gʻ набран как ASCII '. Нужен ў-апостроф (U+02BB): Doʻstlar,Friends,Do'stlar,Doʻstlar,Список друзей

@@ -1,0 +1,35 @@
+{
+  "total": 93,
+  "score": 0,
+  "by_severity": {
+    "critical": 19,
+    "high": 64,
+    "medium": 10,
+    "low": 0
+  },
+  "by_language": {
+    "kk": 65,
+    "uz": 28
+  },
+  "by_checker": {
+    "tag_mismatch": 2,
+    "placeholder_mismatch": 6,
+    "untranslated": 7,
+    "missing_translation": 2,
+    "mojibake": 2,
+    "ru_calque": 13,
+    "script_mix": 1,
+    "copy_from_ru": 15,
+    "glossary": 22,
+    "kk_foreign_letter": 3,
+    "newline_mismatch": 1,
+    "kk_vowel_harmony": 2,
+    "kk_suffix_consonant": 1,
+    "uz_english": 3,
+    "uz_cyrillic": 3,
+    "punctuation": 1,
+    "length_overflow": 1,
+    "whitespace": 2,
+    "uz_apostrophe": 6
+  }
+}

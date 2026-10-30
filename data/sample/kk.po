@@ -1,0 +1,236 @@
+msgid ""
+msgstr ""
+"Language: kk\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "menu.play"
+msgid "Play"
+msgstr "Играть"
+
+msgctxt "menu.settings"
+msgid "Settings"
+msgstr "Настройки"
+
+msgctxt "menu.continue"
+msgid "Continue"
+msgstr "Продолжить"
+
+msgctxt "menu.exit"
+msgid "Exit"
+msgstr "Шығу "
+
+msgctxt "menu.back"
+msgid "Back"
+msgstr "Артқа"
+
+msgctxt "ui.loading"
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgctxt "ui.error"
+msgid "Something went wrong. Try again."
+msgstr "Что-то пошло не так. Попробуйте ещё раз."
+
+msgctxt "ui.start"
+msgid "Press {button} to start"
+msgstr "Бастау үшін басыңыз"
+
+msgctxt "shop.buy"
+msgid "Buy for %s"
+msgstr "Сатып алу"
+
+msgctxt "profile.welcome"
+msgid "Welcome, {name}!"
+msgstr "Қош келдіңіз, {player}!"
+
+msgctxt "chat.message"
+msgid "<b>{name}</b>: {text}"
+msgstr "<b>{name}</b: {text}"
+
+msgctxt "reward.coins"
+msgid "You received <color=#FFD700>{amount}</color> coins"
+msgstr "Сіз <color=#FFD700>{amount} тиын алдыңыз"
+
+msgctxt "shop.mojibake"
+msgid "Purchase"
+msgstr "Ð¡Ð°ÑÑÐ¿ Ð°Ð»Ñ"
+
+msgctxt "auth.login"
+msgid "Log in"
+msgstr "Аккаунтты login қылыңыз"
+
+msgctxt "ui.houses"
+msgid "Houses"
+msgstr "Үйлар"
+
+msgctxt "social.friends"
+msgid "Friends"
+msgstr "Дослар"
+
+msgctxt "nav.home"
+msgid "Return home"
+msgstr "Үйға оралу"
+
+msgctxt "quest.new"
+msgid "New quest available"
+msgstr "Жаңа квест қолжетімді"
+
+msgctxt "dialog.ok"
+msgid "OK"
+msgstr "Жарайды, бәрі сәтті өтті, енді жалғастыра аласыз"
+
+msgctxt "dialog.confirm"
+msgid "Are you sure?"
+msgstr "Сіз сенімдісіз бе ?"
+
+msgctxt "shop.gap"
+msgid "Purchase"
+msgstr "Сатып  алу"
+
+msgctxt "inv.title"
+msgid "Inventory"
+msgstr "Inventory"
+
+msgctxt "help.lines"
+msgid "Line one\nLine two"
+msgstr "Бірінші жол Екінші жол"
+
+msgctxt "news.empty"
+msgid "No messages"
+msgstr ""
+
+msgctxt "economy.case"
+msgid "Open the case"
+msgstr "Кейсті ашу"
+
+msgctxt "season.pass"
+msgid "Battle Pass"
+msgstr "Батл пасс"
+
+msgctxt "profile.ban"
+msgid "You are banned until {date}"
+msgstr "Вы забанены до {date}"
+
+msgctxt "net.lost"
+msgid "Connection lost"
+msgstr "Connection lost"
+
+msgctxt "vehicle.fuel"
+msgid "Not enough fuel"
+msgstr "Бензин жеткіліксіз"
+
+msgctxt "vehicle.ready"
+msgid "Your vehicle is ready"
+msgstr "Машинаңыз дайын"
+
+msgctxt "tutor.skip"
+msgid "Skip tutorial"
+msgstr "Туториалды скипнуть"
+
+msgctxt "donate.buy"
+msgid "Buy donate currency"
+msgstr "Донат валютасын купить"
+
+msgctxt "server.pick"
+msgid "Select a server"
+msgstr "Выберите сервер"
+
+msgctxt "job.got"
+msgid "You got the job: {job}"
+msgstr "Сіз жұмысқа орнадыңыз:"
+
+msgctxt "med.hospital"
+msgid "You are in the hospital"
+msgstr "Сіз больницадасыз"
+
+msgctxt "world.garage"
+msgid "Garage"
+msgstr "Гаражъ"
+
+msgctxt "xp.level"
+msgid "Level {level}"
+msgstr "Уровень {level}"
+
+msgctxt "xp.gain"
+msgid "+{amount} XP"
+msgstr "+{amount} опыт"
+
+msgctxt "char.nick"
+msgid "Enter your nickname"
+msgstr "Введите ник"
+
+msgctxt "auth.password"
+msgid "Wrong password"
+msgstr "Неверный пароль"
+
+msgctxt "dialog.save"
+msgid "Save changes?"
+msgstr "Сохранить изменения?"
+
+msgctxt "dialog.cancel"
+msgid "Cancel"
+msgstr "Отмена"
+
+msgctxt "dialog.yes"
+msgid "Yes"
+msgstr "Да"
+
+msgctxt "dialog.no"
+msgid "No"
+msgstr "Жоқ"
+
+msgctxt "house.buy"
+msgid "Buy this house for %s?"
+msgstr "Купить этот дом за"
+
+msgctxt "biz.income"
+msgid "Your business income: {amount}"
+msgstr "Бизнестің доход: {amount}"
+
+msgctxt "phone.msg"
+msgid "New message from {name}"
+msgstr "Новый сообщение от {name}"
+
+msgctxt "admin.kick"
+msgid "You were kicked by an admin. Reason: {reason}"
+msgstr "Вас кикнул админ. Причина: {reason}"
+
+msgctxt "daily.reward"
+msgid "Daily reward"
+msgstr "Ежедневный бонус"
+
+msgctxt "inv.full"
+msgid "Inventory is full"
+msgstr "Инвентарь толық"
+
+msgctxt "char.skin"
+msgid "Skin applied"
+msgstr "Скин применён"
+
+msgctxt "race.top"
+msgid "Finish in the top {place}"
+msgstr "Финишируйте в топ {place}"
+
+msgctxt "luck.wish"
+msgid "Good luck!"
+msgstr "Удачи!"
+
+msgctxt "shop.discount"
+msgid "Discount {percent}%"
+msgstr "Скидка {percent}%"
+
+msgctxt "time.left"
+msgid "{minutes} min"
+msgstr "{minutes} минут"
+
+msgctxt "combat.hp"
+msgid "HP: {hp}"
+msgstr "HP: {hp}"
+
+msgctxt "ui.warn"
+msgid "<b>Warning</b>"
+msgstr "<b>Ескерту</b>"
+
+msgctxt "law.police"
+msgid "Call the police"
+msgstr "Вызвать полицию"

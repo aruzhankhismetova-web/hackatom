@@ -1,0 +1,23 @@
+﻿severity,language,key,checker,message,source,current,suggestion,context
+critical,uz,inv.title,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Inventory,Inventory,Buyumlar,Заголовок инвентаря
+critical,uz,menu.continue,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Continue,Continue,Davom etish,"Главное меню, кнопка"
+critical,uz,net.lost,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Connection lost,Connection lost,Aloqa uzildi,Обрыв соединения
+critical,uz,news.empty,missing_translation,"Перевод пустой, а в источнике текст есть.",No messages,,Xabar yoʻq,Пустое состояние почты
+critical,uz,season.pass,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Battle Pass,Battle Pass,Mavsum yoʻli,Заголовок боевого пропуска
+critical,uz,shop.buy,placeholder_mismatch,Плейсхолдеры не совпали с источником: нет %s; лишние %d.,Buy for %s,Sotib olish: %d,Sotib olish: %s,Цена на кнопке покупки
+critical,uz,shop.mojibake,mojibake,Похоже на битую кодировку: UTF-8 прочитан не той кодовой страницей.,Purchase,Ð¡Ð°ÑÐ¸Ð± Ð¾Ð»Ð¸Ñ,Sotib olish,"Кнопка покупки, битая кодировка"
+critical,uz,ui.loading,untranslated,Строка совпадает с английским источником и не выглядит как игровой маркер.,Loading...,Loading...,Yuklanmoqda...,Полноэкранный лоадер
+high,uz,auth.login,uz_english,Английские UI-слова внутри узбекской строки: Login.,Log in,Login qiling,Kirish,Кнопка входа
+high,uz,char.nick,glossary,Термин «nickname» дан запрещённой формой «nik». В глоссарии: laqab.,Enter your nickname,Nikni kiriting,Laqabingizni kiriting,Поле никнейма
+high,uz,char.skin,glossary,Термин «skin» дан запрещённой формой «skin». В глоссарии: qiyofa.,Skin applied,Skin qoʻllandi,Qiyofa qoʻllandi,Тост применения скина
+high,uz,char.skin,uz_english,Английские UI-слова внутри узбекской строки: Skin.,Skin applied,Skin qoʻllandi,Qiyofa qoʻllandi,Тост применения скина
+high,uz,donate.buy,glossary,Термин «donate» дан запрещённой формой «donat». В глоссарии: oltin.,Buy donate currency,Donat sotib olish,Oltin sotib olish,Магазин премиум-валюты
+high,uz,economy.case,glossary,Термин «case» дан запрещённой формой «keys». В глоссарии: quti.,Open the case,Keysni ochish,Qutini ochish,Кнопка открытия кейса
+high,uz,inv.full,glossary,Термин «inventory» дан запрещённой формой «inventar». В глоссарии: buyum.,Inventory is full,Inventar toʻla,Buyumlar sigʻmaydi,Ошибка инвентаря
+high,uz,med.hospital,glossary,Термин «hospital» дан запрещённой формой «больниц». В глоссарии: shifoxona.,You are in the hospital,Siz больницадасыз,Siz shifoxonadasiz,Статус после смерти персонажа
+high,uz,med.hospital,uz_cyrillic,Для узбекского в игре принята латиница. В строке осталась кириллица.,You are in the hospital,Siz больницадасыз,Siz shifoxonadasiz,Статус после смерти персонажа
+high,uz,menu.play,uz_cyrillic,Для узбекского в игре принята латиница. В строке осталась кириллица.,Play,Играть,Oʻynash,"Главное меню, кнопка"
+high,uz,quest.new,glossary,Термин «quest» дан запрещённой формой «квест». В глоссарии: topshiriq.,New quest available,Yangi квест mavjud,Yangi topshiriq mavjud,Тост нового задания
+high,uz,quest.new,uz_cyrillic,Для узбекского в игре принята латиница. В строке осталась кириллица.,New quest available,Yangi квест mavjud,Yangi topshiriq mavjud,Тост нового задания
+high,uz,race.top,uz_english,Английские UI-слова внутри узбекской строки: Top.,Finish in the top {place},Top {place} oʻrin,Eng yaxshi {place} oʻringa kiring,Цель гонки
+high,uz,vehicle.fuel,glossary,"Термин «fuel» дан запрещённой формой «benzin». В глоссарии: yoqilgʻi, yoqilg'i.",Not enough fuel,Benzin yetarli emas,Yoqilgʻi yetarli emas,Предупреждение о топливе
