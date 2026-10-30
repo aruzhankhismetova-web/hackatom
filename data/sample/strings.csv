@@ -1,0 +1,62 @@
+﻿key,context,en,ru,kk,uz
+menu.play,"Главное меню, кнопка",Play,Играть,Играть,Играть
+menu.settings,Главное меню,Settings,Настройки,Настройки,Sozlamalar
+menu.continue,"Главное меню, кнопка",Continue,Продолжить,Продолжить,Continue
+menu.exit,"Главное меню, кнопка",Exit,Выход,Шығу ,Chiqish
+menu.back,Навигация назад,Back,Назад,Артқа,Orqaga
+ui.loading,Полноэкранный лоадер,Loading...,Загрузка...,Загрузка...,Loading...
+ui.error,Общая ошибка клиента,Something went wrong. Try again.,Что-то пошло не так. Попробуйте ещё раз.,Что-то пошло не так. Попробуйте ещё раз.,Nimadir notoʻgʻri ketdi. Qayta urinib koʻring.
+ui.start,Подсказка на экране старта,Press {button} to start,"Нажмите {button}, чтобы начать",Бастау үшін басыңыз,Boshlash uchun {button} ni bosing
+shop.buy,Цена на кнопке покупки,Buy for %s,Купить за %s,Сатып алу,Sotib olish: %d
+profile.welcome,Приветствие после входа,"Welcome, {name}!","Добро пожаловать, {name}!","Қош келдіңіз, {player}!","Xush kelibsiz, {name}!"
+chat.message,"Строка чата, rich text",<b>{name}</b>: {text},<b>{name}</b>: {text},<b>{name}</b: {text},<b>{name}</b>: {text}
+reward.coins,"Тост награды, цвет суммы",You received <color=#FFD700>{amount}</color> coins,Вы получили <color=#FFD700>{amount}</color> монет,Сіз <color=#FFD700>{amount} тиын алдыңыз,Siz <color=#FFD700>{amount}</color> tanga oldingiz
+shop.mojibake,"Кнопка покупки, битая кодировка",Purchase,Купить,Ð¡Ð°ÑÑÐ¿ Ð°Ð»Ñ,Ð¡Ð°ÑÐ¸Ð± Ð¾Ð»Ð¸Ñ
+auth.login,Кнопка входа,Log in,Войти,Аккаунтты login қылыңыз,Login qiling
+ui.houses,"Раздел недвижимости, заголовок",Houses,Дома,Үйлар,Uylar
+social.friends,Список друзей,Friends,Друзья,Дослар,Do'stlar
+nav.home,Кнопка возврата домой,Return home,Вернуться домой,Үйға оралу,Uyga qaytish
+quest.new,Тост нового задания,New quest available,Доступен новый квест,Жаңа квест қолжетімді,Yangi квест mavjud
+dialog.ok,"Короткая кнопка подтверждения, лимит 12 символов",OK,ОК,"Жарайды, бәрі сәтті өтті, енді жалғастыра аласыз",Mayli
+dialog.confirm,Диалог подтверждения,Are you sure?,Вы уверены?,Сіз сенімдісіз бе ?,Ishonchingiz komilmi?
+shop.gap,Кнопка покупки,Purchase,Покупка,Сатып  алу,Sotib olish
+inv.title,Заголовок инвентаря,Inventory,Инвентарь,Inventory,Inventory
+help.lines,Двухстрочная подсказка,"Line one
+Line two","Строка один
+Строка два",Бірінші жол Екінші жол,"Birinchi qator
+Ikkinchi qator"
+news.empty,Пустое состояние почты,No messages,Нет сообщений,,
+economy.case,Кнопка открытия кейса,Open the case,Открыть кейс,Кейсті ашу,Keysni ochish
+season.pass,Заголовок боевого пропуска,Battle Pass,Боевой пропуск,Батл пасс,Battle Pass
+profile.ban,Экран блокировки,You are banned until {date},Вы забанены до {date},Вы забанены до {date},Siz {date} gacha bloklangansiz
+net.lost,Обрыв соединения,Connection lost,Соединение потеряно,Connection lost,Connection lost
+vehicle.fuel,Предупреждение о топливе,Not enough fuel,Недостаточно топлива,Бензин жеткіліксіз,Benzin yetarli emas
+vehicle.ready,Тост готовности транспорта,Your vehicle is ready,Ваш транспорт готов,Машинаңыз дайын,Transportingiz tayyor
+tutor.skip,Кнопка пропуска обучения,Skip tutorial,Пропустить обучение,Туториалды скипнуть,Oʻqitishni oʻtkazib yuborish
+donate.buy,Магазин премиум-валюты,Buy donate currency,Купить донат-валюту,Донат валютасын купить,Donat sotib olish
+server.pick,Выбор сервера,Select a server,Выберите сервер,Выберите сервер,Serverni tanlang
+job.got,Тост устройства на работу,You got the job: {job},Вы устроились на работу: {job},Сіз жұмысқа орнадыңыз:,Siz ishga kirgansiz: {job}
+med.hospital,Статус после смерти персонажа,You are in the hospital,Вы в больнице,Сіз больницадасыз,Siz больницадасыз
+world.garage,Подпись здания,Garage,Гараж,Гаражъ,Garaj
+xp.level,Плашка уровня,Level {level},Уровень {level},Уровень {level},{level}-daraja
+xp.gain,Всплывающий опыт,+{amount} XP,+{amount} опыта,+{amount} опыт,+{amount} tajriba
+char.nick,Поле никнейма,Enter your nickname,Введите никнейм,Введите ник,Nikni kiriting
+auth.password,Ошибка пароля,Wrong password,Неверный пароль,Неверный пароль,Parol noto'g'ri
+dialog.save,Диалог сохранения,Save changes?,Сохранить изменения?,Сохранить изменения?,Oʻzgarishlar saqlansinmi?
+dialog.cancel,Кнопка отмены,Cancel,Отмена,Отмена,Bekor qilish
+dialog.yes,Кнопка да,Yes,Да,Да,Ha
+dialog.no,Кнопка нет,No,Нет,Жоқ,Yo'q
+house.buy,Подтверждение покупки дома,Buy this house for %s?,Купить этот дом за %s?,Купить этот дом за,Ushbu uyni %s evaziga sotib olasizmi?
+biz.income,Доход бизнеса,Your business income: {amount},Доход вашего бизнеса: {amount},Бизнестің доход: {amount},Tadbirkorlik daromadingiz: {amount}
+phone.msg,Пуш нового сообщения,New message from {name},Новое сообщение от {name},Новый сообщение от {name},{name} sizga xabar yubordi
+admin.kick,Сообщение о кике,You were kicked by an admin. Reason: {reason},Вас исключил администратор. Причина: {reason},Вас кикнул админ. Причина: {reason},Sizni administrator chiqardi. Sabab: {reason}
+daily.reward,Заголовок ежедневной награды,Daily reward,Ежедневная награда,Ежедневный бонус,Kunlik mukofot
+inv.full,Ошибка инвентаря,Inventory is full,Инвентарь заполнен,Инвентарь толық,Inventar to'la
+char.skin,Тост применения скина,Skin applied,Внешний вид применён,Скин применён,Skin qo'llandi
+race.top,Цель гонки,Finish in the top {place},Займите место в топ-{place},Финишируйте в топ {place},Top {place} o'rin
+luck.wish,Короткое пожелание,Good luck!,Удачи!,Удачи!,Omad!
+shop.discount,Бейдж скидки,Discount {percent}%,Скидка {percent}%,Скидка {percent}%,{percent}% chegirma
+time.left,Таймер в минутах,{minutes} min,{minutes} мин,{minutes} минут,{minutes} daqiqa
+combat.hp,Полоска здоровья,HP: {hp},HP: {hp},HP: {hp},HP: {hp}
+ui.warn,Жирное предупреждение,<b>Warning</b>,<b>Внимание</b>,<b>Ескерту</b>,<b>Ogohlantirish</b>
+law.police,Действие телефона,Call the police,Вызвать полицию,Вызвать полицию,Politsiyani chaqirish

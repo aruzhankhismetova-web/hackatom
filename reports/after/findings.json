@@ -1,0 +1,291 @@
+{
+  "title": "TilTekser — после выверенного казахского",
+  "summary": {
+    "total": 22,
+    "score": 0,
+    "by_severity": {
+      "critical": 8,
+      "high": 14,
+      "medium": 0,
+      "low": 0
+    },
+    "by_language": {
+      "uz": 22
+    },
+    "by_checker": {
+      "untranslated": 5,
+      "missing_translation": 1,
+      "placeholder_mismatch": 1,
+      "mojibake": 1,
+      "uz_english": 3,
+      "glossary": 8,
+      "uz_cyrillic": 3
+    }
+  },
+  "findings": [
+    {
+      "id": "critical:untranslated:uz:inv.title",
+      "checker": "untranslated",
+      "severity": "critical",
+      "language": "uz",
+      "key": "inv.title",
+      "message": "Строка совпадает с английским источником и не выглядит как игровой маркер.",
+      "source": "Inventory",
+      "current": "Inventory",
+      "suggestion": "Buyumlar",
+      "context": "Заголовок инвентаря"
+    },
+    {
+      "id": "critical:untranslated:uz:menu.continue",
+      "checker": "untranslated",
+      "severity": "critical",
+      "language": "uz",
+      "key": "menu.continue",
+      "message": "Строка совпадает с английским источником и не выглядит как игровой маркер.",
+      "source": "Continue",
+      "current": "Continue",
+      "suggestion": "Davom etish",
+      "context": "Главное меню, кнопка"
+    },
+    {
+      "id": "critical:untranslated:uz:net.lost",
+      "checker": "untranslated",
+      "severity": "critical",
+      "language": "uz",
+      "key": "net.lost",
+      "message": "Строка совпадает с английским источником и не выглядит как игровой маркер.",
+      "source": "Connection lost",
+      "current": "Connection lost",
+      "suggestion": "Aloqa uzildi",
+      "context": "Обрыв соединения"
+    },
+    {
+      "id": "critical:missing_translation:uz:news.empty",
+      "checker": "missing_translation",
+      "severity": "critical",
+      "language": "uz",
+      "key": "news.empty",
+      "message": "Перевод пустой, а в источнике текст есть.",
+      "source": "No messages",
+      "current": "",
+      "suggestion": "Xabar yoʻq",
+      "context": "Пустое состояние почты"
+    },
+    {
+      "id": "critical:untranslated:uz:season.pass",
+      "checker": "untranslated",
+      "severity": "critical",
+      "language": "uz",
+      "key": "season.pass",
+      "message": "Строка совпадает с английским источником и не выглядит как игровой маркер.",
+      "source": "Battle Pass",
+      "current": "Battle Pass",
+      "suggestion": "Mavsum yoʻli",
+      "context": "Заголовок боевого пропуска"
+    },
+    {
+      "id": "critical:placeholder_mismatch:uz:shop.buy",
+      "checker": "placeholder_mismatch",
+      "severity": "critical",
+      "language": "uz",
+      "key": "shop.buy",
+      "message": "Плейсхолдеры не совпали с источником: нет %s; лишние %d.",
+      "source": "Buy for %s",
+      "current": "Sotib olish: %d",
+      "suggestion": "Sotib olish: %s",
+      "context": "Цена на кнопке покупки"
+    },
+    {
+      "id": "critical:mojibake:uz:shop.mojibake",
+      "checker": "mojibake",
+      "severity": "critical",
+      "language": "uz",
+      "key": "shop.mojibake",
+      "message": "Похоже на битую кодировку: UTF-8 прочитан не той кодовой страницей.",
+      "source": "Purchase",
+      "current": "Ð¡Ð°ÑÐ¸Ð± Ð¾Ð»Ð¸Ñ",
+      "suggestion": "Sotib olish",
+      "context": "Кнопка покупки, битая кодировка"
+    },
+    {
+      "id": "critical:untranslated:uz:ui.loading",
+      "checker": "untranslated",
+      "severity": "critical",
+      "language": "uz",
+      "key": "ui.loading",
+      "message": "Строка совпадает с английским источником и не выглядит как игровой маркер.",
+      "source": "Loading...",
+      "current": "Loading...",
+      "suggestion": "Yuklanmoqda...",
+      "context": "Полноэкранный лоадер"
+    },
+    {
+      "id": "high:uz_english:uz:auth.login",
+      "checker": "uz_english",
+      "severity": "high",
+      "language": "uz",
+      "key": "auth.login",
+      "message": "Английские UI-слова внутри узбекской строки: Login.",
+      "source": "Log in",
+      "current": "Login qiling",
+      "suggestion": "Kirish",
+      "context": "Кнопка входа"
+    },
+    {
+      "id": "high:glossary:uz:char.nick",
+      "checker": "glossary",
+      "severity": "high",
+      "language": "uz",
+      "key": "char.nick",
+      "message": "Термин «nickname» дан запрещённой формой «nik». В глоссарии: laqab.",
+      "source": "Enter your nickname",
+      "current": "Nikni kiriting",
+      "suggestion": "Laqabingizni kiriting",
+      "context": "Поле никнейма"
+    },
+    {
+      "id": "high:glossary:uz:char.skin",
+      "checker": "glossary",
+      "severity": "high",
+      "language": "uz",
+      "key": "char.skin",
+      "message": "Термин «skin» дан запрещённой формой «skin». В глоссарии: qiyofa.",
+      "source": "Skin applied",
+      "current": "Skin qoʻllandi",
+      "suggestion": "Qiyofa qoʻllandi",
+      "context": "Тост применения скина"
+    },
+    {
+      "id": "high:uz_english:uz:char.skin",
+      "checker": "uz_english",
+      "severity": "high",
+      "language": "uz",
+      "key": "char.skin",
+      "message": "Английские UI-слова внутри узбекской строки: Skin.",
+      "source": "Skin applied",
+      "current": "Skin qoʻllandi",
+      "suggestion": "Qiyofa qoʻllandi",
+      "context": "Тост применения скина"
+    },
+    {
+      "id": "high:glossary:uz:donate.buy",
+      "checker": "glossary",
+      "severity": "high",
+      "language": "uz",
+      "key": "donate.buy",
+      "message": "Термин «donate» дан запрещённой формой «donat». В глоссарии: oltin.",
+      "source": "Buy donate currency",
+      "current": "Donat sotib olish",
+      "suggestion": "Oltin sotib olish",
+      "context": "Магазин премиум-валюты"
+    },
+    {
+      "id": "high:glossary:uz:economy.case",
+      "checker": "glossary",
+      "severity": "high",
+      "language": "uz",
+      "key": "economy.case",
+      "message": "Термин «case» дан запрещённой формой «keys». В глоссарии: quti.",
+      "source": "Open the case",
+      "current": "Keysni ochish",
+      "suggestion": "Qutini ochish",
+      "context": "Кнопка открытия кейса"
+    },
+    {
+      "id": "high:glossary:uz:inv.full",
+      "checker": "glossary",
+      "severity": "high",
+      "language": "uz",
+      "key": "inv.full",
+      "message": "Термин «inventory» дан запрещённой формой «inventar». В глоссарии: buyum.",
+      "source": "Inventory is full",
+      "current": "Inventar toʻla",
+      "suggestion": "Buyumlar sigʻmaydi",
+      "context": "Ошибка инвентаря"
+    },
+    {
+      "id": "high:glossary:uz:med.hospital",
+      "checker": "glossary",
+      "severity": "high",
+      "language": "uz",
+      "key": "med.hospital",
+      "message": "Термин «hospital» дан запрещённой формой «больниц». В глоссарии: shifoxona.",
+      "source": "You are in the hospital",
+      "current": "Siz больницадасыз",
+      "suggestion": "Siz shifoxonadasiz",
+      "context": "Статус после смерти персонажа"
+    },
+    {
+      "id": "high:uz_cyrillic:uz:med.hospital",
+      "checker": "uz_cyrillic",
+      "severity": "high",
+      "language": "uz",
+      "key": "med.hospital",
+      "message": "Для узбекского в игре принята латиница. В строке осталась кириллица.",
+      "source": "You are in the hospital",
+      "current": "Siz больницадасыз",
+      "suggestion": "Siz shifoxonadasiz",
+      "context": "Статус после смерти персонажа"
+    },
+    {
+      "id": "high:uz_cyrillic:uz:menu.play",
+      "checker": "uz_cyrillic",
+      "severity": "high",
+      "language": "uz",
+      "key": "menu.play",
+      "message": "Для узбекского в игре принята латиница. В строке осталась кириллица.",
+      "source": "Play",
+      "current": "Играть",
+      "suggestion": "Oʻynash",
+      "context": "Главное меню, кнопка"
+    },
+    {
+      "id": "high:glossary:uz:quest.new",
+      "checker": "glossary",
+      "severity": "high",
+      "language": "uz",
+      "key": "quest.new",
+      "message": "Термин «quest» дан запрещённой формой «квест». В глоссарии: topshiriq.",
+      "source": "New quest available",
+      "current": "Yangi квест mavjud",
+      "suggestion": "Yangi topshiriq mavjud",
+      "context": "Тост нового задания"
+    },
+    {
+      "id": "high:uz_cyrillic:uz:quest.new",
+      "checker": "uz_cyrillic",
+      "severity": "high",
+      "language": "uz",
+      "key": "quest.new",
+      "message": "Для узбекского в игре принята латиница. В строке осталась кириллица.",
+      "source": "New quest available",
+      "current": "Yangi квест mavjud",
+      "suggestion": "Yangi topshiriq mavjud",
+      "context": "Тост нового задания"
+    },
+    {
+      "id": "high:uz_english:uz:race.top",
+      "checker": "uz_english",
+      "severity": "high",
+      "language": "uz",
+      "key": "race.top",
+      "message": "Английские UI-слова внутри узбекской строки: Top.",
+      "source": "Finish in the top {place}",
+      "current": "Top {place} oʻrin",
+      "suggestion": "Eng yaxshi {place} oʻringa kiring",
+      "context": "Цель гонки"
+    },
+    {
+      "id": "high:glossary:uz:vehicle.fuel",
+      "checker": "glossary",
+      "severity": "high",
+      "language": "uz",
+      "key": "vehicle.fuel",
+      "message": "Термин «fuel» дан запрещённой формой «benzin». В глоссарии: yoqilgʻi, yoqilg'i.",
+      "source": "Not enough fuel",
+      "current": "Benzin yetarli emas",
+      "suggestion": "Yoqilgʻi yetarli emas",
+      "context": "Предупреждение о топливе"
+    }
+  ]
+}
