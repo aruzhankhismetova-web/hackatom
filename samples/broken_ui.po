@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Language: kk\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. context: ui_button
+#: btn_back
+msgid "Back"
+msgstr "Назад"
+
+#. context: system
+#: books
+msgid "Books"
+msgstr "Кітаплер"
+
+#. context: ui_button
+#: btn_play
+msgid "Play"
+msgstr "Ойнау"

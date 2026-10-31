@@ -1,0 +1,12 @@
+key,source,target,context,locale
+exit_q,Do you want to exit?,Siz ishonchingiz komilmi?,confirm,uz
+btn_settings,Settings,Nastroykalar,ui_button,uz
+dialog_npc,Where are you?,Sen qayerdasan?,dialog,uz
+at_home,At home,uyda,system,uz
+purchase_q,Are you sure about the purchase?,Ishonchingiz komilmi?,confirm,uz
+gift_toast,You received a gift,Sen sovg'a olding,toast,uz
+count_books,3 books,3 ta kitoblar,shop,uz
+btn_play,Play,O'ynash,ui_button,uz
+price,Price: %s,Narx: %d,shop,uz
+shop_title,<b>Shop</b>,<b>Doʻkon,shop,uz
+btn_continue,Continue,Davom ettirish,ui_button,uz
