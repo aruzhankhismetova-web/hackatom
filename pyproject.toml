@@ -1,0 +1,17 @@
+[project]
+name = "soz"
+version = "0.2.0"
+description = "QA локализации «Алтын Жол»: парсер, үндестік, глоссарий и калиброванный LLM-слой."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["openpyxl>=3.1"]
+
+[project.scripts]
+soz = "soz.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,147 @@
+{
+  "version": "soz-ai-2",
+  "silent": [
+    {
+      "locale": "kk",
+      "context": "ui_button",
+      "key": "btn_play",
+      "source": "Play",
+      "target": "Ойнау",
+      "why": "Короткая кнопка из глоссария. Ошибки нет."
+    },
+    {
+      "locale": "kk",
+      "context": "dialog",
+      "key": "dialog_npc",
+      "source": "Where are you?",
+      "target": "Сен қайдасың?",
+      "why": "Диалог на сен — норма, глагол согласован."
+    },
+    {
+      "locale": "uz",
+      "context": "dialog",
+      "key": "dialog_npc",
+      "source": "Where are you?",
+      "target": "Sen qayerdasan?",
+      "why": "Диалог на sen — норма."
+    },
+    {
+      "locale": "uz",
+      "context": "system",
+      "key": "at_home",
+      "source": "At home",
+      "target": "uyda",
+      "why": "Правильный локатив. Не искать здесь үндестік и не выдумывать ошибку."
+    },
+    {
+      "locale": "kk",
+      "context": "toast",
+      "key": "gift_toast",
+      "source": "You received a gift",
+      "target": "Сен сыйлық алдың",
+      "why": "Неформальный тост согласован. Местоимение и глагол не трогать."
+    },
+    {
+      "locale": "uz",
+      "context": "confirm",
+      "key": "purchase_q",
+      "source": "Are you sure about the purchase?",
+      "target": "Ishonchingiz komilmi?",
+      "reject_if_any": ["exit", "quit", "leave"],
+      "why": "Это вопрос о покупке, не о выходе. «Chiqasizmi?» сюда не подходит."
+    },
+    {
+      "locale": "kk",
+      "context": "system",
+      "key": "victory",
+      "source": "Victory!",
+      "target": "Жеңіс!",
+      "why": "Короткая системная строка из глоссария."
+    },
+    {
+      "locale": "uz",
+      "context": "ui_button",
+      "key": "btn_continue",
+      "source": "Continue",
+      "target": "Davom ettirish",
+      "why": "Кнопка из глоссария, без кальки."
+    }
+  ],
+  "fix": [
+    {
+      "locale": "kk",
+      "context": "confirm",
+      "key": "sure",
+      "source": "Are you sure?",
+      "target": "Сенімдісіз бе?",
+      "suggestion": "Растайсыз ба?",
+      "code": "calque_ru",
+      "why": "Калька «вы уверены». Меняется вся реплика, не частица."
+    },
+    {
+      "locale": "kk",
+      "context": "confirm",
+      "key": "confirm_exit",
+      "source": "Do you want to exit?",
+      "target": "Сенімдісіз ма?",
+      "suggestion": "Шыққыңыз келе ме?",
+      "code": "calque_ru",
+      "require_any": ["exit", "quit", "leave", "шық"],
+      "why": "Тот же калька-вопрос, но исходник про выход. Нужна реплика выхода, не «Растайсыз ба?»."
+    },
+    {
+      "locale": "kk",
+      "context": "ui_button",
+      "key": "press",
+      "source": "Press the button",
+      "target": "Кнопке басыңыз",
+      "suggestion": "Батырманы басыңыз",
+      "code": "calque_ru",
+      "why": "Русское «кнопка» и чужой порядок слов. Термин — батырма, падеж винительный."
+    },
+    {
+      "locale": "uz",
+      "context": "confirm",
+      "key": "exit_q",
+      "source": "Do you want to exit?",
+      "target": "Siz ishonchingiz komilmi?",
+      "suggestion": "Chiqasizmi?",
+      "code": "calque_ru",
+      "require_any": ["exit", "quit", "leave", "chiq", "шық"],
+      "why": "Калька «вы уверены» в вопросе выхода. В игре это «Chiqasizmi?»."
+    }
+  ],
+  "hold": [
+    {
+      "id": "do_not_invent",
+      "why": "Чистая строка, диалог на сен и uyda дают пустой список issues."
+    },
+    {
+      "id": "protect_tokens",
+      "locale": "kk",
+      "context": "system",
+      "source": "Hello, {name}",
+      "target": "Сәлем, {name}",
+      "bad_suggestion": "Сәлем, досым",
+      "why": "Нельзя убирать или переводить {name}, {player}, %s, %d, <b>."
+    },
+    {
+      "id": "agreement",
+      "locale": "kk",
+      "context": "toast",
+      "source": "You received a gift",
+      "target": "Сен сыйлық алдың",
+      "bad_suggestion": "Сіз сыйлық алдың",
+      "why": "Нельзя предлагать «Сіз сыйлық алдың»: формальное сіз требует алдыңыз, а глагол тоста не трогают."
+    },
+    {
+      "id": "no_forbidden_term",
+      "locale": "kk",
+      "context": "ui_button",
+      "source": "Settings",
+      "target": "Баптаулар",
+      "bad_suggestion": "Настройкалар",
+      "why": "Нельзя предлагать запрещённый термин: Настройка, Кнопка, Клан, Кристалл, Nastroyka."
+    }
+  ]
+}

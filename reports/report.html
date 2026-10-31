@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Sóz — отчёт локализации</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1c1915;
+      --muted: #5c564e;
+      --line: #e4ddd2;
+      --paper: #faf7f2;
+      --card: #fffdf8;
+      --critical: #9f2d2d;
+      --high: #9a5b12;
+      --medium: #3d5a80;
+      --info: #5c564e;
+    }
+    body {
+      margin: 0;
+      font: 16px/1.5 "Iowan Old Style", Palatino, "Palatino Linotype", serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 20px 64px; }
+    h1 { font-size: 2rem; margin: 0 0 8px; }
+    h2 { font-size: 1.25rem; margin: 28px 0 8px; }
+    p { margin: 0 0 12px; }
+    .muted { color: var(--muted); }
+    .stats { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      min-width: 120px;
+    }
+    .stat b { display: block; font-size: 1.4rem; }
+    table { width: 100%; border-collapse: collapse; background: var(--card); }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      padding: 8px 10px;
+      font-size: 0.95rem;
+    }
+    th { font: 600 0.78rem/1.3 sans-serif; letter-spacing: 0.04em; text-transform: uppercase; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86rem; }
+    .critical { color: var(--critical); }
+    .high { color: var(--high); }
+    .medium { color: var(--medium); }
+    .info { color: var(--info); }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Sóz · Алтын Жол</h1>
+  <p class="muted">Техническая проверка, глоссарий и смысловой слой. Промпт soz-ai-2, режим local.</p>
+  <section class="stats">
+    <div class="stat"><b>62</b>строк</div>
+    <div class="stat"><b>37</b>находок</div>
+    <div class="stat"><b>5</b>критичных</div>
+    <div class="stat"><b>4</b>смысловых</div>
+    <div class="stat"><b>13</b>по глоссарию</div>
+    <div class="stat"><b>0</b>отсеяно ограждениями</div>
+  </section>
+  <h2>Как устроен смысловой слой</h2>
+  <p>Плейсхолдеры, теги и үндестік модель не перепроверяет. В запрос уходит контекст строки, срез глоссария и токены ⟦n⟧ вместо %s и {name}. Ответ без правки — пустой список. Подсказка с «Сіз сыйлық алдың», со сломанным токеном или с запрещённым термином в отчёт не попадает.</p>
+  <p class="muted">Вызовов модели: 0. Смысловой слой сознательно промолчал: 14. Без готовой правки: —.</p>
+  <h2>Находки</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Важность</th><th>Слой</th><th>Код</th><th>Ключ</th><th>Сейчас</th><th>Правка</th><th>Почему</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class='critical'>критично</td><td>technical</td><td><code>placeholder_mismatch</code></td><td><code>energy</code><br><span class='muted'>kk · system</span></td><td>Қуат: %s</td><td>—</td><td>Плейсхолдеры источника и перевода не совпадают: источник [&#x27;%d&#x27;], перевод [&#x27;%s&#x27;].</td></tr>
+<tr><td class='critical'>критично</td><td>technical</td><td><code>tag_mismatch</code></td><td><code>reward</code><br><span class='muted'>kk · system</span></td><td>Сыйлық: &lt;b&gt;%d</td><td>—</td><td>Теги форматирования разъехались: источник [&#x27;&lt;b&gt;&#x27;, &#x27;&lt;/b&gt;&#x27;], перевод [&#x27;&lt;b&gt;&#x27;].</td></tr>
+<tr><td class='critical'>критично</td><td>technical</td><td><code>placeholder_mismatch</code></td><td><code>welcome</code><br><span class='muted'>kk · system</span></td><td>Қош келдіңіз, {name}!</td><td>—</td><td>Плейсхолдеры источника и перевода не совпадают: источник [&#x27;{player}&#x27;], перевод [&#x27;{name}&#x27;].</td></tr>
+<tr><td class='critical'>критично</td><td>technical</td><td><code>placeholder_mismatch</code></td><td><code>price</code><br><span class='muted'>uz · shop</span></td><td>Narx: %d</td><td>—</td><td>Плейсхолдеры источника и перевода не совпадают: источник [&#x27;%s&#x27;], перевод [&#x27;%d&#x27;].</td></tr>
+<tr><td class='critical'>критично</td><td>technical</td><td><code>tag_mismatch</code></td><td><code>shop_title</code><br><span class='muted'>uz · shop</span></td><td>&lt;b&gt;Doʻkon</td><td>—</td><td>Теги форматирования разъехались: источник [&#x27;&lt;b&gt;&#x27;, &#x27;&lt;/b&gt;&#x27;], перевод [&#x27;&lt;b&gt;&#x27;].</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>vowel_harmony</code></td><td><code>at_home</code><br><span class='muted'>kk · system</span></td><td>Үйда</td><td>Үйде</td><td>Буын үндестігі: «Үйда» → «Үйде».</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>consonant_harmony</code></td><td><code>at_school</code><br><span class='muted'>kk · system</span></td><td>Мектепде</td><td>Мектепте</td><td>Дыбыс үндестігі: «Мектепде» → «Мектепте».</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>vowel_harmony</code></td><td><code>books</code><br><span class='muted'>kk · system</span></td><td>Кітаплер</td><td>Кітаптар</td><td>Буын үндестігі: «Кітаплер» → «Кітаптар».</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>btn_settings</code><br><span class='muted'>kk · ui_button</span></td><td>Настройкалар</td><td>Баптаулар</td><td>Термин «Настройкалар» расходится с глоссарием. Норма: «Баптаулар». Экран настроек. Не калька с русского.</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>clan</code><br><span class='muted'>kk · system</span></td><td>Клан</td><td>Одақ</td><td>Термин «Клан» расходится с глоссарием. Норма: «Одақ». Клан в этой игре — одақ.</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>coins</code><br><span class='muted'>kk · system</span></td><td>3 тиындар</td><td>3 тиын</td><td>Термин «тиындар» расходится с глоссарием. Норма: «тиын». После числа без көптік: «3 тиын», не «3 тиындар».</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>number_plural</code></td><td><code>coins</code><br><span class='muted'>kk · system</span></td><td>3 тиындар</td><td>3 тиын</td><td>После числа көптік не ставится: «тиындар» → «тиын».</td></tr>
+<tr><td class='high'>важно</td><td>ai</td><td><code>calque_ru</code></td><td><code>confirm_exit</code><br><span class='muted'>kk · confirm</span></td><td>Сенімдісіз ма?</td><td>Шыққыңыз келе ме?</td><td>Тот же калька-вопрос, но исходник про выход. Нужна реплика выхода, не «Растайсыз ба?».</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>crystal</code><br><span class='muted'>kk · system</span></td><td>Кристалл</td><td>Асыл тас</td><td>Термин «Кристалл» расходится с глоссарием. Норма: «Асыл тас». Предмет — асыл тас, не кристалл.</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>consonant_harmony</code></td><td><code>daily</code><br><span class='muted'>kk · system</span></td><td>Күнделікті бонуслар</td><td>Күнделікті бонустар</td><td>Дыбыс үндестігі: «бонуслар» → «бонустар».</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>friends</code><br><span class='muted'>kk · system</span></td><td>Друзья</td><td>Достар</td><td>Термин «Друзья» расходится с глоссарием. Норма: «Достар». В uz — doʻst. Различие языков допустимо.</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>number_plural</code></td><td><code>lives</code><br><span class='muted'>kk · system</span></td><td>{count} өмірлер</td><td>{count} өмір</td><td>После числа көптік не ставится: «өмірлер» → «өмір».</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>login</code><br><span class='muted'>kk · ui_button</span></td><td>Логин</td><td>Кіру</td><td>Термин «Логин» расходится с глоссарием. Норма: «Кіру». Кнопка входа, не транслит.</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>menu_settings</code><br><span class='muted'>kk · ui_button</span></td><td>Реттеулер</td><td>Баптаулар</td><td>Термин «Реттеулер» расходится с глоссарием. Норма: «Баптаулар». Орнату — это установка, реттеу — подкрутить значение. Для экрана настроек только баптау.</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>password</code><br><span class='muted'>kk · ui_button</span></td><td>Пароль</td><td>Құпиясөз</td><td>Термин «Пароль» расходится с глоссарием. Норма: «Құпиясөз». В kk — құпиясөз. В uz для того же концепта норма — parol.</td></tr>
+<tr><td class='high'>важно</td><td>ai</td><td><code>calque_ru</code></td><td><code>press</code><br><span class='muted'>kk · ui_button</span></td><td>Кнопке басыңыз</td><td>Батырманы басыңыз</td><td>Русское «кнопка» и чужой порядок слов. Термин — батырма, падеж винительный.</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>quest</code><br><span class='muted'>kk · system</span></td><td>Миссия</td><td>Тапсырма</td><td>Термин «Миссия» расходится с глоссарием. Норма: «Тапсырма». Квест — тапсырма.</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>consonant_harmony</code></td><td><code>songs</code><br><span class='muted'>kk · system</span></td><td>Әнлер</td><td>Әндер</td><td>Дыбыс үндестігі: «Әнлер» → «Әндер».</td></tr>
+<tr><td class='high'>важно</td><td>ai</td><td><code>calque_ru</code></td><td><code>sure</code><br><span class='muted'>kk · confirm</span></td><td>Сенімдісіз бе?</td><td>Растайсыз ба?</td><td>Калька «вы уверены». Меняется вся реплика, не частица.</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>vowel_harmony</code></td><td><code>books</code><br><span class='muted'>kk · system</span></td><td>Кітаплер</td><td>Кітаптар</td><td>Буын үндестігі: «Кітаплер» → «Кітаптар».</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>btn_back</code><br><span class='muted'>kk · ui_button</span></td><td>Назад</td><td>Артқа</td><td>Термин «Назад» расходится с глоссарием. Норма: «Артқа». Кнопка назад. Русское «Назад» в меню не оставлять.</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>uz_apostrophe</code></td><td><code>btn_play</code><br><span class='muted'>uz · ui_button</span></td><td>O&#x27;ynash</td><td>Oʻynash</td><td>Орфография oʻ/gʻ: «O&#x27;ynash» → «Oʻynash».</td></tr>
+<tr><td class='high'>важно</td><td>glossary</td><td><code>glossary_term</code></td><td><code>btn_settings</code><br><span class='muted'>uz · ui_button</span></td><td>Nastroykalar</td><td>Sozlamalar</td><td>Термин «Nastroykalar» расходится с глоссарием. Норма: «Sozlamalar». Калька с русского «настройки». Норма — sozlamalar.</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>uz_double_plural</code></td><td><code>count_books</code><br><span class='muted'>uz · shop</span></td><td>3 ta kitoblar</td><td>3 ta kitob</td><td>«ta» уже считает предмет, суффикс -lar лишний: «3 ta kitoblar» → «3 ta kitob».</td></tr>
+<tr><td class='high'>важно</td><td>ai</td><td><code>calque_ru</code></td><td><code>exit_q</code><br><span class='muted'>uz · confirm</span></td><td>Siz ishonchingiz komilmi?</td><td>Chiqasizmi?</td><td>Калька «вы уверены» в вопросе выхода. В игре это «Chiqasizmi?».</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>uz_apostrophe</code></td><td><code>gift_toast</code><br><span class='muted'>uz · toast</span></td><td>Sen sovg&#x27;a olding</td><td>Sen sovgʻa olding</td><td>Орфография oʻ/gʻ: «sovg&#x27;a» → «sovgʻa».</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>uz_apostrophe</code></td><td><code>btn_shop</code><br><span class='muted'>uz · ui_button</span></td><td>Dokon</td><td>Doʻkon</td><td>Орфография oʻ/gʻ: «Dokon» → «Doʻkon».</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>uz_plural_suffix</code></td><td><code>item_books</code><br><span class='muted'>uz · shop</span></td><td>kitobler</td><td>kitoblar</td><td>Чужой суффикс -ler: «kitobler» → «kitoblar».</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>uz_dative</code></td><td><code>item_heart</code><br><span class='muted'>uz · shop</span></td><td>yurakga</td><td>yurakka</td><td>Датив после k/q: «yurakga» → «yurakka».</td></tr>
+<tr><td class='high'>важно</td><td>technical</td><td><code>uz_locative</code></td><td><code>item_home</code><br><span class='muted'>uz · shop</span></td><td>uyde</td><td>uyda</td><td>Локатив -da: «uyde» → «uyda».</td></tr>
+<tr><td class='medium'>средне</td><td>glossary</td><td><code>glossary_inconsistency</code></td><td><code>btn_settings</code><br><span class='muted'>kk · ui_button</span></td><td>Настройкалар</td><td>Баптаулар</td><td>Источник «Settings» переведён по-разному: Настройкалар / Реттеулер. Норма глоссария: «Баптаулар».</td></tr>
+<tr><td class='medium'>средне</td><td>glossary</td><td><code>glossary_inconsistency</code></td><td><code>menu_settings</code><br><span class='muted'>kk · ui_button</span></td><td>Реттеулер</td><td>Баптаулар</td><td>Источник «Settings» переведён по-разному: Настройкалар / Реттеулер. Норма глоссария: «Баптаулар».</td></tr>
+    </tbody>
+  </table>
+</main>
+</body>
+</html>
