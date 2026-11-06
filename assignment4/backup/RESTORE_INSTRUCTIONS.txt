@@ -1,0 +1,14 @@
+Chrome bookmarks restore
+========================
+1. Open Google Chrome
+2. Menu (⋮) → Bookmarks → Bookmark manager
+   or go to chrome://bookmarks
+3. Menu in Bookmark manager → Import bookmarks
+4. Select chrome_bookmarks_backup.html
+5. Verify bookmarks appear in the bookmarks bar / Other bookmarks
+
+SQLite database restore
+=======================
+1. Copy student_test_backup.db to the desired location
+2. Open with: sqlite3 student_test_backup.db
+3. Run: .tables   and   SELECT * FROM students;
