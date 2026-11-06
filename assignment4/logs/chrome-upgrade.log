@@ -1,0 +1,28 @@
+=== Обновление только google-chrome-stable ===
+Fri Nov  6 01:36:58 PM UTC 2026
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  google-chrome-stable
+1 upgraded, 0 newly installed, 0 to remove and 23 not upgraded.
+Need to get 148 MB of archives.
+After this operation, 7,903 kB of additional disk space will be used.
+Get:1 https://dl.google.com/linux/chrome-stable/deb stable/main amd64 google-chrome-stable amd64 157.0.8103.38-1 [148 MB]
+Fetched 148 MB in 1s (136 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 96056 files and directories currently installed.)
+Preparing to unpack .../google-chrome-stable_157.0.8103.38-1_amd64.deb ...
+Unpacking google-chrome-stable (157.0.8103.38-1) over (156.0.8078.47-1) ...
+Setting up google-chrome-stable (157.0.8103.38-1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for bamfdaemon (0.5.6+22.04.20220217-0ubuntu5) ...
+Rebuilding /usr/share/applications/bamf-2.index...
+Processing triggers for desktop-file-utils (0.27-2build1) ...
+код выхода apt: 0
+
+=== Версия после обновления ===
+Google Chrome 157.0.8103.38 
+google-chrome-stable 157.0.8103.38-1
+=== ldd missing? ===
+недостающих библиотек нет
+Fri Nov  6 01:37:06 PM UTC 2026

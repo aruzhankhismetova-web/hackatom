@@ -1,0 +1,19 @@
+chrome://settings/content/camera {"ok":true,"tag":"settings-collapse-radio-button","checked":false}
+chrome://settings/content/microphone {"ok":true,"tag":"settings-collapse-radio-button","checked":false}
+chrome://settings/content/location {"ok":true,"tag":"settings-collapse-radio-button","checked":false}
+chrome://settings/content/notifications {"ok":true,"tag":"settings-collapse-radio-button","checked":false}
+chrome://settings/content/filesystem {"ok":true,"tag":"settings-collapse-radio-button","checked":false}
+TOGGLES []
+COOKIES [
+  "Third-party cookies",
+  "Allow third-party cookies",
+  "Site features that rely on third-party cookies should work as expected",
+  "When you're in Incognito mode, Chrome blocks sites from using third-party cookies",
+  "Block third-party cookies",
+  "Sites can still use cookies to see browsing activity on their own site",
+  "Site features that rely on third-party cookies may not work",
+  "Send a \"Do Not Track\" request with your browsing traffic",
+  "Sites allowed to use third-party cookies",
+  "Allow",
+  "Block"
+]

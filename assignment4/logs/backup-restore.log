@@ -1,0 +1,37 @@
+=== live integrity ===
+ok
+=== live rows ===
+id  item           detail                             
+--  -------------  -----------------------------------
+1   student        Сахташева Райхан                   
+2   date           6 ноября 2026                      
+3   os             Ubuntu 24.04.5 LTS x86_64          
+4   chrome_before  156.0.8078.47                      
+5   chrome_after   157.0.8103.38                      
+6   sqlitebrowser  3.12.2                             
+7   note           backup created with sqlite3 .backup
+=== restored rows ===
+id  item           detail                             
+--  -------------  -----------------------------------
+1   student        Сахташева Райхан                   
+2   date           6 ноября 2026                      
+3   os             Ubuntu 24.04.5 LTS x86_64          
+4   chrome_before  156.0.8078.47                      
+5   chrome_after   157.0.8103.38                      
+6   sqlitebrowser  3.12.2                             
+7   note           backup created with sqlite3 .backup
+=== backup integrity ===
+ok
+=== restored integrity ===
+ok
+=== files ===
+-rw-r--r-- 1 ubuntu ubuntu 8192 Nov  6 13:37 /workspace/assignment4/backups/maintenance_2026-11-06.db
+-rw-r--r-- 1 ubuntu ubuntu  637 Nov  6 13:37 /workspace/assignment4/backups/maintenance_2026-11-06.sql
+-rw-r--r-- 1 ubuntu ubuntu 8192 Nov  6 13:37 /workspace/assignment4/data/maintenance.db
+-rw-r--r-- 1 ubuntu ubuntu 8192 Nov  6 13:37 /workspace/assignment4/recovery/maintenance_restored.db
+fc272634d09cad1c7f93addd728e18b84b236f2c315ae164b4b9fc05cda968fb  /workspace/assignment4/data/maintenance.db
+3e9b580cf16d261b138d410f976456847f13db33d2bbadef277be0aa2fc1fbc3  /workspace/assignment4/backups/maintenance_2026-11-06.db
+633b90ce98fad251beaac154064dff0ea3b88e34b20de047a55ba31d7de15538  /workspace/assignment4/backups/maintenance_2026-11-06.sql
+3e9b580cf16d261b138d410f976456847f13db33d2bbadef277be0aa2fc1fbc3  /workspace/assignment4/recovery/maintenance_restored.db
+rows_match True
+row_count 7
