@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greenhouse — Ranchu loop</title>
+  <meta name="description" content="Monitor temperature, water chemistry, feed, and supplies for the Ranchu aquaponic loop." />
+  <meta name="theme-color" content="#0E1712" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <p class="eyebrow" id="eyebrow">Bed 2 · Ranchu loop</p>
+    <div class="title-row">
+      <h1>Greenhouse</h1>
+      <span class="chip" id="statusChip">Steady</span>
+    </div>
+    <p class="status-line" id="statusLine" aria-live="polite"></p>
+
+    <div class="tabs" id="tabs" role="tablist" aria-label="Day of the sample week">
+      <button type="button" class="tab" role="tab" id="tab-0" data-day="0">Wed</button>
+      <button type="button" class="tab" role="tab" id="tab-1" data-day="1">Thu</button>
+      <button type="button" class="tab" role="tab" id="tab-2" data-day="2">Fri</button>
+      <button type="button" class="tab" role="tab" id="tab-3" data-day="3">Sat</button>
+      <button type="button" class="tab" role="tab" id="tab-4" data-day="4">Sun</button>
+      <button type="button" class="tab" role="tab" id="tab-5" data-day="5">Mon</button>
+      <button type="button" class="tab" role="tab" id="tab-6" data-day="6">Tue</button>
+    </div>
+
+    <ul class="alerts" id="alerts" hidden></ul>
+
+    <div class="pills">
+      <article class="pill">
+        <div class="pill-head">
+          <div class="icon-box icon-water" aria-hidden="true">💧</div>
+          <span class="pill-label">Water</span>
+        </div>
+        <div class="pill-val"><span id="waterVal">--</span><span class="pill-unit">°C</span></div>
+      </article>
+      <article class="pill">
+        <div class="pill-head">
+          <div class="icon-box icon-house" aria-hidden="true">🌡</div>
+          <span class="pill-label">House</span>
+        </div>
+        <div class="pill-val"><span id="houseVal">--</span><span class="pill-unit">°C</span></div>
+      </article>
+      <article class="pill">
+        <div class="pill-head">
+          <div class="icon-box icon-out" aria-hidden="true">🌡</div>
+          <span class="pill-label">Outside</span>
+        </div>
+        <div class="pill-val"><span id="outsideVal">--</span><span class="pill-unit">°C</span></div>
+      </article>
+    </div>
+
+    <div class="board">
+      <section class="card wide">
+        <div class="card-title">Temperature, 7 days</div>
+        <div class="legend">
+          <div class="legend-item"><span class="dot" style="background:var(--water)"></span>Water</div>
+          <div class="legend-item"><span class="dot" style="background:var(--greenhouse)"></span>Greenhouse</div>
+          <div class="legend-item"><span class="dot" style="background:var(--outside)"></span>Outside</div>
+        </div>
+        <div class="chart-wrap">
+          <svg id="tempChart" class="chart" viewBox="0 0 335 150" role="img" aria-label="Water, greenhouse, and outside temperature across seven days"></svg>
+          <div class="tooltip" id="tempTip" hidden></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">🌿 Nitrogen pulled by plants</div>
+        <div class="chart-wrap">
+          <svg id="nitroChart" class="chart" viewBox="0 0 335 130" role="img" aria-label="Nitrogen pulled by plants, milligrams per liter"></svg>
+          <div class="tooltip" id="nitroTip" hidden></div>
+        </div>
+        <div class="foot-note" id="nitroNote"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">📟 Headroom for new plants</div>
+        <div class="gauge-row">
+          <div>
+            <div class="gauge-big" id="headroomVal">--</div>
+            <div class="gauge-sub">mg/L below 40 ceiling</div>
+          </div>
+          <div style="flex:1">
+            <div class="track"><div class="fill" id="headroomFill"></div></div>
+            <div class="track-note" id="headroomNote"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">⚗️ pH &amp; dissolved oxygen</div>
+        <div class="legend">
+          <div class="legend-item"><span class="dot" style="background:var(--water)"></span>DO (mg/L)</div>
+          <div class="legend-item"><span class="dot" style="background:var(--ph)"></span>pH</div>
+        </div>
+        <div class="chart-wrap">
+          <svg id="phDoChart" class="chart" viewBox="0 0 335 130" role="img" aria-label="Dissolved oxygen and pH across seven days"></svg>
+          <div class="tooltip" id="phDoTip" hidden></div>
+        </div>
+        <p class="foot-note">Grid is dissolved oxygen, mg/L. pH is drawn on its own 6.8–7.8 scale.</p>
+      </section>
+
+      <section class="card">
+        <div class="card-title">☠️ Ammonia: raw vs after biofilter</div>
+        <div class="legend">
+          <div class="legend-item"><span class="dot" style="background:var(--outside)"></span>Tank outlet (raw)</div>
+          <div class="legend-item"><span class="dot" style="background:var(--water)"></span>After biofilter</div>
+        </div>
+        <div class="chart-wrap">
+          <svg id="ammoniaChart" class="chart" viewBox="0 0 335 130" role="img" aria-label="Raw ammonia and ammonia after the biofilter"></svg>
+          <div class="tooltip" id="ammoniaTip" hidden></div>
+        </div>
+        <div class="foot-note" id="ammoniaNote"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">🧂 EC / nutrient concentration</div>
+        <div class="chart-wrap">
+          <svg id="ecChart" class="chart" viewBox="0 0 335 120" role="img" aria-label="Electrical conductivity in parts per million"></svg>
+          <div class="tooltip" id="ecTip" hidden></div>
+        </div>
+        <p class="foot-note">Rising trend · watch for salt buildup if it keeps climbing past <span class="hl">900</span></p>
+      </section>
+
+      <section class="card">
+        <div class="card-title">🐟 Feed vs fish biomass</div>
+        <div class="legend">
+          <div class="legend-item"><span class="dot" style="background:var(--greenhouse)"></span>Feed (kg/day)</div>
+          <div class="legend-item"><span class="dot" style="background:var(--biomass)"></span>Biomass (kg)</div>
+        </div>
+        <div class="chart-wrap">
+          <svg id="feedChart" class="chart" viewBox="0 0 335 130" role="img" aria-label="Daily feed and fish biomass"></svg>
+          <div class="tooltip" id="feedTip" hidden></div>
+        </div>
+        <p class="foot-note">Bars are feed, 0–0.3 kg/day. The line is biomass on a 17–19 kg scale.</p>
+      </section>
+
+      <section class="card wide" id="supplies">
+        <div class="card-title">🧰 Supplies &amp; levels</div>
+
+        <div class="supply-row">
+          <div class="supply-head">
+            <span class="supply-label">💧 Water level (sump tank)</span>
+            <div class="supply-side">
+              <button type="button" class="step" id="water-dec" data-supply="water" data-dir="-1" aria-label="Lower the sump reading by 10 percent">−</button>
+              <span class="supply-val" id="waterLevelVal">--</span>
+              <button type="button" class="step" id="water-inc" data-supply="water" data-dir="1" aria-label="Raise the sump reading by 10 percent">+</button>
+            </div>
+          </div>
+          <div class="track"><div class="fill water" id="waterLevelFill"></div></div>
+          <div class="track-note" id="waterLevelNote"></div>
+        </div>
+
+        <div class="supply-row">
+          <div class="supply-head">
+            <span class="supply-label">🐟 Fish feed stock</span>
+            <div class="supply-side">
+              <button type="button" class="step" id="feed-dec" data-supply="feed" data-dir="-1" aria-label="Remove 2.5 kilograms of fish feed">−</button>
+              <span class="supply-val" id="feedStockVal">--</span>
+              <button type="button" class="step" id="feed-inc" data-supply="feed" data-dir="1" aria-label="Add 2.5 kilograms of fish feed">+</button>
+            </div>
+          </div>
+          <div class="track"><div class="fill feed" id="feedStockFill"></div></div>
+          <div class="track-note" id="feedStockNote"></div>
+        </div>
+
+        <div class="supply-row">
+          <div class="supply-head">
+            <span class="supply-label">🧪 pH buffer solution</span>
+            <div class="supply-side">
+              <button type="button" class="step" id="ph-dec" data-supply="ph" data-dir="-1" aria-label="Use 100 milliliters of pH buffer">−</button>
+              <span class="supply-val" id="phBufferVal">--</span>
+              <button type="button" class="step" id="ph-inc" data-supply="ph" data-dir="1" aria-label="Add 100 milliliters of pH buffer">+</button>
+            </div>
+          </div>
+          <div class="track"><div class="fill ph" id="phBufferFill"></div></div>
+          <div class="track-note" id="phBufferNote"></div>
+        </div>
+
+        <div class="supply-row">
+          <div class="supply-head">
+            <span class="supply-label">🌱 Nutrient / EC dosing solution</span>
+            <div class="supply-side">
+              <button type="button" class="step" id="nutrient-dec" data-supply="nutrient" data-dir="-1" aria-label="Use 0.4 liters of nutrient solution">−</button>
+              <span class="supply-val" id="nutrientVal">--</span>
+              <button type="button" class="step" id="nutrient-inc" data-supply="nutrient" data-dir="1" aria-label="Add 0.4 liters of nutrient solution">+</button>
+            </div>
+          </div>
+          <div class="track"><div class="fill nutrient" id="nutrientFill"></div></div>
+          <div class="track-note" id="nutrientNote"></div>
+        </div>
+
+        <button type="button" class="text-btn" id="resetSupplies" hidden>Reset sample levels</button>
+      </section>
+    </div>
+
+    <p class="footer">Sample week from the Ranchu loop log. Stock changes stay in this browser.</p>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
