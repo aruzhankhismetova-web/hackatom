@@ -1,0 +1,8 @@
+Telegram/
+telegram.tar.xz
+downloads/
+screenshots/*.png
+screenshots/SUMMARY.txt
+screenshots/sqlite_*.txt
+!deliverables/
+screenshots/
