@@ -1,0 +1,35 @@
+[14146:14171:1106/133742.662015:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14171:1106/133742.733796:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14171:1106/133742.734084:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14175:1106/133742.735628:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14175:1106/133742.735646:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14175:1106/133742.735653:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14171:1106/133742.761959:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+
+DevTools listening on ws://127.0.0.1:9223/devtools/browser/b3c70302-898c-459e-b508-a7511a8b579f
+[14146:14171:1106/133742.787035:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14171:1106/133742.787049:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14146:1106/133742.826951:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[14146:14171:1106/133742.827052:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14146:1106/133742.827743:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[14146:14171:1106/133742.827767:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14146:1106/133742.829561:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[14146:14171:1106/133742.829614:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14146:1106/133742.847776:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[14146:14146:1106/133742.847829:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[14146:14171:1106/133742.848313:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14146:1106/133742.851196:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[14146:14146:1106/133742.861711:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[14146:14146:1106/133742.861746:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[14146:14171:1106/133742.862334:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[14146:14146:1106/133742.868009:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[14146:14171:1106/133742.868053:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+Created TensorFlow Lite XNNPACK delegate for CPU.
+[14146:14146:1106/133742.873481:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[14146:14172:1106/133849.021528:ERROR:extensions/browser/content_verifier/content_verify_job.cc:493] Content verify job failed for extension: kbglekiebdohdafflpmiejhbfdmjdbbe at path: background_compiled.js and for reason:1
+[14146:14146:1106/134223.822147:ERROR:CONSOLE:4] "Uncaught (in promise) Error: Assertion failed: setPrefValue called before PrefService initialized, for pref 'privacy_guide.viewed'", source: chrome://settings/shared.rollup.js (4)
+[14146:14146:1106/134226.132327:ERROR:CONSOLE:4] "Uncaught (in promise) Error: Assertion failed: setPrefValue called before PrefService initialized, for pref 'privacy_guide.viewed'", source: chrome://settings/shared.rollup.js (4)
+[14146:14146:1106/134228.470842:ERROR:CONSOLE:4] "Uncaught (in promise) Error: Assertion failed: setPrefValue called before PrefService initialized, for pref 'privacy_guide.viewed'", source: chrome://settings/shared.rollup.js (4)
+[14146:14146:1106/134230.788000:ERROR:CONSOLE:4] "Uncaught (in promise) Error: Assertion failed: setPrefValue called before PrefService initialized, for pref 'privacy_guide.viewed'", source: chrome://settings/shared.rollup.js (4)
+[14146:14146:1106/134233.100922:ERROR:CONSOLE:4] "Uncaught (in promise) Error: Assertion failed: setPrefValue called before PrefService initialized, for pref 'privacy_guide.viewed'", source: chrome://settings/shared.rollup.js (4)
+[14146:14146:1106/134237.727897:ERROR:CONSOLE:4] "Uncaught (in promise) Error: Assertion failed: setPrefValue called before PrefService initialized, for pref 'privacy_guide.viewed'", source: chrome://settings/shared.rollup.js (4)

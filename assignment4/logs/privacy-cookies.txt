@@ -1,0 +1,39 @@
+block {"ok":true,"tag":"settings-collapse-radio-button"}
+dnt {"ok":true,"tag":"settings-toggle-button"}
+SYNC {
+  "href": "chrome://settings/people",
+  "lines": [
+    "Search settings",
+    "Autofill and passwords",
+    "Performance",
+    "Search engine",
+    "No search results found",
+    "To get your passwords, bookmarks, and more on all your devices, sign in to Chrome",
+    "Sign in to Chrome",
+    "Sync and Google services",
+    "Google services",
+    "Settings saved. Sync started.",
+    "Sync is disabled by your administrator.",
+    "Sync",
+    "Manage what you sync",
+    "Control how browsing history is used with your other data across Google services",
+    "Use Google’s default encryption for the passwords in your Google Account",
+    "Other Google services",
+    "Sign in to Chrome when you sign in to other Google services",
+    "When signing into Google services like Gmail or Youtube with , you can automatically sign in to Chrome with the same account",
+    "Sign in",
+    "Don’t sign in",
+    "Shows prompts to sign in to Chrome",
+    "Help improve Chrome's features and performance",
+    "Automatically sends usage statistics and crash reports to Google",
+    "Make searches and browsing better",
+    "Enhanced spell check",
+    "To fix spelling errors, Chrome sends the text you type in the browser to Google",
+    "Improve search suggestions",
+    "Choice saved. Your choice will apply when you sign in to other Google services.",
+    "Sync everything",
+    "Customize sync",
+    "Sync data",
+    "Passwords and passkeys"
+  ]
+}
