@@ -1,0 +1,752 @@
+========================================================================
+Part 2. All records from Students
+SELECT *
+FROM Students;
+student_id | last_name   | first_name | birth_date | gender | phone          | email                                          | group_id
+-----------+-------------+------------+------------+--------+----------------+------------------------------------------------+---------
+1001       | Aliyeva     | Aruzhan    | 2004-01-05 | F      | +7-707-2000000 | aruzhan.aliyeva@student.university.example     | 1       
+1002       | Baimukhan   | Nursultan  | 2005-02-06 | M      | +7-707-2000001 | nursultan.baimukhan@student.university.example | 2       
+1003       | Suleimenova | Amina      | 2006-03-07 | F      | +7-707-2000002 | amina.suleimenova@student.university.example   | 3       
+1004       | Kairatov    | Dias       | 2004-04-08 | M      | +7-707-2000003 | dias.kairatov@student.university.example       | 4       
+1005       | Zholdas     | Madina     | 2005-05-09 | F      | +7-707-2000004 | madina.zholdas@student.university.example      | 5       
+1006       | Tursyn      | Alikhan    | 2006-06-10 | M      | +7-707-2000005 | alikhan.tursyn@student.university.example      | 6       
+1007       | Mukhanova   | Dana       | 2004-07-11 | F      | +7-707-2000006 | dana.mukhanova@student.university.example      | 7       
+1008       | Yessen      | Islam      | 2005-08-12 | M      | +7-707-2000007 | islam.yessen@student.university.example        | 8       
+1009       | Beketova    | Aigerim    | 2006-09-13 | F      | +7-707-2000008 | aigerim.beketova@student.university.example    | 9       
+1010       | Ospan       | Miras      | 2004-10-14 | M      | +7-707-2000009 | miras.ospan@student.university.example         | 10      
+1011       | Zhakupova   | Kamila     | 2005-11-15 | F      | +7-707-2000010 | kamila.zhakupova@student.university.example    | 11      
+1012       | Abilov      | Sanzhar    | 2006-12-16 | M      | +7-707-2000011 | sanzhar.abilov@student.university.example      | 12      
+1013       | Kaliyeva    | Zarina     | 2004-01-17 | F      | +7-707-2000012 | zarina.kaliyeva@student.university.example     | 13      
+1014       | Amanzhol    | Timur      | 2005-02-18 | M      | +7-707-2000013 | timur.amanzhol@student.university.example      | 14      
+1015       | Serik       | Ademi      | 2006-03-19 | F      | +7-707-2000014 | ademi.serik@student.university.example         | 15      
+(15 rows)
+
+========================================================================
+Part 2. Student id, first name and last name
+SELECT student_id, first_name, last_name
+FROM Students;
+student_id | first_name | last_name  
+-----------+------------+------------
+1001       | Aruzhan    | Aliyeva    
+1002       | Nursultan  | Baimukhan  
+1003       | Amina      | Suleimenova
+1004       | Dias       | Kairatov   
+1005       | Madina     | Zholdas    
+1006       | Alikhan    | Tursyn     
+1007       | Dana       | Mukhanova  
+1008       | Islam      | Yessen     
+1009       | Aigerim    | Beketova   
+1010       | Miras      | Ospan      
+1011       | Kamila     | Zhakupova  
+1012       | Sanzhar    | Abilov     
+1013       | Zarina     | Kaliyeva   
+1014       | Timur      | Amanzhol   
+1015       | Ademi      | Serik      
+(15 rows)
+
+========================================================================
+Part 2. All records from Groups
+SELECT *
+FROM Groups;
+group_id | group_name | year_of_study | specialty           
+---------+------------+---------------+---------------------
+1        | IT-21      | 1             | Software Engineering
+2        | IT-22      | 1             | Software Engineering
+3        | IT-23      | 1             | Software Engineering
+4        | IT-24      | 1             | Software Engineering
+5        | IT-25      | 1             | Software Engineering
+6        | IT-26      | 2             | Information Systems 
+7        | IT-27      | 2             | Information Systems 
+8        | IT-28      | 2             | Information Systems 
+9        | IT-29      | 2             | Information Systems 
+10       | IT-30      | 2             | Information Systems 
+11       | IT-31      | 3             | Computer Science    
+12       | IT-32      | 3             | Computer Science    
+13       | IT-33      | 3             | Computer Science    
+14       | IT-34      | 3             | Computer Science    
+15       | IT-35      | 3             | Computer Science    
+(15 rows)
+
+========================================================================
+Part 2. Names of all subjects
+SELECT course_name
+FROM Courses;
+course_name                
+---------------------------
+Database Systems           
+Programming Fundamentals   
+Discrete Mathematics       
+Physics for IT             
+Academic English           
+Object-Oriented Programming
+Web Development            
+Information Systems        
+Network Security           
+Data Analytics             
+Software Testing           
+Project Management         
+Statistics                 
+Artificial Intelligence    
+Engineering Basics         
+(15 rows)
+
+========================================================================
+Part 3. Students in the selected group
+SELECT *
+FROM Students
+WHERE group_id = 1;
+student_id | last_name | first_name | birth_date | gender | phone          | email                                      | group_id
+-----------+-----------+------------+------------+--------+----------------+--------------------------------------------+---------
+1001       | Aliyeva   | Aruzhan    | 2004-01-05 | F      | +7-707-2000000 | aruzhan.aliyeva@student.university.example | 1       
+(1 row)
+
+========================================================================
+Part 3. Students in alphabetical order
+SELECT *
+FROM Students
+ORDER BY last_name ASC;
+student_id | last_name   | first_name | birth_date | gender | phone          | email                                          | group_id
+-----------+-------------+------------+------------+--------+----------------+------------------------------------------------+---------
+1012       | Abilov      | Sanzhar    | 2006-12-16 | M      | +7-707-2000011 | sanzhar.abilov@student.university.example      | 12      
+1001       | Aliyeva     | Aruzhan    | 2004-01-05 | F      | +7-707-2000000 | aruzhan.aliyeva@student.university.example     | 1       
+1014       | Amanzhol    | Timur      | 2005-02-18 | M      | +7-707-2000013 | timur.amanzhol@student.university.example      | 14      
+1002       | Baimukhan   | Nursultan  | 2005-02-06 | M      | +7-707-2000001 | nursultan.baimukhan@student.university.example | 2       
+1009       | Beketova    | Aigerim    | 2006-09-13 | F      | +7-707-2000008 | aigerim.beketova@student.university.example    | 9       
+1004       | Kairatov    | Dias       | 2004-04-08 | M      | +7-707-2000003 | dias.kairatov@student.university.example       | 4       
+1013       | Kaliyeva    | Zarina     | 2004-01-17 | F      | +7-707-2000012 | zarina.kaliyeva@student.university.example     | 13      
+1007       | Mukhanova   | Dana       | 2004-07-11 | F      | +7-707-2000006 | dana.mukhanova@student.university.example      | 7       
+1010       | Ospan       | Miras      | 2004-10-14 | M      | +7-707-2000009 | miras.ospan@student.university.example         | 10      
+1015       | Serik       | Ademi      | 2006-03-19 | F      | +7-707-2000014 | ademi.serik@student.university.example         | 15      
+1003       | Suleimenova | Amina      | 2006-03-07 | F      | +7-707-2000002 | amina.suleimenova@student.university.example   | 3       
+1006       | Tursyn      | Alikhan    | 2006-06-10 | M      | +7-707-2000005 | alikhan.tursyn@student.university.example      | 6       
+1008       | Yessen      | Islam      | 2005-08-12 | M      | +7-707-2000007 | islam.yessen@student.university.example        | 8       
+1011       | Zhakupova   | Kamila     | 2005-11-15 | F      | +7-707-2000010 | kamila.zhakupova@student.university.example    | 11      
+1005       | Zholdas     | Madina     | 2005-05-09 | F      | +7-707-2000004 | madina.zholdas@student.university.example      | 5       
+(15 rows)
+
+========================================================================
+Part 3. Total number of students
+SELECT COUNT(*) AS student_count
+FROM Students;
+student_count
+-------------
+15           
+(1 row)
+
+========================================================================
+Part 3. Number of students in each group
+SELECT group_id, COUNT(*) AS student_count
+FROM Students
+GROUP BY group_id
+ORDER BY group_id;
+group_id | student_count
+---------+--------------
+1        | 1            
+2        | 1            
+3        | 1            
+4        | 1            
+5        | 1            
+6        | 1            
+7        | 1            
+8        | 1            
+9        | 1            
+10       | 1            
+11       | 1            
+12       | 1            
+13       | 1            
+14       | 1            
+15       | 1            
+(15 rows)
+
+========================================================================
+Part 3. Maximum grade
+SELECT MAX(grade_value) AS maximum_grade
+FROM Grades;
+maximum_grade
+-------------
+96           
+(1 row)
+
+========================================================================
+Part 3. Minimum grade
+SELECT MIN(grade_value) AS minimum_grade
+FROM Grades;
+minimum_grade
+-------------
+61           
+(1 row)
+
+========================================================================
+Part 3. Average grade
+SELECT AVG(grade_value) AS average_grade
+FROM Grades;
+average_grade    
+-----------------
+77.73333333333333
+(1 row)
+
+========================================================================
+Part 4. Student name and group name
+SELECT
+    Students.student_id,
+    Students.first_name,
+    Students.last_name,
+    Groups.group_name,
+    Groups.specialty,
+    Groups.year_of_study
+FROM Students
+INNER JOIN Groups
+    ON Students.group_id = Groups.group_id
+ORDER BY Students.last_name, Students.first_name;
+student_id | first_name | last_name   | group_name | specialty            | year_of_study
+-----------+------------+-------------+------------+----------------------+--------------
+1012       | Sanzhar    | Abilov      | IT-32      | Computer Science     | 3            
+1001       | Aruzhan    | Aliyeva     | IT-21      | Software Engineering | 1            
+1014       | Timur      | Amanzhol    | IT-34      | Computer Science     | 3            
+1002       | Nursultan  | Baimukhan   | IT-22      | Software Engineering | 1            
+1009       | Aigerim    | Beketova    | IT-29      | Information Systems  | 2            
+1004       | Dias       | Kairatov    | IT-24      | Software Engineering | 1            
+1013       | Zarina     | Kaliyeva    | IT-33      | Computer Science     | 3            
+1007       | Dana       | Mukhanova   | IT-27      | Information Systems  | 2            
+1010       | Miras      | Ospan       | IT-30      | Information Systems  | 2            
+1015       | Ademi      | Serik       | IT-35      | Computer Science     | 3            
+1003       | Amina      | Suleimenova | IT-23      | Software Engineering | 1            
+1006       | Alikhan    | Tursyn      | IT-26      | Information Systems  | 2            
+1008       | Islam      | Yessen      | IT-28      | Information Systems  | 2            
+1011       | Kamila     | Zhakupova   | IT-31      | Computer Science     | 3            
+1005       | Madina     | Zholdas     | IT-25      | Software Engineering | 1            
+(15 rows)
+
+========================================================================
+Part 4. Students and their grades
+SELECT
+    Students.student_id,
+    Students.first_name,
+    Students.last_name,
+    Grades.course_id,
+    Grades.grade_value,
+    Grades.grade_date
+FROM Students
+INNER JOIN Grades
+    ON Students.student_id = Grades.student_id
+ORDER BY Students.last_name, Students.first_name;
+student_id | first_name | last_name   | course_id | grade_value | grade_date
+-----------+------------+-------------+-----------+-------------+-----------
+1012       | Sanzhar    | Abilov      | 12        | 62          | 2026-05-12
+1001       | Aruzhan    | Aliyeva     | 1         | 67          | 2026-05-01
+1014       | Timur      | Amanzhol    | 14        | 76          | 2026-05-14
+1002       | Nursultan  | Baimukhan   | 2         | 74          | 2026-05-02
+1009       | Aigerim    | Beketova    | 9         | 82          | 2026-05-09
+1004       | Dias       | Kairatov    | 4         | 88          | 2026-05-04
+1013       | Zarina     | Kaliyeva    | 13        | 69          | 2026-05-13
+1007       | Dana       | Mukhanova   | 7         | 68          | 2026-05-07
+1010       | Miras      | Ospan       | 10        | 89          | 2026-05-10
+1015       | Ademi      | Serik       | 15        | 83          | 2026-05-15
+1003       | Amina      | Suleimenova | 3         | 81          | 2026-05-03
+1006       | Alikhan    | Tursyn      | 6         | 61          | 2026-05-06
+1008       | Islam      | Yessen      | 8         | 75          | 2026-05-08
+1011       | Kamila     | Zhakupova   | 11        | 96          | 2026-05-11
+1005       | Madina     | Zholdas     | 5         | 95          | 2026-05-05
+(15 rows)
+
+========================================================================
+Part 4. Student name, subject and grade
+SELECT
+    Students.first_name,
+    Students.last_name,
+    Courses.course_name AS subject,
+    Grades.grade_value,
+    Grades.grade_date
+FROM Students
+INNER JOIN Grades
+    ON Students.student_id = Grades.student_id
+INNER JOIN Courses
+    ON Grades.course_id = Courses.course_id
+ORDER BY Students.last_name, Students.first_name;
+first_name | last_name   | subject                     | grade_value | grade_date
+-----------+-------------+-----------------------------+-------------+-----------
+Sanzhar    | Abilov      | Project Management          | 62          | 2026-05-12
+Aruzhan    | Aliyeva     | Database Systems            | 67          | 2026-05-01
+Timur      | Amanzhol    | Artificial Intelligence     | 76          | 2026-05-14
+Nursultan  | Baimukhan   | Programming Fundamentals    | 74          | 2026-05-02
+Aigerim    | Beketova    | Network Security            | 82          | 2026-05-09
+Dias       | Kairatov    | Physics for IT              | 88          | 2026-05-04
+Zarina     | Kaliyeva    | Statistics                  | 69          | 2026-05-13
+Dana       | Mukhanova   | Web Development             | 68          | 2026-05-07
+Miras      | Ospan       | Data Analytics              | 89          | 2026-05-10
+Ademi      | Serik       | Engineering Basics          | 83          | 2026-05-15
+Amina      | Suleimenova | Discrete Mathematics        | 81          | 2026-05-03
+Alikhan    | Tursyn      | Object-Oriented Programming | 61          | 2026-05-06
+Islam      | Yessen      | Information Systems         | 75          | 2026-05-08
+Kamila     | Zhakupova   | Software Testing            | 96          | 2026-05-11
+Madina     | Zholdas     | Academic English            | 95          | 2026-05-05
+(15 rows)
+
+========================================================================
+Part 4. INNER JOIN: departments and courses
+SELECT
+    Departments.department_name,
+    Courses.course_name
+FROM Departments
+INNER JOIN Courses
+    ON Departments.department_id = Courses.department_id
+ORDER BY Departments.department_id, Courses.course_name;
+department_name         | course_name                
+------------------------+----------------------------
+Computer Science        | Database Systems           
+Information Technology  | Programming Fundamentals   
+Information Technology  | Web Development            
+Mathematics             | Discrete Mathematics       
+Physics                 | Physics for IT             
+Languages               | Academic English           
+Software Engineering    | Object-Oriented Programming
+Software Engineering    | Software Testing           
+Information Systems     | Information Systems        
+Cybersecurity           | Network Security           
+Data Science            | Data Analytics             
+Engineering             | Engineering Basics         
+Management              | Project Management         
+Statistics              | Statistics                 
+Artificial Intelligence | Artificial Intelligence    
+(15 rows)
+
+========================================================================
+Part 4. LEFT JOIN: every department
+SELECT
+    Departments.department_name,
+    Courses.course_name
+FROM Departments
+LEFT JOIN Courses
+    ON Departments.department_id = Courses.department_id
+ORDER BY Departments.department_id, Courses.course_name;
+department_name         | course_name                
+------------------------+----------------------------
+Computer Science        | Database Systems           
+Information Technology  | Programming Fundamentals   
+Information Technology  | Web Development            
+Mathematics             | Discrete Mathematics       
+Physics                 | Physics for IT             
+Languages               | Academic English           
+Software Engineering    | Object-Oriented Programming
+Software Engineering    | Software Testing           
+Information Systems     | Information Systems        
+Cybersecurity           | Network Security           
+Data Science            | Data Analytics             
+Engineering             | Engineering Basics         
+Economics               | NULL                       
+Management              | Project Management         
+Statistics              | Statistics                 
+Artificial Intelligence | Artificial Intelligence    
+General Studies         | NULL                       
+(17 rows)
+
+========================================================================
+Part 4. One student before and after the JOIN
+SELECT
+    'Students table' AS source_table,
+    student_id,
+    first_name,
+    last_name,
+    CAST(group_id AS TEXT) AS group_info
+FROM Students
+WHERE student_id = 1001
+UNION ALL
+SELECT
+    'Students JOIN Groups' AS source_table,
+    Students.student_id,
+    Students.first_name,
+    Students.last_name,
+    Groups.group_name
+FROM Students
+INNER JOIN Groups
+    ON Students.group_id = Groups.group_id
+WHERE Students.student_id = 1001;
+source_table         | student_id | first_name | last_name | group_info
+---------------------+------------+------------+-----------+-----------
+Students table       | 1001       | Aruzhan    | Aliyeva   | 1         
+Students JOIN Groups | 1001       | Aruzhan    | Aliyeva   | IT-21     
+(2 rows)
+
+========================================================================
+Topic 7 as SQL. Sort students by last name
+SELECT *
+FROM Students
+ORDER BY last_name ASC, first_name ASC;
+student_id | last_name   | first_name | birth_date | gender | phone          | email                                          | group_id
+-----------+-------------+------------+------------+--------+----------------+------------------------------------------------+---------
+1012       | Abilov      | Sanzhar    | 2006-12-16 | M      | +7-707-2000011 | sanzhar.abilov@student.university.example      | 12      
+1001       | Aliyeva     | Aruzhan    | 2004-01-05 | F      | +7-707-2000000 | aruzhan.aliyeva@student.university.example     | 1       
+1014       | Amanzhol    | Timur      | 2005-02-18 | M      | +7-707-2000013 | timur.amanzhol@student.university.example      | 14      
+1002       | Baimukhan   | Nursultan  | 2005-02-06 | M      | +7-707-2000001 | nursultan.baimukhan@student.university.example | 2       
+1009       | Beketova    | Aigerim    | 2006-09-13 | F      | +7-707-2000008 | aigerim.beketova@student.university.example    | 9       
+1004       | Kairatov    | Dias       | 2004-04-08 | M      | +7-707-2000003 | dias.kairatov@student.university.example       | 4       
+1013       | Kaliyeva    | Zarina     | 2004-01-17 | F      | +7-707-2000012 | zarina.kaliyeva@student.university.example     | 13      
+1007       | Mukhanova   | Dana       | 2004-07-11 | F      | +7-707-2000006 | dana.mukhanova@student.university.example      | 7       
+1010       | Ospan       | Miras      | 2004-10-14 | M      | +7-707-2000009 | miras.ospan@student.university.example         | 10      
+1015       | Serik       | Ademi      | 2006-03-19 | F      | +7-707-2000014 | ademi.serik@student.university.example         | 15      
+1003       | Suleimenova | Amina      | 2006-03-07 | F      | +7-707-2000002 | amina.suleimenova@student.university.example   | 3       
+1006       | Tursyn      | Alikhan    | 2006-06-10 | M      | +7-707-2000005 | alikhan.tursyn@student.university.example      | 6       
+1008       | Yessen      | Islam      | 2005-08-12 | M      | +7-707-2000007 | islam.yessen@student.university.example        | 8       
+1011       | Zhakupova   | Kamila     | 2005-11-15 | F      | +7-707-2000010 | kamila.zhakupova@student.university.example    | 11      
+1005       | Zholdas     | Madina     | 2005-05-09 | F      | +7-707-2000004 | madina.zholdas@student.university.example      | 5       
+(15 rows)
+
+========================================================================
+Topic 7 as SQL. Sort students by group
+SELECT *
+FROM Students
+ORDER BY group_id ASC, last_name ASC;
+student_id | last_name   | first_name | birth_date | gender | phone          | email                                          | group_id
+-----------+-------------+------------+------------+--------+----------------+------------------------------------------------+---------
+1001       | Aliyeva     | Aruzhan    | 2004-01-05 | F      | +7-707-2000000 | aruzhan.aliyeva@student.university.example     | 1       
+1002       | Baimukhan   | Nursultan  | 2005-02-06 | M      | +7-707-2000001 | nursultan.baimukhan@student.university.example | 2       
+1003       | Suleimenova | Amina      | 2006-03-07 | F      | +7-707-2000002 | amina.suleimenova@student.university.example   | 3       
+1004       | Kairatov    | Dias       | 2004-04-08 | M      | +7-707-2000003 | dias.kairatov@student.university.example       | 4       
+1005       | Zholdas     | Madina     | 2005-05-09 | F      | +7-707-2000004 | madina.zholdas@student.university.example      | 5       
+1006       | Tursyn      | Alikhan    | 2006-06-10 | M      | +7-707-2000005 | alikhan.tursyn@student.university.example      | 6       
+1007       | Mukhanova   | Dana       | 2004-07-11 | F      | +7-707-2000006 | dana.mukhanova@student.university.example      | 7       
+1008       | Yessen      | Islam      | 2005-08-12 | M      | +7-707-2000007 | islam.yessen@student.university.example        | 8       
+1009       | Beketova    | Aigerim    | 2006-09-13 | F      | +7-707-2000008 | aigerim.beketova@student.university.example    | 9       
+1010       | Ospan       | Miras      | 2004-10-14 | M      | +7-707-2000009 | miras.ospan@student.university.example         | 10      
+1011       | Zhakupova   | Kamila     | 2005-11-15 | F      | +7-707-2000010 | kamila.zhakupova@student.university.example    | 11      
+1012       | Abilov      | Sanzhar    | 2006-12-16 | M      | +7-707-2000011 | sanzhar.abilov@student.university.example      | 12      
+1013       | Kaliyeva    | Zarina     | 2004-01-17 | F      | +7-707-2000012 | zarina.kaliyeva@student.university.example     | 13      
+1014       | Amanzhol    | Timur      | 2005-02-18 | M      | +7-707-2000013 | timur.amanzhol@student.university.example      | 14      
+1015       | Serik       | Ademi      | 2006-03-19 | F      | +7-707-2000014 | ademi.serik@student.university.example         | 15      
+(15 rows)
+
+========================================================================
+Topic 7 as SQL. Filter one group
+SELECT *
+FROM Students
+WHERE group_id = 1
+ORDER BY last_name;
+student_id | last_name | first_name | birth_date | gender | phone          | email                                      | group_id
+-----------+-----------+------------+------------+--------+----------------+--------------------------------------------+---------
+1001       | Aliyeva   | Aruzhan    | 2004-01-05 | F      | +7-707-2000000 | aruzhan.aliyeva@student.university.example | 1       
+(1 row)
+
+========================================================================
+Topic 7 as SQL. Search by student id
+SELECT *
+FROM Students
+WHERE student_id = 1001;
+student_id | last_name | first_name | birth_date | gender | phone          | email                                      | group_id
+-----------+-----------+------------+------------+--------+----------------+--------------------------------------------+---------
+1001       | Aliyeva   | Aruzhan    | 2004-01-05 | F      | +7-707-2000000 | aruzhan.aliyeva@student.university.example | 1       
+(1 row)
+
+========================================================================
+Topic 7 as SQL. Search by last name
+SELECT *
+FROM Students
+WHERE last_name COLLATE NOCASE = 'Aliyeva';
+student_id | last_name | first_name | birth_date | gender | phone          | email                                      | group_id
+-----------+-----------+------------+------------+--------+----------------+--------------------------------------------+---------
+1001       | Aliyeva   | Aruzhan    | 2004-01-05 | F      | +7-707-2000000 | aruzhan.aliyeva@student.university.example | 1       
+(1 row)
+
+========================================================================
+Topic 7 as SQL. Filter with two conditions
+SELECT *
+FROM Students
+WHERE gender = 'F'
+  AND group_id <= 5
+ORDER BY group_id, last_name;
+student_id | last_name   | first_name | birth_date | gender | phone          | email                                        | group_id
+-----------+-------------+------------+------------+--------+----------------+----------------------------------------------+---------
+1001       | Aliyeva     | Aruzhan    | 2004-01-05 | F      | +7-707-2000000 | aruzhan.aliyeva@student.university.example   | 1       
+1003       | Suleimenova | Amina      | 2006-03-07 | F      | +7-707-2000002 | amina.suleimenova@student.university.example | 3       
+1005       | Zholdas     | Madina     | 2005-05-09 | F      | +7-707-2000004 | madina.zholdas@student.university.example    | 5       
+(3 rows)
+
+========================================================================
+Extra. Practice 1. Students in a selected group
+SELECT student_id, last_name, first_name, group_id
+FROM Students
+WHERE group_id = (SELECT selected_group_id FROM settings)
+ORDER BY last_name;
+student_id | last_name | first_name | group_id
+-----------+-----------+------------+---------
+1001       | Aliyeva   | Aruzhan    | 1       
+(1 row)
+
+========================================================================
+Extra. Practice 1. Group of a selected student
+SELECT
+    s.student_id, s.last_name, s.first_name,
+    g.group_name, g.year_of_study, g.specialty
+FROM Students s
+INNER JOIN Groups g ON s.group_id = g.group_id
+WHERE s.student_id = (SELECT search_student_id FROM settings);
+student_id | last_name | first_name | group_name | year_of_study | specialty           
+-----------+-----------+------------+------------+---------------+---------------------
+1001       | Aliyeva   | Aruzhan    | IT-21      | 1             | Software Engineering
+(1 row)
+
+========================================================================
+Extra. Practice 1. Courses a student studies
+SELECT s.last_name, s.first_name, c.course_name, c.credits, c.semester
+FROM Students s
+INNER JOIN Schedule sch ON sch.group_id = s.group_id
+INNER JOIN Courses c ON c.course_id = sch.course_id
+WHERE s.student_id = (SELECT search_student_id FROM settings)
+ORDER BY c.course_name;
+last_name | first_name | course_name      | credits | semester
+----------+------------+------------------+---------+---------
+Aliyeva   | Aruzhan    | Database Systems | 5       | 1       
+(1 row)
+
+========================================================================
+Extra. Practice 1. Grades of a selected student
+SELECT s.last_name, s.first_name, c.course_name, g.grade_value, g.grade_date
+FROM Students s
+INNER JOIN Grades g ON g.student_id = s.student_id
+INNER JOIN Courses c ON c.course_id = g.course_id
+WHERE s.student_id = (SELECT search_student_id FROM settings)
+ORDER BY g.grade_date;
+last_name | first_name | course_name      | grade_value | grade_date
+----------+------------+------------------+-------------+-----------
+Aliyeva   | Aruzhan    | Database Systems | 67          | 2026-05-01
+(1 row)
+
+========================================================================
+Extra. Practice 1. Average grade of a selected student
+SELECT
+    s.last_name,
+    s.first_name,
+    ROUND(AVG(g.grade_value), 2) AS average_grade
+FROM Students s
+INNER JOIN Grades g ON g.student_id = s.student_id
+WHERE s.student_id = (SELECT search_student_id FROM settings)
+GROUP BY s.student_id, s.last_name, s.first_name;
+last_name | first_name | average_grade
+----------+------------+--------------
+Aliyeva   | Aruzhan    | 67.0         
+(1 row)
+
+========================================================================
+Extra. Practice 1. Teacher of a selected course
+SELECT c.course_name, t.first_name, t.last_name, t.academic_degree
+FROM Courses c
+INNER JOIN Schedule sch ON sch.course_id = c.course_id
+INNER JOIN Teachers t ON t.teacher_id = sch.teacher_id
+WHERE c.course_id = (SELECT selected_course_id FROM settings)
+ORDER BY t.last_name;
+course_name      | first_name | last_name | academic_degree
+-----------------+------------+-----------+----------------
+Database Systems | Ayan       | Saparov   | MSc            
+(1 row)
+
+========================================================================
+Extra. Practice 1. Courses of a selected teacher
+SELECT t.first_name, t.last_name, c.course_name
+FROM Teachers t
+INNER JOIN Schedule sch ON sch.teacher_id = t.teacher_id
+INNER JOIN Courses c ON c.course_id = sch.course_id
+WHERE t.teacher_id = (SELECT selected_teacher_id FROM settings)
+ORDER BY c.course_name;
+first_name | last_name | course_name     
+-----------+-----------+-----------------
+Ayan       | Saparov   | Database Systems
+(1 row)
+
+========================================================================
+Extra. Practice 1. Schedule of a selected group
+SELECT
+    g.group_name,
+    c.course_name,
+    t.first_name || ' ' || t.last_name AS teacher,
+    cl.room_number,
+    cl.building,
+    sch.day_of_week,
+    sch.start_time,
+    sch.end_time
+FROM Schedule sch
+INNER JOIN Groups g ON g.group_id = sch.group_id
+INNER JOIN Courses c ON c.course_id = sch.course_id
+INNER JOIN Teachers t ON t.teacher_id = sch.teacher_id
+INNER JOIN Classrooms cl ON cl.classroom_id = sch.classroom_id
+WHERE sch.group_id = (SELECT selected_group_id FROM settings)
+ORDER BY sch.day_of_week, sch.start_time;
+group_name | course_name      | teacher      | room_number | building   | day_of_week | start_time | end_time
+-----------+------------------+--------------+-------------+------------+-------------+------------+---------
+IT-21      | Database Systems | Ayan Saparov | 101         | Building 1 | Monday      | 08:00:00   | 09:50:00
+(1 row)
+
+========================================================================
+Extra. Practice 1. Schedule of a selected teacher
+SELECT
+    t.first_name || ' ' || t.last_name AS teacher,
+    c.course_name,
+    g.group_name,
+    cl.room_number,
+    cl.building,
+    sch.day_of_week,
+    sch.start_time,
+    sch.end_time
+FROM Schedule sch
+INNER JOIN Teachers t ON t.teacher_id = sch.teacher_id
+INNER JOIN Courses c ON c.course_id = sch.course_id
+INNER JOIN Groups g ON g.group_id = sch.group_id
+INNER JOIN Classrooms cl ON cl.classroom_id = sch.classroom_id
+WHERE sch.teacher_id = (SELECT selected_teacher_id FROM settings)
+ORDER BY sch.day_of_week, sch.start_time;
+teacher      | course_name      | group_name | room_number | building   | day_of_week | start_time | end_time
+-------------+------------------+------------+-------------+------------+-------------+------------+---------
+Ayan Saparov | Database Systems | IT-21      | 101         | Building 1 | Monday      | 08:00:00   | 09:50:00
+(1 row)
+
+========================================================================
+Extra. Practice 1. Classroom of a selected class
+SELECT
+    sch.schedule_id,
+    c.course_name,
+    cl.room_number,
+    cl.building,
+    cl.capacity,
+    sch.day_of_week,
+    sch.start_time,
+    sch.end_time
+FROM Schedule sch
+INNER JOIN Courses c ON c.course_id = sch.course_id
+INNER JOIN Classrooms cl ON cl.classroom_id = sch.classroom_id
+WHERE sch.schedule_id = (SELECT selected_schedule_id FROM settings);
+schedule_id | course_name      | room_number | building   | capacity | day_of_week | start_time | end_time
+------------+------------------+-------------+------------+----------+-------------+------------+---------
+1           | Database Systems | 101         | Building 1 | 25       | Monday      | 08:00:00   | 09:50:00
+(1 row)
+
+========================================================================
+Extra. Practice 1. Courses of a selected department
+SELECT d.department_name, c.course_name, c.credits, c.semester
+FROM Departments d
+INNER JOIN Courses c ON c.department_id = d.department_id
+WHERE d.department_id = (SELECT selected_department_id FROM settings)
+ORDER BY c.course_name;
+department_name  | course_name      | credits | semester
+-----------------+------------------+---------+---------
+Computer Science | Database Systems | 5       | 1       
+(1 row)
+
+========================================================================
+Extra. Practice 1. How many students are in each group
+SELECT g.group_id, g.group_name, COUNT(s.student_id) AS student_count
+FROM Groups g
+LEFT JOIN Students s ON s.group_id = g.group_id
+GROUP BY g.group_id, g.group_name
+ORDER BY g.group_id;
+group_id | group_name | student_count
+---------+------------+--------------
+1        | IT-21      | 1            
+2        | IT-22      | 1            
+3        | IT-23      | 1            
+4        | IT-24      | 1            
+5        | IT-25      | 1            
+6        | IT-26      | 1            
+7        | IT-27      | 1            
+8        | IT-28      | 1            
+9        | IT-29      | 1            
+10       | IT-30      | 1            
+11       | IT-31      | 1            
+12       | IT-32      | 1            
+13       | IT-33      | 1            
+14       | IT-34      | 1            
+15       | IT-35      | 1            
+(15 rows)
+
+========================================================================
+Extra. Practice 1. Highest average grades
+SELECT
+    s.student_id,
+    s.last_name,
+    s.first_name,
+    ROUND(AVG(g.grade_value), 2) AS average_grade
+FROM Students s
+INNER JOIN Grades g ON g.student_id = s.student_id
+GROUP BY s.student_id, s.last_name, s.first_name
+ORDER BY average_grade DESC, s.last_name
+LIMIT 5;
+student_id | last_name | first_name | average_grade
+-----------+-----------+------------+--------------
+1011       | Zhakupova | Kamila     | 96.0         
+1005       | Zholdas   | Madina     | 95.0         
+1010       | Ospan     | Miras      | 89.0         
+1004       | Kairatov  | Dias       | 88.0         
+1015       | Serik     | Ademi      | 83.0         
+(5 rows)
+
+========================================================================
+Extra. Practice 1. Grades below a chosen score
+SELECT s.last_name, s.first_name, c.course_name, g.grade_value, g.grade_date
+FROM Grades g
+INNER JOIN Students s ON s.student_id = g.student_id
+INNER JOIN Courses c ON c.course_id = g.course_id
+WHERE g.grade_value < (SELECT grade_below FROM settings)
+ORDER BY g.grade_value, s.last_name;
+last_name | first_name | course_name                 | grade_value | grade_date
+----------+------------+-----------------------------+-------------+-----------
+Tursyn    | Alikhan    | Object-Oriented Programming | 61          | 2026-05-06
+Abilov    | Sanzhar    | Project Management          | 62          | 2026-05-12
+Aliyeva   | Aruzhan    | Database Systems            | 67          | 2026-05-01
+Mukhanova | Dana       | Web Development             | 68          | 2026-05-07
+Kaliyeva  | Zarina     | Statistics                  | 69          | 2026-05-13
+(5 rows)
+
+========================================================================
+Extra. Practice 1. Classrooms free at a chosen time
+SELECT cl.classroom_id, cl.room_number, cl.building, cl.capacity
+FROM Classrooms cl
+CROSS JOIN settings st
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM Schedule sch
+    WHERE sch.classroom_id = cl.classroom_id
+      AND sch.day_of_week = st.free_day
+      AND sch.start_time < st.free_end
+      AND sch.end_time > st.free_start
+)
+ORDER BY cl.classroom_id;
+classroom_id | room_number | building   | capacity
+-------------+-------------+------------+---------
+2            | 102         | Building 2 | 30      
+3            | 103         | Building 3 | 35      
+4            | 104         | Building 4 | 20      
+5            | 105         | Building 5 | 25      
+6            | 106         | Building 1 | 30      
+7            | 107         | Building 2 | 35      
+8            | 108         | Building 3 | 20      
+9            | 109         | Building 4 | 25      
+10           | 110         | Building 5 | 30      
+11           | 111         | Building 1 | 35      
+12           | 112         | Building 2 | 20      
+13           | 113         | Building 3 | 25      
+14           | 114         | Building 4 | 30      
+15           | 115         | Building 5 | 35      
+(14 rows)
+
+========================================================================
+Extra. Who received the maximum grade
+SELECT s.last_name, s.first_name, c.course_name, g.grade_value, g.grade_date
+FROM Grades g
+INNER JOIN Students s ON s.student_id = g.student_id
+INNER JOIN Courses c ON c.course_id = g.course_id
+WHERE g.grade_value = (SELECT MAX(grade_value) FROM Grades)
+ORDER BY s.last_name;
+last_name | first_name | course_name      | grade_value | grade_date
+----------+------------+------------------+-------------+-----------
+Zhakupova | Kamila     | Software Testing | 96          | 2026-05-11
+(1 row)
+
+========================================================================
+Extra. Who received the minimum grade
+SELECT s.last_name, s.first_name, c.course_name, g.grade_value, g.grade_date
+FROM Grades g
+INNER JOIN Students s ON s.student_id = g.student_id
+INNER JOIN Courses c ON c.course_id = g.course_id
+WHERE g.grade_value = (SELECT MIN(grade_value) FROM Grades)
+ORDER BY s.last_name;
+last_name | first_name | course_name                 | grade_value | grade_date
+----------+------------+-----------------------------+-------------+-----------
+Tursyn    | Alikhan    | Object-Oriented Programming | 61          | 2026-05-06
+(1 row)
