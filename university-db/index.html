@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>University dataset downloads</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --line: #d9d2c5;
+      --paper: #f7f4ee;
+      --card: #fffdf8;
+      --accent: #1f4b3a;
+      --accent-ink: #f4f7f5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 17px/1.5 "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+    }
+
+    main {
+      width: min(880px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 72px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font: 12px/1.4 ui-sans-serif, system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .lede {
+      max-width: 62ch;
+      margin: 16px 0 0;
+      color: var(--muted);
+    }
+
+    .primary {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font: 15px/1 ui-sans-serif, system-ui, sans-serif;
+      text-decoration: none;
+    }
+
+    .primary:hover { background: #16382b; }
+    .primary:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+    section { margin-top: 48px; }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .files {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+      background: var(--card);
+    }
+
+    .files li {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr) auto;
+      gap: 12px 20px;
+      align-items: center;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .files strong {
+      font: 15px/1.3 ui-sans-serif, system-ui, sans-serif;
+      font-weight: 650;
+    }
+
+    .files p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .files a {
+      color: var(--accent);
+      font: 14px/1 ui-sans-serif, system-ui, sans-serif;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .files a:hover { text-decoration: underline; }
+    .files a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+    footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    @media (max-width: 680px) {
+      h1 { font-size: 32px; }
+      .files li { grid-template-columns: 1fr auto; }
+      .files p { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Practice work 1–2 · fictional sample</p>
+    <h1>University dataset</h1>
+    <p class="lede">
+      Eight tables and 120 records for the educational process: students, groups,
+      teachers, departments, courses, classrooms, schedules, and grades.
+      Save one file, or take the whole set.
+    </p>
+    <a class="primary" href="downloads/university-dataset.zip" download="university-dataset.zip">Download full dataset (.zip)</a>
+
+    <section>
+      <h2>Tables</h2>
+      <ul class="files">
+        <li>
+          <strong>students.csv</strong>
+          <p>15 students. Name, birth date, phone, email, and group.</p>
+          <a href="data/students.csv" download="students.csv">Download</a>
+        </li>
+        <li>
+          <strong>groups.csv</strong>
+          <p>15 groups. Name, year of study, and specialty.</p>
+          <a href="data/groups.csv" download="groups.csv">Download</a>
+        </li>
+        <li>
+          <strong>teachers.csv</strong>
+          <p>15 teachers. Degree, phone, email, and department.</p>
+          <a href="data/teachers.csv" download="teachers.csv">Download</a>
+        </li>
+        <li>
+          <strong>departments.csv</strong>
+          <p>15 departments and the building each one uses.</p>
+          <a href="data/departments.csv" download="departments.csv">Download</a>
+        </li>
+        <li>
+          <strong>courses.csv</strong>
+          <p>15 courses. Credits, semester, and department.</p>
+          <a href="data/courses.csv" download="courses.csv">Download</a>
+        </li>
+        <li>
+          <strong>classrooms.csv</strong>
+          <p>15 rooms. Number, building, and capacity.</p>
+          <a href="data/classrooms.csv" download="classrooms.csv">Download</a>
+        </li>
+        <li>
+          <strong>schedule.csv</strong>
+          <p>15 classes. Course, teacher, group, room, day, and time.</p>
+          <a href="data/schedule.csv" download="schedule.csv">Download</a>
+        </li>
+        <li>
+          <strong>grades.csv</strong>
+          <p>15 grades on the 0–100 scale, with the date recorded.</p>
+          <a href="data/grades.csv" download="grades.csv">Download</a>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Database</h2>
+      <ul class="files">
+        <li>
+          <strong>university.db</strong>
+          <p>SQLite database with the tables, rules, and all 120 rows.</p>
+          <a href="downloads/university.db" download="university.db">Download</a>
+        </li>
+        <li>
+          <strong>schema.sql</strong>
+          <p>Table definitions, keys, checks, and the room-overlap rule.</p>
+          <a href="sql/schema.sql" download="schema.sql">Download</a>
+        </li>
+        <li>
+          <strong>seed.sql</strong>
+          <p>Insert statements for the sample rows.</p>
+          <a href="sql/seed.sql" download="seed.sql">Download</a>
+        </li>
+        <li>
+          <strong>queries.sql</strong>
+          <p>The 15 questions, each with one worked example.</p>
+          <a href="sql/queries.sql" download="queries.sql">Download</a>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Notes</h2>
+      <ul class="files">
+        <li>
+          <strong>subject-area.md</strong>
+          <p>Entities, relationships, constraints, and who may see what.</p>
+          <a href="docs/subject-area.md" download="subject-area.md">Download</a>
+        </li>
+        <li>
+          <strong>query-results.md</strong>
+          <p>Answers the 15 queries return on this sample.</p>
+          <a href="docs/query-results.md" download="query-results.md">Download</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      The people, phone numbers, and email addresses are fictional and were prepared for coursework.
+      The zip contains the eight CSV files, the three SQL files, the SQLite database, and these two notes.
+    </footer>
+  </main>
+</body>
+</html>

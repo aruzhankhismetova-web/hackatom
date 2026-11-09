@@ -14,6 +14,19 @@ The sample is fictional. It has 8 tables and 120 rows (15 in each table). Phone 
 | `university-db/data/*.csv` | The same rows, one file per table |
 | `university-db/docs/subject-area.md` | Entities, relationships, constraints, and access |
 | `university-db/docs/query-results.md` | Answers produced from the sample |
+| `university-db/index.html` | Download page for every file |
+| `university-db/downloads/university-dataset.zip` | CSV, SQL, SQLite database, and notes in one archive |
+| `university-db/downloads/university.db` | SQLite database prepared for download |
+
+## Download
+
+Open `university-db/index.html` and use **Download full dataset** or the link beside a single file. The same links work when the folder is served:
+
+```bash
+python3 -m http.server 8000 --bind 127.0.0.1 --directory university-db
+```
+
+Then open `http://127.0.0.1:8000/`.
 
 ## Build and check
 
@@ -23,7 +36,7 @@ Python 3 and SQLite are enough. No packages are installed.
 python3 university-db/scripts/build_and_verify.py
 ```
 
-The script writes `university-db/university.db`, checks that the CSV files match the SQL seed, rejects rows that break the constraints, and runs all 15 queries.
+The script writes `university-db/university.db`, refreshes the downloadable database and zip, checks that the CSV files match the SQL seed, rejects rows that break the constraints, and runs all 15 queries.
 
 Open the file with SQLite:
 

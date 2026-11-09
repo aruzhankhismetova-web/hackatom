@@ -11,6 +11,7 @@ from __future__ import annotations
 import csv
 import sqlite3
 import sys
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -379,6 +380,24 @@ def check_query_answers(results: dict[str, list[tuple]]) -> None:
         raise CheckFailure(f"Unexpected free classrooms: {free_rooms!r}")
 
 
+def write_download_bundle() -> None:
+    """Copy the database and pack every dataset file into one zip."""
+    downloads = ROOT / "downloads"
+    downloads.mkdir(exist_ok=True)
+    database_copy = downloads / "university.db"
+    database_copy.write_bytes(DB_PATH.read_bytes())
+    archive_path = downloads / "university-dataset.zip"
+    prefix = "university-dataset"
+    with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for path in sorted((ROOT / "data").glob("*.csv")):
+            archive.write(path, f"{prefix}/data/{path.name}")
+        for name in ("schema.sql", "seed.sql", "queries.sql"):
+            archive.write(SQL_DIR / name, f"{prefix}/sql/{name}")
+        archive.write(database_copy, f"{prefix}/university.db")
+        archive.write(ROOT / "docs" / "subject-area.md", f"{prefix}/subject-area.md")
+        archive.write(ROOT / "docs" / "query-results.md", f"{prefix}/query-results.md")
+
+
 def write_report(executed: list[tuple[str, list[str], list[tuple]]]) -> None:
     lines = [
         "# Query results",
@@ -412,6 +431,7 @@ def main() -> int:
         return 1
     finally:
         conn.close()
+    write_download_bundle()
     print(f"OK: {DB_PATH}")
     print("8 tables, 120 rows, constraints enforced, 15 queries answered.")
     return 0
