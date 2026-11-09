@@ -1,0 +1,16 @@
+course_id,course_name,credits,semester,department_id
+1,Database Systems,5,1,1
+2,Programming Fundamentals,5,1,2
+3,Discrete Mathematics,4,1,3
+4,Physics for IT,3,1,4
+5,Academic English,3,1,5
+6,Object-Oriented Programming,5,2,6
+7,Web Development,4,2,2
+8,Information Systems,4,2,7
+9,Network Security,4,3,8
+10,Data Analytics,4,3,9
+11,Software Testing,3,3,6
+12,Project Management,3,4,12
+13,Statistics,4,2,13
+14,Artificial Intelligence,5,4,14
+15,Engineering Basics,3,1,10
