@@ -1104,8 +1104,13 @@ def create_report(results):
 
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run("Student: Aruzhan")
+    run = p.add_run("Student: Khismetova Aruzhan")
     set_run_font(run, size=11, color=(55, 65, 81))
+
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = p.add_run("Document: practicalwork7_10_KhismetovaAruzhan")
+    set_run_font(run, size=10, color=(107, 114, 128))
 
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -1440,10 +1445,14 @@ def create_report(results):
     add_body(doc, "5. Report after each assignment part — Report — Part 1…4 sections above")
     add_body(doc, "6. Conclusion — §10 of this document")
 
-    out = REPORT / "Practical_Work_7_10_FULL.docx"
+    out = REPORT / "practicalwork7_10_KhismetovaAruzhan.docx"
     doc.save(out)
-    # also keep legacy filename as a copy of the same single document
+    # copies for convenience
+    (REPORT / "Practical_Work_7_10_FULL.docx").write_bytes(out.read_bytes())
     (REPORT / "Practical_Work_7_10_Report.docx").write_bytes(out.read_bytes())
+    # single submission file at repository root
+    root_doc = ROOT.parent / "practicalwork7_10_KhismetovaAruzhan.docx"
+    root_doc.write_bytes(out.read_bytes())
     return out
 
 
