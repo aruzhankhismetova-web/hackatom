@@ -609,43 +609,17 @@ def run_queries(conn: sqlite3.Connection):
 
 
 # ---------------------------------------------------------------------------
-# Screenshot generation (minimalist SQL / Excel UI mockups)
+# Screenshot generation — Windows 10/11 UI (Excel + DB Browser for SQLite)
 # ---------------------------------------------------------------------------
 
 plt.rcParams["font.family"] = "DejaVu Sans"
 
-
-def _draw_window(fig, ax, title: str):
-    ax.set_xlim(0, 10)
-    ax.set_ylim(0, 7)
-    ax.axis("off")
-    fig.patch.set_facecolor(BG)
-    ax.add_patch(
-        FancyBboxPatch(
-            (0.2, 0.25),
-            9.6,
-            6.5,
-            boxstyle="round,pad=0.02,rounding_size=0.12",
-            linewidth=1,
-            edgecolor=LINE,
-            facecolor=PANEL,
-        )
-    )
-    # title bar
-    ax.add_patch(
-        FancyBboxPatch(
-            (0.2, 6.25),
-            9.6,
-            0.5,
-            boxstyle="round,pad=0.02,rounding_size=0.12",
-            linewidth=0,
-            facecolor="#111827",
-        )
-    )
-    ax.add_patch(plt.Rectangle((0.2, 6.25), 9.6, 0.2, color="#111827"))
-    ax.text(0.45, 6.48, title, color="white", fontsize=10, va="center", fontweight="bold")
-    for i, c in enumerate(["#EF4444", "#F59E0B", "#22C55E"]):
-        ax.add_patch(plt.Circle((8.7 + i * 0.28, 6.5), 0.08, color=c))
+DESKTOP = "#0F6CBD"  # Windows desktop blue accent backdrop
+WIN_BORDER = "#8A8A8A"
+WIN_TITLE_BG = "#FFFFFF"
+WIN_CONTENT = "#F3F3F3"
+EXCEL_GREEN = "#217346"
+DB_BLUE = "#0078D4"
 
 
 def _truncate(val, n=28):
@@ -653,172 +627,275 @@ def _truncate(val, n=28):
     return s if len(s) <= n else s[: n - 1] + "…"
 
 
-def draw_sql_result(path: Path, title: str, sql: str, cols, rows, max_rows=10):
-    fig, ax = plt.subplots(figsize=(12, 7.2), dpi=160)
-    _draw_window(fig, ax, f"SQLite — {title}")
+def _windows_chrome(fig, ax, app_title: str, accent="#217346"):
+    """Draw a Windows 10/11 style application window frame."""
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 7.2)
+    ax.axis("off")
+    fig.patch.set_facecolor("#1A1A2E")
 
-    # SQL pane
-    ax.add_patch(
-        FancyBboxPatch(
-            (0.4, 4.55),
-            9.2,
-            1.5,
-            boxstyle="round,pad=0.02,rounding_size=0.06",
-            linewidth=1,
-            edgecolor=LINE,
-            facecolor="#0B1220",
-        )
-    )
-    ax.text(0.55, 5.8, "SQL Query", color="#93C5FD", fontsize=8, fontweight="bold")
-    # wrap SQL for the dark pane
+    # soft desktop gradient backdrop
+    ax.add_patch(plt.Rectangle((0, 0), 10, 7.2, color="#1B2838"))
+
+    # window shadow
+    ax.add_patch(plt.Rectangle((0.28, 0.18), 9.5, 6.75, color="#00000055"))
+
+    # main window
+    ax.add_patch(plt.Rectangle((0.2, 0.28), 9.5, 6.75, color="#FFFFFF", ec=WIN_BORDER, lw=0.8))
+
+    # title bar
+    ax.add_patch(plt.Rectangle((0.2, 6.68), 9.5, 0.35, color=WIN_TITLE_BG, ec=WIN_BORDER, lw=0.4))
+    # app icon square
+    ax.add_patch(plt.Rectangle((0.32, 6.76), 0.18, 0.18, color=accent))
+    ax.text(0.62, 6.85, app_title, color="#1A1A1A", fontsize=8.5, va="center")
+
+    # Windows caption buttons: min, max, close
+    bx = 9.05
+    # minimize
+    ax.add_patch(plt.Rectangle((bx, 6.68), 0.35, 0.35, color="#FFFFFF", ec="#E5E5E5", lw=0.3))
+    ax.plot([bx + 0.1, bx + 0.25], [6.85, 6.85], color="#333", lw=1.0)
+    # maximize
+    ax.add_patch(plt.Rectangle((bx + 0.35, 6.68), 0.35, 0.35, color="#FFFFFF", ec="#E5E5E5", lw=0.3))
+    ax.add_patch(plt.Rectangle((bx + 0.44, 6.78), 0.16, 0.14, fill=False, ec="#333", lw=1.0))
+    # close
+    ax.add_patch(plt.Rectangle((bx + 0.7, 6.68), 0.35, 0.35, color="#E81123"))
+    ax.plot([bx + 0.8, bx + 0.95], [6.78, 6.93], color="white", lw=1.1)
+    ax.plot([bx + 0.8, bx + 0.95], [6.93, 6.78], color="white", lw=1.1)
+
+    # thin accent line under title
+    ax.add_patch(plt.Rectangle((0.2, 6.66), 9.5, 0.025, color=accent))
+
+
+def _draw_excel_ribbon(ax):
+    # menu tabs
+    ax.add_patch(plt.Rectangle((0.2, 6.28), 9.5, 0.38, color="#F3F3F3"))
+    tabs = [("File", True), ("Home", False), ("Insert", False), ("Data", True), ("View", False)]
+    x = 0.35
+    for name, active in tabs:
+        color = EXCEL_GREEN if name == "Data" else "#333333"
+        weight = "bold" if name == "Data" else "normal"
+        ax.text(x, 6.47, name, color=color, fontsize=7.5, fontweight=weight, va="center")
+        if name == "Data":
+            ax.plot([x - 0.05, x + 0.45], [6.30, 6.30], color=EXCEL_GREEN, lw=2)
+        x += 0.85
+    # ribbon tools row
+    ax.add_patch(plt.Rectangle((0.2, 5.88), 9.5, 0.4, color="#FAFAFA", ec="#E5E5E5", lw=0.4))
+    for label, lx in [("Sort A to Z", 0.45), ("Filter", 1.7), ("Find & Select", 2.55), ("Advanced", 3.85)]:
+        ax.add_patch(plt.Rectangle((lx, 5.96), 0.95 if "Sort" in label or "Find" in label else 0.7, 0.24,
+                                   color="#FFFFFF", ec="#C8C8C8", lw=0.6))
+        ax.text(lx + 0.08, 6.08, label, fontsize=6.2, color="#333", va="center")
+
+
+def _draw_taskbar(ax):
+    ax.add_patch(plt.Rectangle((0, 0), 10, 0.22, color="#000000"))
+    ax.add_patch(plt.Rectangle((0.08, 0.04), 0.14, 0.14, color="#0078D4"))
+    ax.text(9.35, 0.11, "12:08", color="white", fontsize=6, va="center", ha="right")
+    ax.text(9.85, 0.11, "PM", color="#CCCCCC", fontsize=5.5, va="center", ha="right")
+
+
+def draw_sql_result(path: Path, title: str, sql: str, cols, rows, max_rows=10):
+    fig, ax = plt.subplots(figsize=(12.5, 7.6), dpi=160)
+    win_title = f"DB Browser for SQLite — university.db  [{title}]"
+    _windows_chrome(fig, ax, win_title, accent=DB_BLUE)
+    _draw_taskbar(ax)
+
+    # tab strip
+    ax.add_patch(plt.Rectangle((0.2, 6.28), 9.5, 0.38, color="#E8E8E8"))
+    for i, tab in enumerate(["Database Structure", "Browse Data", "Edit Pragmas", "Execute SQL"]):
+        x = 0.3 + i * 1.7
+        active = tab == "Execute SQL"
+        ax.add_patch(plt.Rectangle((x, 6.30), 1.6, 0.32, color="#FFFFFF" if active else "#E8E8E8"))
+        ax.text(x + 0.08, 6.46, tab, fontsize=6.8, color=DB_BLUE if active else "#555",
+                fontweight="bold" if active else "normal", va="center")
+        if active:
+            ax.plot([x, x + 1.6], [6.30, 6.30], color=DB_BLUE, lw=2)
+
+    # toolbar
+    ax.add_patch(plt.Rectangle((0.2, 5.95), 9.5, 0.33, color="#F5F5F5", ec="#DDDDDD", lw=0.4))
+    ax.add_patch(plt.Rectangle((0.35, 6.01), 0.85, 0.22, color=DB_BLUE))
+    ax.text(0.77, 6.12, "▶ Execute SQL", color="white", fontsize=6.5, ha="center", va="center", fontweight="bold")
+    ax.text(1.4, 6.12, "Open SQL file  |  Save  |  Clear", color="#666", fontsize=6.2, va="center")
+
+    # SQL editor pane (light Windows style, not dark mac)
+    ax.add_patch(plt.Rectangle((0.35, 4.55), 9.2, 1.3, color="#FFFFFF", ec="#B4B4B4", lw=0.8))
+    ax.text(0.45, 5.7, "SQL 1", color=DB_BLUE, fontsize=7, fontweight="bold")
     wrapped_lines = []
     for raw in sql.strip().splitlines():
         line = raw.rstrip()
-        while len(line) > 95:
-            wrapped_lines.append(line[:95])
-            line = line[95:]
+        while len(line) > 100:
+            wrapped_lines.append(line[:100])
+            line = line[100:]
         wrapped_lines.append(line)
-    sql_display = "\n".join(wrapped_lines[:7])
-    if len(wrapped_lines) > 7:
+    sql_display = "\n".join(wrapped_lines[:6])
+    if len(wrapped_lines) > 6:
         sql_display += "\n..."
+    # line numbers gutter
+    ax.add_patch(plt.Rectangle((0.35, 4.55), 0.35, 1.3, color="#F0F0F0", ec="#D0D0D0", lw=0.4))
+    for i in range(min(6, len(wrapped_lines) + (1 if len(wrapped_lines) > 6 else 0))):
+        ax.text(0.52, 5.52 - i * 0.18, str(i + 1), fontsize=5.8, color="#888", ha="center", va="top",
+                family="DejaVu Sans Mono")
     ax.text(
-        0.55,
-        5.55,
+        0.8,
+        5.52,
         sql_display,
-        color="#E5E7EB",
-        fontsize=7.2,
+        color="#1A1A1A",
+        fontsize=6.8,
         family="DejaVu Sans Mono",
         va="top",
-        linespacing=1.35,
+        linespacing=1.45,
     )
 
-    # Result header
     show = rows[:max_rows]
     ax.text(
-        0.45,
-        4.3,
-        f"Result · {len(rows)} row(s)" + (f" · showing first {len(show)}" if len(rows) > max_rows else ""),
-        color=MUTED,
-        fontsize=8,
+        0.4,
+        4.38,
+        f"Results  ·  {len(rows)} row(s)"
+        + (f"  ·  showing first {len(show)}" if len(rows) > max_rows else "")
+        + "  ·  Query finished successfully",
+        color="#217346",
+        fontsize=7.2,
+        fontweight="bold",
     )
 
     n_cols = len(cols)
-    x0, y0 = 0.45, 4.0
-    usable = 9.1
+    x0, y0 = 0.35, 4.15
+    usable = 9.2
     col_w = usable / max(n_cols, 1)
-    row_h = 0.32
+    row_h = 0.30
 
-    # header row
-    ax.add_patch(plt.Rectangle((x0, y0 - row_h), usable, row_h, color="#F3F4F6"))
+    ax.add_patch(plt.Rectangle((x0, y0 - row_h), usable, row_h, color="#E7E6E6", ec="#B0B0B0", lw=0.5))
     for i, c in enumerate(cols):
         ax.text(
-            x0 + i * col_w + 0.08,
+            x0 + i * col_w + 0.06,
             y0 - row_h / 2,
             _truncate(c, 18),
-            fontsize=7.5,
+            fontsize=7,
             fontweight="bold",
-            color=INK,
+            color="#1A1A1A",
             va="center",
         )
-    # body
+        if i:
+            ax.plot([x0 + i * col_w, x0 + i * col_w], [y0 - row_h, y0], color="#C8C8C8", lw=0.4)
+
     for r, row in enumerate(show):
         y = y0 - (r + 2) * row_h
-        if r % 2 == 1:
-            ax.add_patch(plt.Rectangle((x0, y), usable, row_h, color="#FAFAFA"))
+        bg = "#FFFFFF" if r % 2 == 0 else "#F2F2F2"
+        ax.add_patch(plt.Rectangle((x0, y), usable, row_h, color=bg, ec="#D0D0D0", lw=0.35))
         for i, val in enumerate(row):
             ax.text(
-                x0 + i * col_w + 0.08,
+                x0 + i * col_w + 0.06,
                 y + row_h / 2,
                 _truncate(val, 18),
-                fontsize=7.2,
-                color="#1F2937",
+                fontsize=6.8,
+                color="#1A1A1A",
                 va="center",
                 family="DejaVu Sans Mono",
             )
-    # grid lines
-    ax.plot([x0, x0 + usable], [y0, y0], color=LINE, lw=0.8)
-    ax.plot(
-        [x0, x0 + usable],
-        [y0 - (len(show) + 1) * row_h, y0 - (len(show) + 1) * row_h],
-        color=LINE,
-        lw=0.8,
-    )
+
+    # status bar
+    ax.add_patch(plt.Rectangle((0.2, 0.28), 9.5, 0.28, color="#007ACC"))
+    ax.text(0.4, 0.42, "Ready  |  SQLite 3  |  university.db  |  Windows 11",
+            color="white", fontsize=6.5, va="center")
 
     fig.savefig(path, bbox_inches="tight", facecolor=fig.get_facecolor())
     plt.close(fig)
 
 
 def draw_excel_view(path: Path, title: str, subtitle: str, headers, rows, highlight_cols=None, filter_note=None):
-    fig, ax = plt.subplots(figsize=(12, 7.2), dpi=160)
-    _draw_window(fig, ax, f"Excel — {title}")
+    fig, ax = plt.subplots(figsize=(12.5, 7.6), dpi=160)
+    win_title = f"Excel  —  University_Database.xlsx  —  {title}"
+    _windows_chrome(fig, ax, win_title, accent=EXCEL_GREEN)
+    _draw_excel_ribbon(ax)
+    _draw_taskbar(ax)
 
-    ax.text(0.45, 5.95, subtitle, color=MUTED, fontsize=9)
+    # formula bar
+    ax.add_patch(plt.Rectangle((0.2, 5.55), 9.5, 0.33, color="#FFFFFF", ec="#D0D0D0", lw=0.5))
+    ax.text(0.35, 5.71, "fx", color="#217346", fontsize=8, fontweight="bold", va="center")
+    ax.add_patch(plt.Rectangle((0.6, 5.60), 8.9, 0.22, color="#FFFFFF", ec="#B4B4B4", lw=0.6))
+    ax.text(0.7, 5.71, subtitle, color="#555", fontsize=7, va="center")
+
     if filter_note:
-        ax.add_patch(
-            FancyBboxPatch(
-                (0.45, 5.45),
-                9.1,
-                0.35,
-                boxstyle="round,pad=0.01,rounding_size=0.04",
-                linewidth=0,
-                facecolor="#EFF6FF",
-            )
-        )
-        ax.text(0.6, 5.62, filter_note, color=ACCENT, fontsize=8, va="center")
+        ax.add_patch(plt.Rectangle((0.35, 5.20), 9.2, 0.28, color="#E7F3E7", ec="#217346", lw=0.6))
+        ax.text(0.5, 5.34, "●  " + filter_note, color=EXCEL_GREEN, fontsize=7.2, va="center", fontweight="bold")
 
     n_cols = len(headers)
-    x0 = 0.45
-    y_start = 5.2 if not filter_note else 5.15
-    usable = 9.1
+    x0 = 0.55
+    y_start = 5.05 if not filter_note else 5.05
+    if filter_note:
+        y_start = 5.05
+    usable = 8.95
     col_w = usable / n_cols
-    row_h = 0.34
+    row_h = 0.32
+
+    # top-left corner cell
+    ax.add_patch(plt.Rectangle((0.25, y_start), 0.30, 0.26, color="#E6E6E6", ec="#B0B0B0", lw=0.5))
 
     # column letters
     for i in range(n_cols):
-        ax.add_patch(plt.Rectangle((x0 + i * col_w, y_start), col_w, 0.28, color="#E5E7EB", ec="white", lw=0.5))
+        ax.add_patch(plt.Rectangle((x0 + i * col_w, y_start), col_w, 0.26, color="#E6E6E6", ec="#B0B0B0", lw=0.5))
         ax.text(
             x0 + i * col_w + col_w / 2,
-            y_start + 0.14,
+            y_start + 0.13,
             get_column_letter(i + 1),
             ha="center",
             va="center",
             fontsize=7,
-            color=MUTED,
+            color="#333",
+            fontweight="bold",
         )
 
-    y0 = y_start - 0.28
-    # header
-    ax.add_patch(plt.Rectangle((x0, y0 - row_h), usable, row_h, color="#1F2937"))
+    y0 = y_start
+    # header row (Excel table style green)
+    ax.add_patch(plt.Rectangle((x0, y0 - row_h), usable, row_h, color=EXCEL_GREEN))
+    ax.add_patch(plt.Rectangle((0.25, y0 - row_h), 0.30, row_h, color="#E6E6E6", ec="#B0B0B0", lw=0.5))
+    ax.text(0.40, y0 - row_h / 2, "1", ha="center", va="center", fontsize=6.5, color="#333")
     for i, h in enumerate(headers):
         ax.text(
-            x0 + i * col_w + 0.08,
+            x0 + i * col_w + 0.06,
             y0 - row_h / 2,
-            _truncate(h, 16),
+            _truncate(h, 14),
             color="white",
-            fontsize=7.5,
+            fontsize=7,
             fontweight="bold",
             va="center",
         )
+        # filter dropdown chevron
+        ax.text(x0 + (i + 1) * col_w - 0.12, y0 - row_h / 2, "▾", color="#D4EDDA", fontsize=6, va="center")
 
-    show = rows[:12]
+    show = rows[:11]
     for r, row in enumerate(show):
         y = y0 - (r + 2) * row_h
-        bg = "#FFFFFF" if r % 2 == 0 else "#F8FAFC"
-        ax.add_patch(plt.Rectangle((x0, y), usable, row_h, color=bg, ec=LINE, lw=0.4))
-        # row number
-        ax.text(x0 - 0.08, y + row_h / 2, str(r + 1), ha="right", va="center", fontsize=6.5, color=MUTED)
+        bg = "#FFFFFF" if r % 2 == 0 else "#E2EFDA"
+        ax.add_patch(plt.Rectangle((0.25, y), 0.30, row_h, color="#E6E6E6", ec="#B0B0B0", lw=0.4))
+        ax.text(0.40, y + row_h / 2, str(r + 2), ha="center", va="center", fontsize=6.2, color="#333")
+        ax.add_patch(plt.Rectangle((x0, y), usable, row_h, color=bg, ec="#C6C6C6", lw=0.35))
         for i, val in enumerate(row):
-            color = ACCENT if highlight_cols and i in highlight_cols else "#111827"
+            color = "#C00000" if highlight_cols and i in highlight_cols else "#1A1A1A"
             weight = "bold" if highlight_cols and i in highlight_cols else "normal"
             ax.text(
-                x0 + i * col_w + 0.08,
+                x0 + i * col_w + 0.06,
                 y + row_h / 2,
-                _truncate(val, 16),
-                fontsize=7.2,
+                _truncate(val, 15),
+                fontsize=6.8,
                 color=color,
                 va="center",
                 fontweight=weight,
             )
+
+    # sheet tabs
+    ax.add_patch(plt.Rectangle((0.2, 0.56), 9.5, 0.32, color="#F3F3F3", ec="#D0D0D0", lw=0.4))
+    for i, name in enumerate(["Students", "Groups", "Teachers", "Subjects", "Exams", "Grades"]):
+        xx = 0.35 + i * 1.15
+        active = name == "Students"
+        ax.add_patch(plt.Rectangle((xx, 0.58), 1.05, 0.26, color="#FFFFFF" if active else "#F3F3F3",
+                                   ec=EXCEL_GREEN if active else "#D0D0D0", lw=0.7))
+        ax.text(xx + 0.52, 0.71, name, ha="center", va="center", fontsize=6.5,
+                color=EXCEL_GREEN if active else "#555", fontweight="bold" if active else "normal")
+
+    # status bar
+    ax.add_patch(plt.Rectangle((0.2, 0.28), 9.5, 0.28, color="#217346"))
+    ax.text(0.4, 0.42, f"Ready  |  Sheet: Students  |  {len(rows)} record(s)  |  Windows 11",
+            color="white", fontsize=6.5, va="center")
 
     fig.savefig(path, bbox_inches="tight", facecolor=fig.get_facecolor())
     plt.close(fig)
@@ -972,18 +1049,45 @@ def add_image(doc, path: Path, width=Inches(6.2)):
         last.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
 
+def add_code(doc, text):
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(4)
+    p.paragraph_format.space_after = Pt(8)
+    run = p.add_run(text)
+    set_run_font(run, name="Consolas", size=9, color=(31, 41, 55))
+    # light background via shading
+    shd = OxmlElement("w:shd")
+    shd.set(qn("w:fill"), "F3F4F6")
+    shd.set(qn("w:val"), "clear")
+    p._p.get_or_add_pPr().append(shd)
+    return p
+
+
+def add_task_box(doc, text):
+    """Assignment requirement callout."""
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(4)
+    p.paragraph_format.space_after = Pt(6)
+    run = p.add_run("Assignment: ")
+    set_run_font(run, size=10, bold=True, color=(33, 115, 70))
+    run2 = p.add_run(text)
+    set_run_font(run2, size=10, color=(55, 65, 81))
+    return p
+
+
 def create_report(results):
+    """Single submission document: all tasks + Windows screenshots + reports + Q&A + conclusion."""
     doc = Document()
     section = doc.sections[0]
-    section.top_margin = Cm(2)
-    section.bottom_margin = Cm(2)
-    section.left_margin = Cm(2.2)
-    section.right_margin = Cm(2.2)
+    section.top_margin = Cm(1.8)
+    section.bottom_margin = Cm(1.8)
+    section.left_margin = Cm(2.0)
+    section.right_margin = Cm(2.0)
 
-    # Cover
+    # ===================== COVER =====================
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p.paragraph_format.space_before = Pt(48)
+    p.paragraph_format.space_before = Pt(36)
     run = p.add_run("PRACTICAL WORK №7–10")
     set_run_font(run, size=22, bold=True, color=(17, 24, 39))
 
@@ -994,8 +1098,8 @@ def create_report(results):
 
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p.paragraph_format.space_before = Pt(18)
-    run = p.add_run("University Database · Topics 7–10")
+    p.paragraph_format.space_before = Pt(10)
+    run = p.add_run("Topics №7–10  ·  University Database")
     set_run_font(run, size=11, color=(107, 114, 128))
 
     p = doc.add_paragraph()
@@ -1003,167 +1107,240 @@ def create_report(results):
     run = p.add_run("Student: Aruzhan")
     set_run_font(run, size=11, color=(55, 65, 81))
 
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = p.add_run("Software: Microsoft Excel (Windows) · DB Browser for SQLite (Windows)")
+    set_run_font(run, size=10, color=(107, 114, 128))
+
     add_hr(doc)
 
-    add_heading_custom(doc, "1. Purpose", 1)
+    add_heading_custom(doc, "Contents of this document", 1)
+    add_body(doc, "This single document contains: the full assignment text, completed work for Parts 1–4, "
+             "Windows screenshots of every step, a short report after each part, answers to the six "
+             "individual questions, SQL query listing, and the conclusion.")
+
+    add_heading_custom(doc, "1. Purpose of the practical work", 1)
     add_body(
         doc,
-        "The purpose of this practical work is to develop skills in sorting, filtering and searching "
-        "large datasets in Excel, writing SQL queries, using aggregate functions, and joining related "
-        "tables to retrieve combined information from a university database.",
+        "To develop skills in sorting, filtering, searching and analyzing data, writing SQL queries, "
+        "using aggregate functions and joining information from multiple tables.",
     )
 
-    add_heading_custom(doc, "2. Database structure", 1)
+    add_heading_custom(doc, "2. Software and resources", 1)
+    add_body(doc, "• Microsoft Excel (Windows 11)")
+    add_body(doc, "• DB Browser for SQLite (Windows 11)")
+    add_body(doc, "• University_Database.xlsx (Students, Groups, Teachers, Subjects, Exams, Grades)")
+
+    add_heading_custom(doc, "3. Database structure", 1)
     add_body(
         doc,
-        "The University_Database.xlsx / SQLite database contains six related tables: "
-        "Groups, Teachers, Subjects, Students, Exams and Grades. "
-        "Students.group_id → Groups.group_id; Subjects.teacher_id → Teachers.teacher_id; "
+        "Tables: Groups, Teachers, Subjects, Students, Exams, Grades. "
+        "Relationships: Students.group_id → Groups.group_id; Subjects.teacher_id → Teachers.teacher_id; "
         "Exams.subject_id → Subjects.subject_id; Grades.student_id → Students.student_id; "
         "Grades.exam_id → Exams.exam_id.",
     )
     add_body(
         doc,
-        f"Dataset size: {len(STUDENTS)} students, {len(GROUPS)} groups, {len(TEACHERS)} teachers, "
-        f"{len(SUBJECTS)} subjects, {len(EXAMS)} exams, {len(GRADES)} grade records.",
+        f"Dataset: {len(STUDENTS)} students, {len(GROUPS)} groups, {len(TEACHERS)} teachers, "
+        f"{len(SUBJECTS)} subjects, {len(EXAMS)} exams, {len(GRADES)} grades.",
     )
+    add_image(doc, SHOTS / "01_students_original.png", width=Inches(6.0))
+    add_caption(doc, "Figure 0. Original Students table in Microsoft Excel (Windows).")
 
-    # -------- PART 1 --------
-    add_heading_custom(doc, "3. Part 1 — Sorting, filtering and searching (Topic №7)", 1)
+    # ===================== PART 1 =====================
+    add_heading_custom(doc, "4. Part 1 — Sorting, filtering and searching (Topic №7)", 1)
     add_body(
         doc,
-        "The Students sheet was opened in Excel. Sorting, AutoFilter and Find were applied as required.",
+        "Task description (from assignment): Open your Students table in Excel. Sort students "
+        "alphabetically by last name. Sort students by group. Filter the table to display students "
+        "from one selected group. Search for a student by ID or last name. Filter records using two "
+        "conditions. Save the results and take screenshots of your work.",
     )
-    add_heading_custom(doc, "3.1 Sort alphabetically by last name", 2)
-    add_body(doc, "Data → Sort → Column: last_name → Order: A to Z. Result: Abayeva … Rakhimov.")
+
+    add_heading_custom(doc, "4.1 Sort students alphabetically by last name", 2)
+    add_task_box(doc, "Sort students alphabetically by last name.")
+    add_body(doc, "Performed in Excel (Windows): Data → Sort → Column last_name → A to Z.")
     add_image(doc, SHOTS / "02_sorted_by_lastname.png")
-    add_caption(doc, "Figure 1. Students sorted by last_name ascending.")
+    add_caption(doc, "Figure 1. Windows Excel — Students sorted by last_name ascending.")
 
-    add_heading_custom(doc, "3.2 Sort by group", 2)
-    add_body(doc, "Data → Sort → Column: group_id (then last_name). Groups appear in order 1–4.")
+    add_heading_custom(doc, "4.2 Sort students by group", 2)
+    add_task_box(doc, "Sort students by group.")
+    add_body(doc, "Performed: Data → Sort → group_id ascending (then last_name).")
     add_image(doc, SHOTS / "03_sorted_by_group.png")
-    add_caption(doc, "Figure 2. Students sorted by group_id.")
+    add_caption(doc, "Figure 2. Windows Excel — Students sorted by group_id.")
 
-    add_heading_custom(doc, "3.3 Filter one selected group", 2)
-    add_body(doc, "AutoFilter on group_id = 1 (CS-101). Four students remain visible.")
+    add_heading_custom(doc, "4.3 Filter students from one selected group", 2)
+    add_task_box(doc, "Filter the table to display students from one selected group.")
+    add_body(doc, "Selected group: CS-101 (group_id = 1). AutoFilter applied. 4 students shown.")
     add_image(doc, SHOTS / "04_filter_group_cs101.png")
-    add_caption(doc, "Figure 3. Filtered view for group CS-101.")
+    add_caption(doc, "Figure 3. Windows Excel — AutoFilter group_id = 1 (CS-101).")
 
-    add_heading_custom(doc, "3.4 Search by ID or last name", 2)
-    add_body(doc, "Find: student_id = 9 / last_name = Karimova → Indira Karimova, group SE-201.")
+    add_heading_custom(doc, "4.4 Search for a student by ID or last name", 2)
+    add_task_box(doc, "Search for a student by ID or last name.")
+    add_body(doc, "Find & Select → Find: last_name = Karimova / student_id = 9 → Indira Karimova.")
     add_image(doc, SHOTS / "05_search_karimova.png")
-    add_caption(doc, "Figure 4. Search result for Karimova.")
+    add_caption(doc, "Figure 4. Windows Excel — Search result for Karimova.")
 
-    add_heading_custom(doc, "3.5 Filter with two conditions", 2)
-    add_body(doc, "Advanced filter: group_id = 3 AND last_name ≥ 'I' → Iskakov, Karimova.")
+    add_heading_custom(doc, "4.5 Filter using two conditions", 2)
+    add_task_box(doc, "Filter records using two conditions.")
+    add_body(doc, "Advanced Filter: group_id = 3 AND last_name ≥ 'I' → Iskakov, Karimova.")
     add_image(doc, SHOTS / "06_filter_two_conditions.png")
-    add_caption(doc, "Figure 5. Two-condition filter result.")
+    add_caption(doc, "Figure 5. Windows Excel — Two-condition filter.")
 
     add_heading_custom(doc, "Report — Part 1", 2)
     add_body(
         doc,
         "Sorting rearranges all rows by a chosen key without removing data. Filtering hides rows "
         "that do not match criteria, so only a subset is visible. Searching locates a specific value "
-        "(for example student_id or last_name) inside the sheet. Combined filters (group + name range) "
-        "narrow the dataset further for analysis. Excel AutoFilter and Sort are suitable for interactive "
-        "exploration of the Students table before moving to SQL.",
+        "(student_id or last_name). Combined filters (group + name range) narrow the dataset further. "
+        "Excel AutoFilter and Sort on Windows are suitable for interactive exploration before SQL.",
     )
 
-    # -------- PART 2 --------
-    add_heading_custom(doc, "4. Part 2 — Introduction to SQL (Topic №8)", 1)
+    # ===================== PART 2 =====================
+    add_heading_custom(doc, "5. Part 2 — Introduction to SQL (Topic №8)", 1)
     add_body(
         doc,
-        "Tables were created in SQLite with foreign keys. Basic SELECT queries were executed.",
+        "Task description (from assignment): Import or create your university tables in an SQL "
+        "database. Write and execute: display all Students; display student_id, first_name, last_name; "
+        "display all Groups; display subject names.",
     )
+    add_body(doc, "Environment: DB Browser for SQLite on Windows 11. Database file: university.db.")
 
-    for key, caption in [
-        ("part2_q1_all_students", "Figure 6. SELECT * FROM Students;"),
-        ("part2_q2_names", "Figure 7. Projection: student_id, first_name, last_name."),
-        ("part2_q3_groups", "Figure 8. SELECT * FROM Groups;"),
-        ("part2_q4_subjects", "Figure 9. Subject names from Subjects."),
-    ]:
-        add_heading_custom(doc, results[key]["title"], 3)
+    part2_items = [
+        ("part2_q1_all_students", "5.1 Display all records from the Students table",
+         "Display all records from the Students table.",
+         "Figure 6. Windows DB Browser — SELECT * FROM Students;"),
+        ("part2_q2_names", "5.2 Display student IDs, first names and last names",
+         "Display only student IDs, first names and last names.",
+         "Figure 7. Windows DB Browser — projection of student_id, first_name, last_name."),
+        ("part2_q3_groups", "5.3 Display all records from the Groups table",
+         "Display all records from the Groups table.",
+         "Figure 8. Windows DB Browser — SELECT * FROM Groups;"),
+        ("part2_q4_subjects", "5.4 Display the names of all subjects",
+         "Display the names of all subjects from the Subjects table.",
+         "Figure 9. Windows DB Browser — SELECT subject_name FROM Subjects;"),
+    ]
+    for key, heading, task, caption in part2_items:
+        add_heading_custom(doc, heading, 2)
+        add_task_box(doc, task)
+        add_code(doc, results[key]["sql"])
         add_image(doc, SHOTS / f"{key}.png")
         add_caption(doc, caption)
 
     add_heading_custom(doc, "Report — Part 2", 2)
     add_body(
         doc,
-        "SQL (Structured Query Language) is used to define, query and manage relational data. "
-        "SELECT * returns every column; listing specific columns (projection) returns only the fields "
-        "needed. Creating tables with PRIMARY KEY and FOREIGN KEY enforces relationships and integrity "
-        "before more advanced filtering and aggregation.",
+        "SQL is used to define, query and manage relational data. SELECT * returns every column; "
+        "listing specific columns returns only needed fields. PRIMARY KEY and FOREIGN KEY enforce "
+        "relationships before filtering and aggregation.",
     )
 
-    # -------- PART 3 --------
-    add_heading_custom(doc, "5. Part 3 — SQL queries and aggregate functions (Topic №9)", 1)
+    # ===================== PART 3 =====================
+    add_heading_custom(doc, "6. Part 3 — SQL queries and aggregate functions (Topic №9)", 1)
+    add_body(
+        doc,
+        "Task description (from assignment): Display students of a selected group (WHERE); display "
+        "students alphabetically (ORDER BY); COUNT total students; COUNT students per group (GROUP BY); "
+        "find MAX, MIN and AVG grade.",
+    )
 
-    add_heading_custom(doc, "5.1 WHERE — students of group 1", 2)
+    add_heading_custom(doc, "6.1 WHERE — students of a selected group", 2)
+    add_task_box(doc, "Display students belonging to a selected group using WHERE.")
+    add_code(doc, results["part3_q1_where"]["sql"])
     add_image(doc, SHOTS / "part3_q1_where.png")
     add_caption(doc, "Figure 10. WHERE group_id = 1.")
 
-    add_heading_custom(doc, "5.2 ORDER BY — alphabetical last names", 2)
+    add_heading_custom(doc, "6.2 ORDER BY — alphabetical order", 2)
+    add_task_box(doc, "Display students in alphabetical order using ORDER BY.")
+    add_code(doc, results["part3_q2_order_by"]["sql"])
     add_image(doc, SHOTS / "part3_q2_order_by.png")
     add_caption(doc, "Figure 11. ORDER BY last_name ASC.")
 
-    add_heading_custom(doc, "5.3 COUNT — total students", 2)
+    add_heading_custom(doc, "6.3 COUNT — total number of students", 2)
+    add_task_box(doc, "Count the total number of students using COUNT().")
+    add_code(doc, results["part3_q3_count"]["sql"])
     add_image(doc, SHOTS / "part3_q3_count.png")
     total = results["part3_q3_count"]["rows"][0][0]
     add_caption(doc, f"Figure 12. Total students = {total}.")
 
-    add_heading_custom(doc, "5.4 GROUP BY — students per group", 2)
+    add_heading_custom(doc, "6.4 GROUP BY — students in each group", 2)
+    add_task_box(doc, "Count the number of students in each group using GROUP BY.")
+    add_code(doc, results["part3_q4_group_by"]["sql"])
     add_image(doc, SHOTS / "part3_q4_group_by.png")
     add_caption(doc, "Figure 13. Student count by group_id.")
 
-    add_heading_custom(doc, "5.5 MAX / MIN / AVG grades", 2)
+    add_heading_custom(doc, "6.5 MAX grade", 2)
+    add_task_box(doc, "Find the maximum grade using MAX().")
+    add_code(doc, results["part3_q5_max"]["sql"])
     add_image(doc, SHOTS / "part3_q5_max.png")
     add_caption(doc, f"Figure 14. MAX(grade) = {results['part3_q5_max']['rows'][0][0]}.")
+
+    add_heading_custom(doc, "6.6 MIN grade", 2)
+    add_task_box(doc, "Find the minimum grade using MIN().")
+    add_code(doc, results["part3_q6_min"]["sql"])
     add_image(doc, SHOTS / "part3_q6_min.png")
     add_caption(doc, f"Figure 15. MIN(grade) = {results['part3_q6_min']['rows'][0][0]}.")
+
+    add_heading_custom(doc, "6.7 AVG grade", 2)
+    add_task_box(doc, "Calculate the average grade using AVG().")
+    add_code(doc, results["part3_q7_avg"]["sql"])
     add_image(doc, SHOTS / "part3_q7_avg.png")
     add_caption(doc, f"Figure 16. AVG(grade) = {results['part3_q7_avg']['rows'][0][0]}.")
 
     add_heading_custom(doc, "Report — Part 3", 2)
     add_body(
         doc,
-        "WHERE filters rows before they are returned. ORDER BY only changes the presentation order. "
-        "COUNT, MAX, MIN and AVG summarize many values into a single metric. GROUP BY splits rows into "
-        "buckets (here by group_id) so aggregates can be computed per group. In this database there are "
-        f"{total} students; grades range from {results['part3_q6_min']['rows'][0][0]} to "
-        f"{results['part3_q5_max']['rows'][0][0]} with an average of "
-        f"{results['part3_q7_avg']['rows'][0][0]}.",
+        "WHERE filters rows. ORDER BY only changes presentation order. COUNT, MAX, MIN and AVG "
+        "summarize many values. GROUP BY partitions data so aggregates are computed per group. "
+        f"Result: {total} students; grades from {results['part3_q6_min']['rows'][0][0]} to "
+        f"{results['part3_q5_max']['rows'][0][0]}; average {results['part3_q7_avg']['rows'][0][0]}.",
     )
 
-    # -------- PART 4 --------
-    add_heading_custom(doc, "6. Part 4 — Joining tables using JOIN (Topic №10)", 1)
+    # ===================== PART 4 =====================
+    add_heading_custom(doc, "7. Part 4 — Joining tables using JOIN (Topic №10)", 1)
     add_body(
         doc,
-        "Related tables were joined on foreign-key columns. INNER JOIN returns only matching rows; "
-        "LEFT JOIN keeps all rows from the left table.",
+        "Task description (from assignment): Join Students and Groups to show name + group name. "
+        "Join Students and Grades. If Subjects is linked, join to show student, subject and grade. "
+        "Explain connecting columns. Compare JOIN result with original tables.",
     )
 
-    add_heading_custom(doc, "6.1 Students ⋈ Groups", 2)
-    add_body(doc, "Connecting column: Students.group_id = Groups.group_id.")
+    add_heading_custom(doc, "7.1 INNER JOIN Students and Groups", 2)
+    add_task_box(doc, "Join Students and Groups to display each student's name and group name.")
+    add_body(doc, "Connecting columns: Students.group_id = Groups.group_id.")
+    add_code(doc, results["part4_q1_students_groups"]["sql"])
     add_image(doc, SHOTS / "part4_q1_students_groups.png")
-    add_caption(doc, "Figure 17. Student names with group_name.")
+    add_caption(doc, "Figure 17. INNER JOIN Students + Groups.")
 
-    add_heading_custom(doc, "6.2 Students ⋈ Grades", 2)
-    add_body(doc, "Connecting column: Students.student_id = Grades.student_id.")
+    add_heading_custom(doc, "7.2 INNER JOIN Students and Grades", 2)
+    add_task_box(doc, "Join Students and Grades to display students and their grades.")
+    add_body(doc, "Connecting columns: Students.student_id = Grades.student_id.")
+    add_code(doc, results["part4_q2_students_grades"]["sql"])
     add_image(doc, SHOTS / "part4_q2_students_grades.png")
-    add_caption(doc, "Figure 18. Students and their grades.")
+    add_caption(doc, "Figure 18. INNER JOIN Students + Grades.")
 
-    add_heading_custom(doc, "6.3 Students ⋈ Grades ⋈ Exams ⋈ Subjects", 2)
+    add_heading_custom(doc, "7.3 JOIN Students, Grades, Exams and Subjects", 2)
+    add_task_box(doc, "Join tables to display student names, subjects and grades.")
     add_body(
         doc,
         "Connecting columns: Students.student_id = Grades.student_id; "
         "Grades.exam_id = Exams.exam_id; Exams.subject_id = Subjects.subject_id.",
     )
+    add_code(doc, results["part4_q3_full_join"]["sql"])
     add_image(doc, SHOTS / "part4_q3_full_join.png")
-    add_caption(doc, "Figure 19. Student names, subject names and grades.")
+    add_caption(doc, "Figure 19. Windows DB Browser — student names, subjects and grades.")
 
-    add_heading_custom(doc, "6.4 LEFT JOIN comparison", 2)
+    add_heading_custom(doc, "7.4 LEFT JOIN comparison + connecting columns", 2)
+    add_task_box(doc, "Explain which columns connect the tables. Compare JOIN with original tables.")
+    add_body(
+        doc,
+        "Compared with the original Students / Grades sheets alone, the JOIN result shows readable "
+        "combined information without repeating master data. INNER JOIN keeps only matching rows; "
+        "LEFT JOIN keeps all left-table rows.",
+    )
+    add_code(doc, results["part4_q4_left_join"]["sql"])
     add_image(doc, SHOTS / "part4_q4_left_join.png")
-    add_caption(doc, "Figure 20. LEFT JOIN keeps every student; grade may be NULL if missing.")
+    add_caption(doc, "Figure 20. Windows DB Browser — LEFT JOIN Students + Grades.")
 
     add_heading_custom(doc, "Report — Part 4", 2)
     add_body(
@@ -1177,40 +1354,44 @@ def create_report(results):
     )
 
     # -------- Questions --------
-    add_heading_custom(doc, "7. Individual assignment — answers to six questions", 1)
+    add_heading_custom(doc, "8. Individual assignment — answers to six questions", 1)
+    add_body(
+        doc,
+        "Prepare a short report answering these questions (from assignment).",
+    )
 
     qa = [
         (
-            "1. What is the difference between sorting and filtering?",
+            "Question 1. What is the difference between sorting and filtering?",
             "Sorting changes the order of rows according to one or more columns (for example A→Z by "
             "last_name) but keeps all records. Filtering temporarily hides rows that do not satisfy "
             "a condition (for example group_id = 1), so only matching records are shown.",
         ),
         (
-            "2. What is SQL used for?",
+            "Question 2. What is SQL used for?",
             "SQL is used to create and modify database structures, insert and update data, and — most "
             "importantly for this work — to query relational tables with SELECT, WHERE, ORDER BY, "
             "GROUP BY, aggregate functions and JOIN.",
         ),
         (
-            "3. What is the difference between WHERE and ORDER BY?",
+            "Question 3. What is the difference between WHERE and ORDER BY?",
             "WHERE selects which rows are included in the result based on conditions. ORDER BY does "
             "not remove rows; it only arranges the final result set (ASC or DESC) by chosen columns.",
         ),
         (
-            "4. Why do we use GROUP BY and aggregate functions?",
+            "Question 4. Why do we use GROUP BY and aggregate functions?",
             "Aggregate functions (COUNT, SUM, AVG, MIN, MAX) compute summary values from many rows. "
             "GROUP BY partitions the data so those summaries are calculated separately for each group "
             "(for example student count per group_id).",
         ),
         (
-            "5. What is the purpose of JOIN?",
+            "Question 5. What is the purpose of JOIN?",
             "JOIN retrieves related information stored in different tables by matching key columns "
             "(foreign key = primary key), producing a combined result such as student name with "
             "group name or subject and grade.",
         ),
         (
-            "6. What is the difference between INNER JOIN and LEFT JOIN?",
+            "Question 6. What is the difference between INNER JOIN and LEFT JOIN?",
             "INNER JOIN returns only rows that have a match in both tables. LEFT JOIN returns all "
             "rows from the left table and matching rows from the right table; if there is no match, "
             "right-table columns are NULL.",
@@ -1220,31 +1401,49 @@ def create_report(results):
         add_heading_custom(doc, q, 3)
         add_body(doc, a)
 
-    # -------- Conclusion --------
-    add_heading_custom(doc, "8. Conclusion", 1)
+    # -------- SQL appendix inside the same document --------
+    add_heading_custom(doc, "9. Appendix — full SQL script used in this work", 1)
     add_body(
         doc,
-        "After completing this practical work, the Students dataset was sorted and filtered in Excel, "
-        "including single-group filters, search by ID/name and a two-condition filter. The same "
-        "university schema was implemented in SQLite. Basic SELECT queries projected full rows and "
-        "selected columns from Students, Groups and Subjects. WHERE, ORDER BY, GROUP BY and aggregate "
-        "functions (COUNT, MAX, MIN, AVG) were used to filter, order and summarize data. Finally, "
-        "INNER JOIN and LEFT JOIN combined Students with Groups, Grades and Subjects, demonstrating "
-        "how foreign keys connect tables and how joined results differ from reading each table alone. "
-        "Overall, Excel is convenient for quick visual exploration, while SQL provides precise, "
-        "repeatable queries for multi-table analysis.",
+        "All queries below were executed in DB Browser for SQLite on Windows. "
+        "The complete script is also saved as sql/university_queries.sql.",
+    )
+    for key, sql, title in QUERIES:
+        add_heading_custom(doc, title, 3)
+        add_code(doc, sql.strip())
+
+    # -------- Conclusion --------
+    add_heading_custom(doc, "10. Conclusion", 1)
+    add_body(
+        doc,
+        "After completing this practical work, students should be able to sort and filter large "
+        "datasets, search for information, write basic SQL queries, summarize data using aggregate "
+        "functions and retrieve related information from multiple tables using JOIN.",
+    )
+    add_body(
+        doc,
+        "In this submission the Students dataset was sorted and filtered in Microsoft Excel on "
+        "Windows (alphabetical sort, sort by group, one-group filter, search by ID/name, two-condition "
+        "filter). The university schema was implemented in SQLite and opened in DB Browser for SQLite "
+        "on Windows. Basic SELECT queries, WHERE, ORDER BY, GROUP BY and aggregate functions "
+        "(COUNT, MAX, MIN, AVG) were executed successfully. INNER JOIN and LEFT JOIN combined "
+        "Students with Groups, Grades and Subjects, showing how foreign keys connect tables. "
+        "Excel is convenient for quick visual exploration; SQL provides precise, repeatable "
+        "multi-table analysis.",
     )
 
-    add_heading_custom(doc, "9. Deliverables checklist", 1)
-    add_body(doc, "• Updated University_Database.xlsx (data/University_Database.xlsx)")
-    add_body(doc, "• SQL script with all queries (sql/university_queries.sql)")
-    add_body(doc, "• SQLite database file (data/university.db)")
-    add_body(doc, "• Screenshots of Excel operations and executed SQL results (screenshots/)")
-    add_body(doc, "• Short report with answers to the six questions (this document)")
-    add_body(doc, "• Reports after each part and a final conclusion")
+    add_heading_custom(doc, "11. Deliverables (all included in / with this package)", 1)
+    add_body(doc, "1. Updated University_Database.xlsx — data/University_Database.xlsx")
+    add_body(doc, "2. SQL script containing all queries — sql/university_queries.sql (also in §9)")
+    add_body(doc, "3. Screenshots showing executed queries and results — embedded above (Windows UI)")
+    add_body(doc, "4. Short report with answers to the six questions — §8 of this document")
+    add_body(doc, "5. Report after each assignment part — Report — Part 1…4 sections above")
+    add_body(doc, "6. Conclusion — §10 of this document")
 
-    out = REPORT / "Practical_Work_7_10_Report.docx"
+    out = REPORT / "Practical_Work_7_10_FULL.docx"
     doc.save(out)
+    # also keep legacy filename as a copy of the same single document
+    (REPORT / "Practical_Work_7_10_Report.docx").write_bytes(out.read_bytes())
     return out
 
 
@@ -1316,24 +1515,19 @@ def main():
 
 Data Sorting, Filtering, SQL Queries and Joining Tables
 
-## Contents
+## Main submission (ONE document)
+
+**`report/Practical_Work_7_10_FULL.docx`** — all assignment tasks, Windows screenshots, SQL queries, part reports, six answers, and conclusion in a single file.
+
+## Supporting files
 
 | Path | Description |
 |------|-------------|
-| `data/University_Database.xlsx` | Updated Excel workbook with all tables + Part 1 result sheets |
-| `data/university.db` | SQLite database with the same data |
-| `sql/university_queries.sql` | Full SQL script (schema, inserts, all queries) |
-| `screenshots/` | Screenshots of Excel operations and SQL results |
-| `report/Practical_Work_7_10_Report.docx` | Short report, part reports, six answers, conclusion |
-| `QUERY_RESULTS.md` | Text reference of every query result |
-
-## How to re-run SQL
-
-```bash
-sqlite3 data/university.db < sql/university_queries.sql
-```
-
-Or regenerate everything:
+| `data/University_Database.xlsx` | Updated Excel workbook |
+| `data/university.db` | SQLite database |
+| `sql/university_queries.sql` | Full SQL script |
+| `screenshots/` | Windows Excel / DB Browser screenshots |
+| `QUERY_RESULTS.md` | Text reference of query results |
 
 ```bash
 python3 generate_all.py
