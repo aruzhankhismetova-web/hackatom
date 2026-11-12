@@ -1,0 +1,24 @@
+{
+  "locale": "kk",
+  "entries": [
+    {"key": "btn_play", "source": "Play", "target": "Ойнау", "context": "ui_button"},
+    {"key": "dialog_npc", "source": "Where are you?", "target": "Сен қайдасың?", "context": "dialog"},
+    {"key": "victory", "source": "Victory!", "target": "Жеңіс!", "context": "system"},
+    {"key": "at_home", "source": "At home", "target": "Үйде", "context": "system"},
+    {"key": "books", "source": "Books", "target": "Кітаптар", "context": "system"},
+    {"key": "songs", "source": "Songs", "target": "Әндер", "context": "system"},
+    {"key": "at_school", "source": "At school", "target": "Мектепте", "context": "system"},
+    {"key": "sure", "source": "Are you sure?", "target": "Растайсыз ба?", "context": "confirm"},
+    {"key": "confirm_exit", "source": "Do you want to exit?", "target": "Шыққыңыз келе ме?", "context": "confirm"},
+    {"key": "press", "source": "Press the button", "target": "Батырманы басыңыз", "context": "ui_button"},
+    {"key": "btn_settings", "source": "Settings", "target": "Баптаулар", "context": "ui_button"},
+    {"key": "login", "source": "Log in", "target": "Кіру", "context": "ui_button"},
+    {"key": "lives", "source": "{count} lives", "target": "{count} өмір", "context": "system"},
+    {"key": "daily", "source": "Daily bonuses", "target": "Күнделікті бонустар", "context": "system"},
+    {"key": "gift_toast", "source": "You received a gift", "target": "Сен сыйлық алдың", "context": "toast"},
+    {"key": "welcome", "source": "Welcome, {player}!", "target": "Қош келдіңіз, {player}!", "context": "system"},
+    {"key": "energy", "source": "Energy: %d", "target": "Қуат: %d", "context": "system"},
+    {"key": "reward", "source": "Reward: <b>%d</b>", "target": "Сыйлық: <b>%d</b>", "context": "system"},
+    {"key": "coins", "source": "3 coins", "target": "3 тиын", "context": "system"}
+  ]
+}

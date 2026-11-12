@@ -1,0 +1,194 @@
+{
+  "language": "kk",
+  "game": "Алтын Жол",
+  "script": "cyrillic",
+  "terms": [
+    {
+      "id": "play",
+      "source": ["Play"],
+      "preferred": "Ойнау",
+      "accepted": [],
+      "forbidden": [],
+      "contexts": ["ui_button"],
+      "notes": "Короткая кнопка. Не заменять на «Ойнату»."
+    },
+    {
+      "id": "back",
+      "source": ["Back"],
+      "preferred": "Артқа",
+      "forbidden": ["Назад"],
+      "scope": "always",
+      "contexts": ["ui_button"],
+      "notes": "Кнопка назад. Русское «Назад» в меню не оставлять."
+    },
+    {
+      "id": "settings",
+      "source": ["Settings", "настройки"],
+      "preferred": "Баптаулар",
+      "accepted": ["Баптау"],
+      "forbidden": ["Настройкалар", "Настройка", "Настройки", "Настройкалары"],
+      "scope": "always",
+      "contexts": ["ui_button"],
+      "notes": "Экран настроек. Не калька с русского."
+    },
+    {
+      "id": "settings_synonym",
+      "source": ["Settings", "настройки"],
+      "preferred": "Баптаулар",
+      "accepted": ["Баптау"],
+      "forbidden": ["Орнату", "Орнатулар", "Реттеу", "Реттеулер"],
+      "scope": "when_source",
+      "notes": "Орнату — это установка, реттеу — подкрутить значение. Для экрана настроек только баптау."
+    },
+    {
+      "id": "login",
+      "source": ["Log in", "Login", "Sign in"],
+      "preferred": "Кіру",
+      "forbidden": ["Логин", "Логин жасау"],
+      "scope": "always",
+      "notes": "Кнопка входа, не транслит."
+    },
+    {
+      "id": "button",
+      "source": ["button", "Button"],
+      "preferred": "Батырма",
+      "forbidden": ["Кнопка", "Кнопку", "Кнопке", "Кнопки"],
+      "scope": "always",
+      "notes": "В инструкции винительный падеж: «Батырманы басыңыз»."
+    },
+    {
+      "id": "gift",
+      "source": ["gift", "Gift", "reward", "Reward"],
+      "preferred": "Сыйлық",
+      "forbidden": ["Марапат", "Сыйақы", "Подарок"],
+      "scope": "when_source",
+      "notes": "Подарок в тосте — сыйлық. Марапат — звание, сыйақы — выплата. Тост на сен не повышать до сіз одной заменой местоимения."
+    },
+    {
+      "id": "quest",
+      "source": ["Quest", "Quests"],
+      "preferred": "Тапсырма",
+      "forbidden": ["Миссия"],
+      "scope": "always",
+      "notes": "Квест — тапсырма."
+    },
+    {
+      "id": "duty",
+      "source": ["Quest", "Duty"],
+      "preferred": "Тапсырма",
+      "forbidden": ["Міндет"],
+      "scope": "when_source",
+      "notes": "Міндет — обязанность, не квест."
+    },
+    {
+      "id": "energy",
+      "source": ["Energy"],
+      "preferred": "Қуат",
+      "forbidden": ["Энергия"],
+      "scope": "always",
+      "notes": "Игровой ресурс — қуат."
+    },
+    {
+      "id": "clan",
+      "source": ["Clan", "Guild"],
+      "preferred": "Одақ",
+      "forbidden": ["Клан", "Кланы"],
+      "scope": "always",
+      "notes": "Клан в этой игре — одақ."
+    },
+    {
+      "id": "crystal",
+      "source": ["Crystal", "Gem"],
+      "preferred": "Асыл тас",
+      "forbidden": ["Кристалл", "Кристал"],
+      "scope": "always",
+      "notes": "Предмет — асыл тас, не кристалл."
+    },
+    {
+      "id": "password",
+      "source": ["Password"],
+      "preferred": "Құпиясөз",
+      "forbidden": ["Пароль"],
+      "scope": "always",
+      "notes": "В kk — құпиясөз. В uz для того же концепта норма — parol."
+    },
+    {
+      "id": "friends",
+      "source": ["Friend", "Friends"],
+      "preferred": "Достар",
+      "forbidden": ["Друзья", "Друг"],
+      "scope": "always",
+      "notes": "В uz — doʻst. Различие языков допустимо."
+    },
+    {
+      "id": "menu",
+      "source": ["Menu"],
+      "preferred": "Мәзір",
+      "forbidden": ["Меню"],
+      "scope": "always",
+      "notes": "В uz — menyu."
+    },
+    {
+      "id": "pause",
+      "source": ["Pause"],
+      "preferred": "Пауза",
+      "forbidden": [],
+      "notes": "Заимствование пауза / pauza — норма, если она одна на язык."
+    },
+    {
+      "id": "coins",
+      "source": ["coin", "coins"],
+      "preferred": "тиын",
+      "forbidden": ["монета", "монеталар", "тиындар", "коины"],
+      "scope": "always",
+      "notes": "После числа без көптік: «3 тиын», не «3 тиындар»."
+    },
+    {
+      "id": "cancel",
+      "source": ["Cancel"],
+      "preferred": "Бас тарту",
+      "forbidden": ["Отмена", "Болдырмау"],
+      "scope": "when_source",
+      "notes": "Болдырмау — это undo, не кнопка отмены."
+    },
+    {
+      "id": "undo",
+      "source": ["Undo"],
+      "preferred": "Болдырмау",
+      "forbidden": ["Бас тарту"],
+      "scope": "when_source",
+      "notes": "Болдырмау — undo. Бас тарту — отмена."
+    },
+    {
+      "id": "inventory",
+      "source": ["Inventory", "Bag"],
+      "preferred": "Жүк",
+      "forbidden": ["Қоржын", "Инвентарь"],
+      "scope": "when_source",
+      "contexts": ["ui_button"],
+      "notes": "Қоржын в меню непонятен."
+    },
+    {
+      "id": "character",
+      "source": ["Character", "Hero"],
+      "preferred": "Кейіпкер",
+      "forbidden": ["Персонаж"],
+      "scope": "when_source",
+      "notes": "В uz — qahramon."
+    },
+    {
+      "id": "victory",
+      "source": ["Victory"],
+      "preferred": "Жеңіс",
+      "forbidden": [],
+      "notes": "Короткая системная строка. Не разворачивать."
+    },
+    {
+      "id": "continue",
+      "source": ["Continue"],
+      "preferred": "Жалғастыру",
+      "forbidden": [],
+      "notes": "Кнопка продолжения."
+    }
+  ]
+}

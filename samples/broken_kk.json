@@ -1,0 +1,30 @@
+{
+  "locale": "kk",
+  "entries": [
+    {"key": "btn_play", "source": "Play", "target": "Ойнау", "context": "ui_button"},
+    {"key": "at_home", "source": "At home", "target": "Үйда", "context": "system"},
+    {"key": "books", "source": "Books", "target": "Кітаплер", "context": "system"},
+    {"key": "songs", "source": "Songs", "target": "Әнлер", "context": "system"},
+    {"key": "at_school", "source": "At school", "target": "Мектепде", "context": "system"},
+    {"key": "sure", "source": "Are you sure?", "target": "Сенімдісіз бе?", "context": "confirm"},
+    {"key": "confirm_exit", "source": "Do you want to exit?", "target": "Сенімдісіз ма?", "context": "confirm"},
+    {"key": "press", "source": "Press the button", "target": "Кнопке басыңыз", "context": "ui_button"},
+    {"key": "btn_settings", "source": "Settings", "target": "Настройкалар", "context": "ui_button"},
+    {"key": "menu_settings", "source": "Settings", "target": "Реттеулер", "context": "ui_button"},
+    {"key": "login", "source": "Log in", "target": "Логин", "context": "ui_button"},
+    {"key": "lives", "source": "{count} lives", "target": "{count} өмірлер", "context": "system"},
+    {"key": "daily", "source": "Daily bonuses", "target": "Күнделікті бонуслар", "context": "system"},
+    {"key": "gift_toast", "source": "You received a gift", "target": "Сен сыйлық алдың", "context": "toast"},
+    {"key": "dialog_npc", "source": "Where are you?", "target": "Сен қайдасың?", "context": "dialog"},
+    {"key": "victory", "source": "Victory!", "target": "Жеңіс!", "context": "system"},
+    {"key": "welcome", "source": "Welcome, {player}!", "target": "Қош келдіңіз, {name}!", "context": "system"},
+    {"key": "energy", "source": "Energy: %d", "target": "Қуат: %s", "context": "system"},
+    {"key": "reward", "source": "Reward: <b>%d</b>", "target": "Сыйлық: <b>%d", "context": "system"},
+    {"key": "clan", "source": "Clan", "target": "Клан", "context": "system"},
+    {"key": "crystal", "source": "Crystal", "target": "Кристалл", "context": "system"},
+    {"key": "quest", "source": "Quest", "target": "Миссия", "context": "system"},
+    {"key": "password", "source": "Password", "target": "Пароль", "context": "ui_button"},
+    {"key": "friends", "source": "Friends", "target": "Друзья", "context": "system"},
+    {"key": "coins", "source": "3 coins", "target": "3 тиындар", "context": "system"}
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "language": "uz",
+  "game": "Алтын Жол",
+  "script": "latin",
+  "terms": [
+    {
+      "id": "settings",
+      "source": ["Settings", "настройки"],
+      "preferred": "Sozlamalar",
+      "forbidden": ["Nastroykalar", "Nastroyka", "Настройкалар"],
+      "scope": "always",
+      "contexts": ["ui_button"],
+      "notes": "Калька с русского «настройки». Норма — sozlamalar."
+    },
+    {
+      "id": "shop",
+      "source": ["Shop", "Store"],
+      "preferred": "Doʻkon",
+      "forbidden": ["Magazin", "Магазин"],
+      "scope": "always",
+      "notes": "Пропуск апострофа в Dokon ловит орфография, не глоссарий."
+    },
+    {
+      "id": "play",
+      "source": ["Play"],
+      "preferred": "Oʻynash",
+      "forbidden": [],
+      "contexts": ["ui_button"],
+      "notes": "Кнопка. ASCII-апостроф вместо U+02BB — орфография."
+    },
+    {
+      "id": "password",
+      "source": ["Password"],
+      "preferred": "parol",
+      "accepted": ["Parol"],
+      "forbidden": [],
+      "notes": "Для uz норма — parol. В kk тот же концепт — құпиясөз."
+    },
+    {
+      "id": "menu",
+      "source": ["Menu"],
+      "preferred": "menyu",
+      "forbidden": [],
+      "notes": "В kk — мәзір."
+    },
+    {
+      "id": "pause",
+      "source": ["Pause"],
+      "preferred": "pauza",
+      "forbidden": [],
+      "notes": "Заимствование pauza — норма uz."
+    },
+    {
+      "id": "friend",
+      "source": ["Friend", "Friends"],
+      "preferred": "doʻst",
+      "forbidden": [],
+      "notes": "В kk — достар."
+    },
+    {
+      "id": "character",
+      "source": ["Character", "Hero"],
+      "preferred": "qahramon",
+      "forbidden": ["Personaj"],
+      "scope": "when_source",
+      "notes": "Персонаж — qahramon."
+    },
+    {
+      "id": "login",
+      "source": ["Log in", "Login", "Sign in"],
+      "preferred": "Kirish",
+      "forbidden": ["Login"],
+      "scope": "always",
+      "notes": "Кнопка входа."
+    },
+    {
+      "id": "continue",
+      "source": ["Continue"],
+      "preferred": "Davom ettirish",
+      "forbidden": [],
+      "notes": "Кнопка. Длину не раздувать."
+    },
+    {
+      "id": "victory",
+      "source": ["Victory"],
+      "preferred": "gʻalaba",
+      "forbidden": [],
+      "notes": "gʻ пишется через U+02BB."
+    },
+    {
+      "id": "gift",
+      "source": ["gift", "Gift"],
+      "preferred": "sovgʻa",
+      "forbidden": ["podarka"],
+      "scope": "when_source",
+      "notes": "Тост на sen не менять на siz одной заменой местоимения."
+    },
+    {
+      "id": "register",
+      "source": ["Sign up", "Register"],
+      "preferred": "Roʻyxatdan oʻtish",
+      "accepted": ["Roʻyxat"],
+      "forbidden": [],
+      "notes": "Длинная кнопка. Короткий запас — Roʻyxat, его писать в accepted, не вместо нормы без нужды."
+    },
+    {
+      "id": "cancel",
+      "source": ["Cancel"],
+      "preferred": "Bekor qilish",
+      "forbidden": ["Otmena"],
+      "scope": "when_source",
+      "notes": "Отмена — bekor qilish."
+    }
+  ]
+}
