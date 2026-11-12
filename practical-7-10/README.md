@@ -15,7 +15,7 @@ The database file is `db/university.sqlite`.
 
 ## How to change the examples
 
-The saved results use group **1 (IT-21)**, last name **Aliyeva**, student id **1001**, and the two-condition filter **gender F and group_id <= 5**.
+The saved results use group **1 (IT-21)**, last name **Nazerke**, student id **1001**, and the two-condition filter **gender F and group_id <= 5**. Student 1001 is Akhmet Nazerke.
 
 ### In Excel or Google Sheets
 

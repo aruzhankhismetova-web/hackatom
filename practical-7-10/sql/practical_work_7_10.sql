@@ -1,7 +1,7 @@
 -- Practical Work 7-10
 -- Data sorting, filtering, SQL queries and joining tables
 -- University database from Practice Work 2
--- Student: Асылай
+-- Student: Asylai
 -- Group: SE1-24
 -- Date: 9 November 2026
 --
@@ -233,7 +233,7 @@ INSERT INTO Courses (course_id, course_name, credits, semester, department_id) V
 (15, 'Engineering Basics', 3, 1, 10);
 
 INSERT INTO Students (student_id, last_name, first_name, birth_date, gender, phone, email, group_id) VALUES
-(1001, 'Aliyeva', 'Aruzhan', '2004-01-05', 'F', '+7-707-2000000', 'aruzhan.aliyeva@student.university.example', 1),
+(1001, 'Nazerke', 'Akhmet', '2004-01-05', 'F', '+7-707-2000000', 'akhmet.nazerke@student.university.example', 1),
 (1002, 'Baimukhan', 'Nursultan', '2005-02-06', 'M', '+7-707-2000001', 'nursultan.baimukhan@student.university.example', 2),
 (1003, 'Suleimenova', 'Amina', '2006-03-07', 'F', '+7-707-2000002', 'amina.suleimenova@student.university.example', 3),
 (1004, 'Kairatov', 'Dias', '2004-04-08', 'M', '+7-707-2000003', 'dias.kairatov@student.university.example', 4),
@@ -300,7 +300,7 @@ INSERT INTO settings (
     selected_department_id
 ) VALUES (
     1,  -- selected group
-    'Aliyeva',  -- search by last name
+    'Nazerke',  -- search by last name
     1001,  -- search by student id
     'F',  -- two-condition filter: gender
     5,  -- two-condition filter: group_id <= this value
@@ -495,7 +495,7 @@ WHERE student_id = 1001;
 -- The search ignores capital letters.
 SELECT *
 FROM Students
-WHERE last_name COLLATE NOCASE = 'Aliyeva';
+WHERE last_name COLLATE NOCASE = 'Nazerke';
 
 -- Topic 7 as SQL. Filter with two conditions
 -- Both conditions must be true.

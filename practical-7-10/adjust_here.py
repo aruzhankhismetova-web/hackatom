@@ -17,7 +17,7 @@ SELECTED_GROUP_ID = 1
 
 # Search by last name, and search by student id.
 # They can point at the same student or at two different students.
-SEARCH_LAST_NAME = "Aliyeva"
+SEARCH_LAST_NAME = "Nazerke"
 SEARCH_STUDENT_ID = 1001
 
 # Two-condition filter on Students.
@@ -36,7 +36,7 @@ SELECTED_SCHEDULE_ID = 1
 SELECTED_DEPARTMENT_ID = 1
 
 # Printed on the report and on the Excel Settings sheet.
-STUDENT_NAME = "Асылай"
+STUDENT_NAME = "Asylai"
 STUDENT_GROUP = "SE1-24"
 REPORT_DATE = "9 November 2026"
 
@@ -47,7 +47,7 @@ REPORT_DATE = "9 November 2026"
 
 # (last_name, first_name) in student_id order, starting at 1001.
 STUDENT_NAMES = [
-    ("Aliyeva", "Aruzhan"),
+    ("Nazerke", "Akhmet"),
     ("Baimukhan", "Nursultan"),
     ("Suleimenova", "Amina"),
     ("Kairatov", "Dias"),
