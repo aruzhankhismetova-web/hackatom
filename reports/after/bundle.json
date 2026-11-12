@@ -1,0 +1,466 @@
+[
+  {
+    "key": "menu.play",
+    "context": "Главное меню, кнопка",
+    "en": "Play",
+    "ru": "Играть",
+    "kk": "Ойнау",
+    "uz": "Играть"
+  },
+  {
+    "key": "menu.settings",
+    "context": "Главное меню",
+    "en": "Settings",
+    "ru": "Настройки",
+    "kk": "Баптаулар",
+    "uz": "Sozlamalar"
+  },
+  {
+    "key": "menu.continue",
+    "context": "Главное меню, кнопка",
+    "en": "Continue",
+    "ru": "Продолжить",
+    "kk": "Жалғастыру",
+    "uz": "Continue"
+  },
+  {
+    "key": "menu.exit",
+    "context": "Главное меню, кнопка",
+    "en": "Exit",
+    "ru": "Выход",
+    "kk": "Шығу",
+    "uz": "Chiqish"
+  },
+  {
+    "key": "menu.back",
+    "context": "Навигация назад",
+    "en": "Back",
+    "ru": "Назад",
+    "kk": "Артқа",
+    "uz": "Orqaga"
+  },
+  {
+    "key": "ui.loading",
+    "context": "Полноэкранный лоадер",
+    "en": "Loading...",
+    "ru": "Загрузка...",
+    "kk": "Жүктелуде...",
+    "uz": "Loading..."
+  },
+  {
+    "key": "ui.error",
+    "context": "Общая ошибка клиента",
+    "en": "Something went wrong. Try again.",
+    "ru": "Что-то пошло не так. Попробуйте ещё раз.",
+    "kk": "Бірдеңе дұрыс болмады. Қайта көріңіз.",
+    "uz": "Nimadir notoʻgʻri ketdi. Qayta urinib koʻring."
+  },
+  {
+    "key": "ui.start",
+    "context": "Подсказка на экране старта",
+    "en": "Press {button} to start",
+    "ru": "Нажмите {button}, чтобы начать",
+    "kk": "Бастау үшін {button} басыңыз",
+    "uz": "Boshlash uchun {button} ni bosing"
+  },
+  {
+    "key": "shop.buy",
+    "context": "Цена на кнопке покупки",
+    "en": "Buy for %s",
+    "ru": "Купить за %s",
+    "kk": "Сатып алу: %s",
+    "uz": "Sotib olish: %d"
+  },
+  {
+    "key": "profile.welcome",
+    "context": "Приветствие после входа",
+    "en": "Welcome, {name}!",
+    "ru": "Добро пожаловать, {name}!",
+    "kk": "Қош келдіңіз, {name}!",
+    "uz": "Xush kelibsiz, {name}!"
+  },
+  {
+    "key": "chat.message",
+    "context": "Строка чата, rich text",
+    "en": "<b>{name}</b>: {text}",
+    "ru": "<b>{name}</b>: {text}",
+    "kk": "<b>{name}</b>: {text}",
+    "uz": "<b>{name}</b>: {text}"
+  },
+  {
+    "key": "reward.coins",
+    "context": "Тост награды, цвет суммы",
+    "en": "You received <color=#FFD700>{amount}</color> coins",
+    "ru": "Вы получили <color=#FFD700>{amount}</color> монет",
+    "kk": "Сіз <color=#FFD700>{amount}</color> тиын алдыңыз",
+    "uz": "Siz <color=#FFD700>{amount}</color> tanga oldingiz"
+  },
+  {
+    "key": "shop.mojibake",
+    "context": "Кнопка покупки, битая кодировка",
+    "en": "Purchase",
+    "ru": "Купить",
+    "kk": "Сатып алу",
+    "uz": "Ð¡Ð°ÑÐ¸Ð± Ð¾Ð»Ð¸Ñ"
+  },
+  {
+    "key": "auth.login",
+    "context": "Кнопка входа",
+    "en": "Log in",
+    "ru": "Войти",
+    "kk": "Кіру",
+    "uz": "Login qiling"
+  },
+  {
+    "key": "ui.houses",
+    "context": "Раздел недвижимости, заголовок",
+    "en": "Houses",
+    "ru": "Дома",
+    "kk": "Үйлер",
+    "uz": "Uylar"
+  },
+  {
+    "key": "social.friends",
+    "context": "Список друзей",
+    "en": "Friends",
+    "ru": "Друзья",
+    "kk": "Достар",
+    "uz": "Doʻstlar"
+  },
+  {
+    "key": "nav.home",
+    "context": "Кнопка возврата домой",
+    "en": "Return home",
+    "ru": "Вернуться домой",
+    "kk": "Үйге оралу",
+    "uz": "Uyga qaytish"
+  },
+  {
+    "key": "quest.new",
+    "context": "Тост нового задания",
+    "en": "New quest available",
+    "ru": "Доступен новый квест",
+    "kk": "Жаңа тапсырма қолжетімді",
+    "uz": "Yangi квест mavjud"
+  },
+  {
+    "key": "dialog.ok",
+    "context": "Короткая кнопка подтверждения, лимит 12 символов",
+    "en": "OK",
+    "ru": "ОК",
+    "kk": "Жарайды",
+    "uz": "Mayli"
+  },
+  {
+    "key": "dialog.confirm",
+    "context": "Диалог подтверждения",
+    "en": "Are you sure?",
+    "ru": "Вы уверены?",
+    "kk": "Сіз сенімдісіз бе?",
+    "uz": "Ishonchingiz komilmi?"
+  },
+  {
+    "key": "shop.gap",
+    "context": "Кнопка покупки",
+    "en": "Purchase",
+    "ru": "Покупка",
+    "kk": "Сатып алу",
+    "uz": "Sotib olish"
+  },
+  {
+    "key": "inv.title",
+    "context": "Заголовок инвентаря",
+    "en": "Inventory",
+    "ru": "Инвентарь",
+    "kk": "Заттар",
+    "uz": "Inventory"
+  },
+  {
+    "key": "help.lines",
+    "context": "Двухстрочная подсказка",
+    "en": "Line one\nLine two",
+    "ru": "Строка один\nСтрока два",
+    "kk": "Бірінші жол\nЕкінші жол",
+    "uz": "Birinchi qator\nIkkinchi qator"
+  },
+  {
+    "key": "news.empty",
+    "context": "Пустое состояние почты",
+    "en": "No messages",
+    "ru": "Нет сообщений",
+    "kk": "Хабарлама жоқ",
+    "uz": ""
+  },
+  {
+    "key": "economy.case",
+    "context": "Кнопка открытия кейса",
+    "en": "Open the case",
+    "ru": "Открыть кейс",
+    "kk": "Сандықты ашу",
+    "uz": "Keysni ochish"
+  },
+  {
+    "key": "season.pass",
+    "context": "Заголовок боевого пропуска",
+    "en": "Battle Pass",
+    "ru": "Боевой пропуск",
+    "kk": "Маусымдық жол",
+    "uz": "Battle Pass"
+  },
+  {
+    "key": "profile.ban",
+    "context": "Экран блокировки",
+    "en": "You are banned until {date}",
+    "ru": "Вы забанены до {date}",
+    "kk": "Сіз {date} дейін бұғатталдыңыз",
+    "uz": "Siz {date} gacha bloklangansiz"
+  },
+  {
+    "key": "net.lost",
+    "context": "Обрыв соединения",
+    "en": "Connection lost",
+    "ru": "Соединение потеряно",
+    "kk": "Байланыс үзілді",
+    "uz": "Connection lost"
+  },
+  {
+    "key": "vehicle.fuel",
+    "context": "Предупреждение о топливе",
+    "en": "Not enough fuel",
+    "ru": "Недостаточно топлива",
+    "kk": "Жанармай жеткіліксіз",
+    "uz": "Benzin yetarli emas"
+  },
+  {
+    "key": "vehicle.ready",
+    "context": "Тост готовности транспорта",
+    "en": "Your vehicle is ready",
+    "ru": "Ваш транспорт готов",
+    "kk": "Көлігіңіз дайын",
+    "uz": "Transportingiz tayyor"
+  },
+  {
+    "key": "tutor.skip",
+    "context": "Кнопка пропуска обучения",
+    "en": "Skip tutorial",
+    "ru": "Пропустить обучение",
+    "kk": "Оқытуды өткізіп жіберу",
+    "uz": "Oʻqitishni oʻtkazib yuborish"
+  },
+  {
+    "key": "donate.buy",
+    "context": "Магазин премиум-валюты",
+    "en": "Buy donate currency",
+    "ru": "Купить донат-валюту",
+    "kk": "Алтын сатып алу",
+    "uz": "Donat sotib olish"
+  },
+  {
+    "key": "server.pick",
+    "context": "Выбор сервера",
+    "en": "Select a server",
+    "ru": "Выберите сервер",
+    "kk": "Серверді таңдаңыз",
+    "uz": "Serverni tanlang"
+  },
+  {
+    "key": "job.got",
+    "context": "Тост устройства на работу",
+    "en": "You got the job: {job}",
+    "ru": "Вы устроились на работу: {job}",
+    "kk": "Сіз жұмысқа орнадыңыз: {job}",
+    "uz": "Siz ishga kirgansiz: {job}"
+  },
+  {
+    "key": "med.hospital",
+    "context": "Статус после смерти персонажа",
+    "en": "You are in the hospital",
+    "ru": "Вы в больнице",
+    "kk": "Сіз ауруханадасыз",
+    "uz": "Siz больницадасыз"
+  },
+  {
+    "key": "world.garage",
+    "context": "Подпись здания",
+    "en": "Garage",
+    "ru": "Гараж",
+    "kk": "Гараж",
+    "uz": "Garaj"
+  },
+  {
+    "key": "xp.level",
+    "context": "Плашка уровня",
+    "en": "Level {level}",
+    "ru": "Уровень {level}",
+    "kk": "{level}-деңгей",
+    "uz": "{level}-daraja"
+  },
+  {
+    "key": "xp.gain",
+    "context": "Всплывающий опыт",
+    "en": "+{amount} XP",
+    "ru": "+{amount} опыта",
+    "kk": "+{amount} тәжірибе",
+    "uz": "+{amount} tajriba"
+  },
+  {
+    "key": "char.nick",
+    "context": "Поле никнейма",
+    "en": "Enter your nickname",
+    "ru": "Введите никнейм",
+    "kk": "Лақап атыңызды енгізіңіз",
+    "uz": "Nikni kiriting"
+  },
+  {
+    "key": "auth.password",
+    "context": "Ошибка пароля",
+    "en": "Wrong password",
+    "ru": "Неверный пароль",
+    "kk": "Құпиясөз қате",
+    "uz": "Parol notoʻgʻri"
+  },
+  {
+    "key": "dialog.save",
+    "context": "Диалог сохранения",
+    "en": "Save changes?",
+    "ru": "Сохранить изменения?",
+    "kk": "Өзгерістерді сақтайсыз ба?",
+    "uz": "Oʻzgarishlar saqlansinmi?"
+  },
+  {
+    "key": "dialog.cancel",
+    "context": "Кнопка отмены",
+    "en": "Cancel",
+    "ru": "Отмена",
+    "kk": "Бас тарту",
+    "uz": "Bekor qilish"
+  },
+  {
+    "key": "dialog.yes",
+    "context": "Кнопка да",
+    "en": "Yes",
+    "ru": "Да",
+    "kk": "Иә",
+    "uz": "Ha"
+  },
+  {
+    "key": "dialog.no",
+    "context": "Кнопка нет",
+    "en": "No",
+    "ru": "Нет",
+    "kk": "Жоқ",
+    "uz": "Yoʻq"
+  },
+  {
+    "key": "house.buy",
+    "context": "Подтверждение покупки дома",
+    "en": "Buy this house for %s?",
+    "ru": "Купить этот дом за %s?",
+    "kk": "Осы үйді %s-ға сатып аласыз ба?",
+    "uz": "Ushbu uyni %s evaziga sotib olasizmi?"
+  },
+  {
+    "key": "biz.income",
+    "context": "Доход бизнеса",
+    "en": "Your business income: {amount}",
+    "ru": "Доход вашего бизнеса: {amount}",
+    "kk": "Кәсібіңіздің табысы: {amount}",
+    "uz": "Tadbirkorlik daromadingiz: {amount}"
+  },
+  {
+    "key": "phone.msg",
+    "context": "Пуш нового сообщения",
+    "en": "New message from {name}",
+    "ru": "Новое сообщение от {name}",
+    "kk": "{name} сізге хабарлама жіберді",
+    "uz": "{name} sizga xabar yubordi"
+  },
+  {
+    "key": "admin.kick",
+    "context": "Сообщение о кике",
+    "en": "You were kicked by an admin. Reason: {reason}",
+    "ru": "Вас исключил администратор. Причина: {reason}",
+    "kk": "Сізді әкімші шығарды. Себебі: {reason}",
+    "uz": "Sizni administrator chiqardi. Sabab: {reason}"
+  },
+  {
+    "key": "daily.reward",
+    "context": "Заголовок ежедневной награды",
+    "en": "Daily reward",
+    "ru": "Ежедневная награда",
+    "kk": "Күнделікті марапат",
+    "uz": "Kunlik mukofot"
+  },
+  {
+    "key": "inv.full",
+    "context": "Ошибка инвентаря",
+    "en": "Inventory is full",
+    "ru": "Инвентарь заполнен",
+    "kk": "Заттар сыймайды",
+    "uz": "Inventar toʻla"
+  },
+  {
+    "key": "char.skin",
+    "context": "Тост применения скина",
+    "en": "Skin applied",
+    "ru": "Внешний вид применён",
+    "kk": "Бейне қолданылды",
+    "uz": "Skin qoʻllandi"
+  },
+  {
+    "key": "race.top",
+    "context": "Цель гонки",
+    "en": "Finish in the top {place}",
+    "ru": "Займите место в топ-{place}",
+    "kk": "Үздік {place} орынға кіріңіз",
+    "uz": "Top {place} oʻrin"
+  },
+  {
+    "key": "luck.wish",
+    "context": "Короткое пожелание",
+    "en": "Good luck!",
+    "ru": "Удачи!",
+    "kk": "Сәттілік!",
+    "uz": "Omad!"
+  },
+  {
+    "key": "shop.discount",
+    "context": "Бейдж скидки",
+    "en": "Discount {percent}%",
+    "ru": "Скидка {percent}%",
+    "kk": "{percent}% жеңілдік",
+    "uz": "{percent}% chegirma"
+  },
+  {
+    "key": "time.left",
+    "context": "Таймер в минутах",
+    "en": "{minutes} min",
+    "ru": "{minutes} мин",
+    "kk": "{minutes} минут",
+    "uz": "{minutes} daqiqa"
+  },
+  {
+    "key": "combat.hp",
+    "context": "Полоска здоровья",
+    "en": "HP: {hp}",
+    "ru": "HP: {hp}",
+    "kk": "HP: {hp}",
+    "uz": "HP: {hp}"
+  },
+  {
+    "key": "ui.warn",
+    "context": "Жирное предупреждение",
+    "en": "<b>Warning</b>",
+    "ru": "<b>Внимание</b>",
+    "kk": "<b>Ескерту</b>",
+    "uz": "<b>Ogohlantirish</b>"
+  },
+  {
+    "key": "law.police",
+    "context": "Действие телефона",
+    "en": "Call the police",
+    "ru": "Вызвать полицию",
+    "kk": "Полицияны шақыру",
+    "uz": "Politsiyani chaqirish"
+  }
+]
