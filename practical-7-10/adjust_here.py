@@ -36,8 +36,8 @@ SELECTED_SCHEDULE_ID = 1
 SELECTED_DEPARTMENT_ID = 1
 
 # Printed on the report and on the Excel Settings sheet.
-STUDENT_NAME = "Aruzhan"
-STUDENT_GROUP = ""  # write your group, for example "IT-21"
+STUDENT_NAME = "Асылай"
+STUDENT_GROUP = "SE1-24"
 REPORT_DATE = "9 November 2026"
 
 # ============================================================

@@ -1,8 +1,8 @@
 -- Practical Work 7-10
 -- Data sorting, filtering, SQL queries and joining tables
 -- University database from Practice Work 2
--- Student: Aruzhan
--- Group: (write your group in adjust_here.py)
+-- Student: Асылай
+-- Group: SE1-24
 -- Date: 9 November 2026
 --
 -- The task sheet says Subjects and grade.
