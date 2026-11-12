@@ -16,7 +16,6 @@ from html import escape
 from pathlib import Path
 
 from openpyxl import Workbook
-from openpyxl.comments import Comment
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.workbook.properties import CalcProperties
@@ -1561,7 +1560,7 @@ def write_start_and_settings(wb, data):
     ]
     ws.merge_cells("A1:G1")
     for index, line in enumerate(lines, start=1):
-        cell = ws.cell(index, 1, line)
+        cell = ws.cell(index, 1, line if line else None)
         cell.alignment = Alignment(wrap_text=True, vertical="center")
         if index == 1:
             cell.font = Font(name="Calibri", bold=True, size=20, color=NAVY)
@@ -1619,7 +1618,7 @@ def write_start_and_settings(wb, data):
     for offset, (label, value, used) in enumerate(setting_rows):
         row = 5 + offset
         settings.cell(row, 1, label).font = Font(name="Calibri", size=11)
-        value_cell = settings.cell(row, 2, value)
+        value_cell = settings.cell(row, 2, value if value != "" else None)
         value_cell.fill = YELLOW
         value_cell.font = Font(name="Calibri", bold=True, size=12)
         value_cell.alignment = CENTER
@@ -1654,10 +1653,6 @@ def write_start_and_settings(wb, data):
     gender_validation = DataValidation(type="list", formula1='"F,M"', allow_blank=False)
     gender_validation.add("B8")
     settings.add_data_validation(gender_validation)
-    settings["B15"].comment = Comment(
-        "Type your academic group here, for example IT-21. This cell is for the cover only.",
-        cfg.STUDENT_NAME,
-    )
     prepare_print(settings, "Settings")
     return settings
 
@@ -2390,10 +2385,33 @@ def render_html(blocks):
 
 
 def write_pdf():
+    import shutil
     import subprocess
 
     if OUT_PDF.exists():
         OUT_PDF.unlink()
+    soffice = shutil.which("soffice")
+    if soffice:
+        subprocess.run(
+            [
+                soffice,
+                "--headless",
+                "--norestore",
+                "--convert-to",
+                "pdf",
+                "--outdir",
+                str(OUT_PDF.parent),
+                str(OUT_DOCX),
+            ],
+            check=False,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        produced = OUT_PDF.parent / (OUT_DOCX.stem + ".pdf")
+        if produced.exists() and produced != OUT_PDF:
+            produced.replace(OUT_PDF)
+        if OUT_PDF.exists() and OUT_PDF.stat().st_size > 0:
+            return True
     command = [
         "timeout",
         "40",
