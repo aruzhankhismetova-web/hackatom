@@ -1,0 +1,16 @@
+teacher_id,first_name,last_name,academic_degree,phone,email,department_id
+1,Ayan,Saparov,MSc,+7-701-1000001,ayan.saparov1@university.example,1
+2,Dana,Kassymova,PhD,+7-701-1000002,dana.kassymova2@university.example,2
+3,Arman,Bekov,MSc,+7-701-1000003,arman.bekov3@university.example,3
+4,Aigerim,Nurgaliyeva,PhD,+7-701-1000004,aigerim.nurgaliyeva4@university.example,4
+5,Dias,Omarov,MSc,+7-701-1000005,dias.omarov5@university.example,5
+6,Madina,Serikova,MA,+7-701-1000006,madina.serikova6@university.example,6
+7,Nurlan,Tulegenov,PhD,+7-701-1000007,nurlan.tulegenov7@university.example,7
+8,Aliya,Iskakova,MSc,+7-701-1000008,aliya.iskakova8@university.example,8
+9,Timur,Akhmetov,MSc,+7-701-1000009,timur.akhmetov9@university.example,9
+10,Amina,Zhaksylyk,PhD,+7-701-1000010,amina.zhaksylyk10@university.example,10
+11,Miras,Bekturov,MBA,+7-701-1000011,miras.bekturov11@university.example,11
+12,Kamila,Rakhimova,MA,+7-701-1000012,kamila.rakhimova12@university.example,12
+13,Sanzhar,Yermekov,MSc,+7-701-1000013,sanzhar.yermekov13@university.example,13
+14,Zarina,Abdullina,PhD,+7-701-1000014,zarina.abdullina14@university.example,14
+15,Ruslan,Kenzhebayev,MSc,+7-701-1000015,ruslan.kenzhebayev15@university.example,15

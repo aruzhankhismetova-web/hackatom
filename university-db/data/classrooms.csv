@@ -1,0 +1,16 @@
+classroom_id,room_number,building,capacity
+1,101,Building 1,25
+2,102,Building 2,30
+3,103,Building 3,35
+4,104,Building 4,20
+5,105,Building 5,25
+6,106,Building 1,30
+7,107,Building 2,35
+8,108,Building 3,20
+9,109,Building 4,25
+10,110,Building 5,30
+11,111,Building 1,35
+12,112,Building 2,20
+13,113,Building 3,25
+14,114,Building 4,30
+15,115,Building 5,35
